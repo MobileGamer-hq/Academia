@@ -1,18 +1,3 @@
-import { useState } from "react/cjs/react.development";
-
-export const blogContent = [
-    {
-        title: "Who is MobileGamer",
-        content: "This is MobileGamers first post, MobileGamer also known as Somto Duru is a software developer who has worked with many tools and programming languages.",
-        key: "1",
-    },
-    {
-        title: "What is MobileGamer Studio",
-        content: "MobileGamer Studios is a game company created by MobileGamer with the aim of making games that the players want.",
-        key: "2",
-    }
-]
-
 export const user = (name, description, profilePicture, id) => {
     this.name = name;
     this.description = description;
@@ -41,10 +26,10 @@ export const users = [
 export const products = [
     {
         title: "Oreos",
-        description: "Biscuits",
+        description: "dark creamy chocolate biscuits, so sweat that you wont want anything else",
         price: "100",
         seller: "----",
-        image: "----",
+        image: "../assets/icon.png",
         id: "1",
     }
 ]
@@ -55,15 +40,15 @@ export const suggestedProducts = [
         description: "Stationaries",
         price: "50",
         seller: "----",
-        image: "----",
+        image: "../assets/icon.png",
         id: "1",
     }
 ]
 
-export const recommendedProducts = useState([
-    new product("","","","",require("../assets/images")),
+export const recommendedProducts = [
+    new product("","","","",require("../assets/icon.png")),
     
-])
+]
 
 export const colors = {
     //
@@ -89,10 +74,10 @@ export const colors = {
 }
 
 export const images = {
-    logo: require("../assets/images/"),
-    background: require("../assets/images/"),
-    defaultProfile: require("../assets/images/"),
-    cart: require("../assets/images/"),
+    logo: require("../assets/icon.png"),
+    background: require("../assets/icon.png"),
+    defaultProfile: require("../assets/icon.png"),
+    cart: require("../assets/icon.png"),
 
 }
 

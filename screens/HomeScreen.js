@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button , Image} from 'react-native';
+import { StyleSheet, Text, View, Button , Image, FlatList} from 'react-native';
 import { colors, images, fonts, products, suggestedProducts, user} from '../constants/Data';
-import { Product } from '../constants/Objects';
+import { ProductMin } from '../constants/Objects';
 import { RoundButton } from '../constants/Components';
 
 function HomeScreen({ navigation }) {
@@ -47,7 +47,7 @@ function HomeScreen({ navigation }) {
                         title = {item.title}
                         price = {item.price}
                         image = {item.image} 
-                        method = {()=>navigation.navigate("Product", item)} />
+                        method = {()=>navigation.navigate("Product", {item})} />
                 }}/>
             </View>
         </View>
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.defaultBG2,
         paddingTop: 10,
+        justifyContent: "space-evenly",
     }
 })
 

@@ -6,12 +6,11 @@ import { UserProfile, ProductMin} from '../constants/Objects';
 
 function AccountScreen({route,  navigation }) {
 
-    const {user} = route.params;
+    const user = users[0];
 
     return (
         <View style={styles.contaner}>
             <UserProfile 
-            images={user.profilePicture} 
             name = {user.name}
             description = {user.description}/>
             <View style={{

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button , Image, FlatList, TouchableOpacity} fro
 import { colors, images, fonts, products, users, sizes} from '../constants/Data';
 
 function ProductScreen({route, navigation}) {
-    const product = route.params;
+    const product = products[0];
 
     return (
         <View style={styles.container}>
@@ -13,23 +13,35 @@ function ProductScreen({route, navigation}) {
                 marginBottom: sizes.Small,
             }}>{products[0].title}</Text>
             <View style = {{
-                height: 300,
-                width: 300,
+                height: 500,
+                width:350,
+                backgroundColor: colors.grey,
+                alignSelf: "center"
             }}>
-                <Image source={product.image}/>
+                {/* <Image style ={{
+                    resizeMode: "contain",
+                }}source={}/> */}
             </View>
             <Text style={{
-                
+                fontSize: sizes.Small
             }}>{product.description}</Text>
             <View style={{
                 flexDirection: "row",
                 justifyContent: 'space-between',
-                padding: sizes.Medium
+                padding: sizes.Medium,
+                alignItems: "center"
             }}>
-                <Text>{product.price}</Text>
+                <Text style={{
+                    fontSize: sizes.Large,
+                }}>{product.price}</Text>
                 <TouchableOpacity style={{
                     borderRadius: sizes.Small,
                     backgroundColor: colors.black,
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    width: 150,
+                    padding: sizes.ExtraSmall,
+                    alignItems: "center"
                 }}>
                     <Text style={{
                         color: colors.white,
@@ -37,9 +49,10 @@ function ProductScreen({route, navigation}) {
                     <View style={{
                         height: sizes.Large,
                         width: sizes.Large,
-                        backgroundColor: colors.grey,
+                        backgroundColor: colors.white,
+                        borderRadius: sizes.Large,
                     }}>
-                        <Image source={images.cart}/>
+                        {/* <Image source={images.cart}/> */}
                     </View>
                 </TouchableOpacity>
             </View>
