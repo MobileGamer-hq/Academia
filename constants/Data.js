@@ -42,6 +42,30 @@ export const suggestedProducts = [
         seller: "----",
         image: "../assets/icon.png",
         id: "1",
+    },
+    {
+        title: "Pencil",
+        description: "Stationaries",
+        price: "50",
+        seller: "----",
+        image: "../assets/icon.png",
+        id: "2",
+    },
+    {
+        title: "Pencil",
+        description: "Stationaries",
+        price: "50",
+        seller: "----",
+        image: "../assets/icon.png",
+        id: "3",
+    },
+    {
+        title: "Pencil",
+        description: "Stationaries",
+        price: "50",
+        seller: "----",
+        image: "../assets/icon.png",
+        id: "4",
     }
 ]
 

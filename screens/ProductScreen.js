@@ -41,7 +41,8 @@ function ProductScreen({route, navigation}) {
                     justifyContent: "space-between",
                     width: 150,
                     padding: sizes.ExtraSmall,
-                    alignItems: "center"
+                    alignItems: "center",
+                    elevation: sizes.Small,
                 }}>
                     <Text style={{
                         color: colors.white,

@@ -36,6 +36,8 @@ function HomeScreen({ navigation }) {
 
             <View style={{
                 flexDirection: 'row',
+                backgroundColor: colors.white,
+                
                 
             }}>
                 <FlatList 
@@ -46,7 +48,7 @@ function HomeScreen({ navigation }) {
                         product = {item}
                         title = {item.title}
                         price = {item.price}
-                        image = {item.image} 
+                        //image = {item.image} 
                         method = {()=>navigation.navigate("Product", {item})} />
                 }}/>
             </View>
