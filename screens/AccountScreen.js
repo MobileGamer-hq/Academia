@@ -6,10 +6,10 @@ import { UserProfile, ProductMin} from '../constants/Objects';
 
 function AccountScreen({route,  navigation }) {
 
-    const user = users[0];
+    const user = navigation.getParam("item");
 
     return (
-        <View style={styles.contaner}>
+        <View style={styles.container}>
             <UserProfile 
             name = {user.name}
             description = {user.description}/>
@@ -21,25 +21,26 @@ function AccountScreen({route,  navigation }) {
                     data={products} 
                     renderItem = {({item}) => {
                         <ProductMin 
-                        product = {item}
-                        title = {item.title}
-                        price = {item.price}
-                        image = {item.image} 
-                        method = {()=>navigation.navigate("Product", item)} />
-                }}/>
+                            product = {item}
+                            title = {item.title}
+                            price = {item.price}
+                            image = {item.image}
+                            method = {()=>navigation.navigate("Product", item)}
+                        />
+                    }
+                }/>
             </View>
-            
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    contaner: {
+    container: {
         flex: 1,
         backgroundColor: colors.defaultBG2,
         paddingTop: 10,
         paddingHorizontal: 5,
     }
-})
+});
 
 export default AccountScreen;

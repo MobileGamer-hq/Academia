@@ -31,6 +31,15 @@ export const products = [
         seller: "----",
         image: "../assets/icon.png",
         id: "1",
+    },
+
+    {
+        title: "Fanta",
+        description: "Orange flavored soda, with a sweet taste and incredible ",
+        price: "100",
+        seller: "----",
+        image: "../assets/icon.png",
+        id: "2",
     }
 ]
 

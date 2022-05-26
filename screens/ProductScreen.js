@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button , Image, FlatList, TouchableOpacity} fro
 import { colors, images, fonts, products, users, sizes} from '../constants/Data';
 
 function ProductScreen({route, navigation}) {
-    const product = products[0];
+    const product = navigation.getParam("item");
 
     return (
         <View style={styles.container}>
@@ -31,9 +31,12 @@ function ProductScreen({route, navigation}) {
                 padding: sizes.Medium,
                 alignItems: "center"
             }}>
-                <Text style={{
-                    fontSize: sizes.Large,
-                }}>{product.price}</Text>
+                <Text 
+                    style={{
+                        fontSize: sizes.Large,
+                    }}>{product.price}
+                </Text>
+
                 <TouchableOpacity style={{
                     borderRadius: sizes.Small,
                     backgroundColor: colors.black,

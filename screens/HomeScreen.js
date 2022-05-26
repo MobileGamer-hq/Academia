@@ -6,15 +6,11 @@ import { RoundButton } from '../constants/Components';
 
 function HomeScreen({ navigation }) {
     return (
+        
         <View style={styles.container}>
             <RoundButton color = {colors.blue} method= {()=>{
                 navigation.push("Account");
             }} />
-            <Button 
-                color={colors.pink}
-                title = "Account" onPress = {()=>{
-                navigation.push("Account");
-            }}/>
             <Button 
                 color={colors.yellow}
                 title = "Settings" 
@@ -25,7 +21,7 @@ function HomeScreen({ navigation }) {
                 color={colors.red}
                 title = "Product" 
                 onPress = {()=>{
-                    navigation.push("Product");
+                    navigation.navigate("Product", products[0]);
             }}/>
             <Button 
                 color={colors.blue}

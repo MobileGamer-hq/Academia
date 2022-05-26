@@ -4,7 +4,7 @@ import { colors, images, fonts, products, user} from '../constants/Data';
 
 
 
-function SettingScreen() {
+function SettingScreen({navigation}) {
     return (
         <View>
             <Text>

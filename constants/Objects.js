@@ -48,7 +48,6 @@ export function ProductMax(props) {
 }
 
 export const ProductMin = (props)=>{
-    const [product, setProduct] = useState(props.product)
     return(
         <TouchableOpacity 
         style = {styles.productMin}
