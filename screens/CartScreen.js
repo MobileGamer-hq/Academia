@@ -7,7 +7,7 @@ function OrdersScreen(props) {
     return (
         <View>
             <Text>
-                Orders Screen
+                Cart Screen
             </Text>
         </View>
     );

@@ -3,15 +3,14 @@ import { StyleSheet, Text, View, Button , Image, FlatList, TouchableOpacity} fro
 import { colors, images, fonts, products, users, sizes} from '../constants/Data';
 
 function ProductScreen({route, navigation}) {
-    const product = navigation.getParam("item");
+    const product = route.params.item;
 
     return (
         <View style={styles.container}>
             <Text style={{
-                fontFamily: fonts.default,
                 fontSize: sizes.ExtraLarge,
                 marginBottom: sizes.Small,
-            }}>{products[0].title}</Text>
+            }}>{product.title}</Text>
             <View style = {{
                 height: 500,
                 width:350,

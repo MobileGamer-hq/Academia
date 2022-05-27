@@ -6,7 +6,8 @@ import { UserProfile, ProductMin} from '../constants/Objects';
 
 function AccountScreen({route,  navigation }) {
 
-    const user = navigation.getParam("item");
+    //const user = navigation.getParam("item");
+    const user = route.params.currentUser;
 
     return (
         <View style={styles.container}>
@@ -17,18 +18,22 @@ function AccountScreen({route,  navigation }) {
                 flexDirection: "row",
             }}>
                 <FlatList 
+                    horizontal
+                    showsHorizontalScrollIndicator = {false}
                     keyExtractor={(item)=>item.id}
-                    data={products} 
+                    data={user.productList} 
                     renderItem = {({item}) => {
-                        <ProductMin 
+                        return(
+                            <ProductMin 
                             product = {item}
                             title = {item.title}
                             price = {item.price}
                             image = {item.image}
                             method = {()=>navigation.navigate("Product", item)}
-                        />
-                    }
-                }/>
+                            />
+                        )
+                    }}
+                />
             </View>
         </View>
     );

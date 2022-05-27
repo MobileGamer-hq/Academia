@@ -1,6 +1,6 @@
 import React , {useState} from 'react';
 import { StyleSheet, Text, View, Button , Image, TouchableOpacity} from 'react-native';
-import {colors, fonts, sizes, user} from "./Data"
+import {colors, fonts, images, sizes, user} from "./Data"
 
 export const ProfilePicture = (props)=>{
     return(
@@ -51,7 +51,7 @@ export const ProductMin = (props)=>{
     return(
         <TouchableOpacity 
         style = {styles.productMin}
-        onPress = {()=> props.method}>
+        onPress = {props.method}>
             <View style = {{
                 borderRadius: sizes.ExtraLarge,
                 height: 70,
@@ -68,6 +68,18 @@ export const ProductMin = (props)=>{
                 <Text style={{
                     fontSize: sizes.Small,
                 }}>{props.price}</Text>
+            </View>
+        </TouchableOpacity>
+    );
+}
+
+export const ProductCategory = (props) => {
+    return(
+        <TouchableOpacity 
+            style={styles.productCategory}
+            onPress= {props.method}>
+            <View>
+                <Image source = {props.image}/>
             </View>
         </TouchableOpacity>
     );
@@ -110,13 +122,24 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         padding: sizes.ExtraSmall,
         borderRadius: sizes.Small,
-        elevation: sizes.Medium,
+        elevation: sizes.Small,
     },
 
     productMin : {
         backgroundColor: colors.white,
         padding: sizes.ExtraSmall,
         borderRadius: sizes.Small,
-        elevation: sizes.Medium,
+        elevation: sizes.ExtraSmall,
+        margin: sizes.Small,
+        width: 100,
     },
+
+    productCategory : {
+        backgroundColor: colors.white,
+        borderRadius: sizes.Medium,
+        height: 70,
+        width: 70,
+        margin: sizes.Small,
+        elevation: sizes.ExtraSmall,
+    }
 })

@@ -19,6 +19,7 @@ export const users = [
         description: "Also know as Somto Duru",
         profilePicture: require("../assets/icon.png"),
         location: "----",
+        productList: suggestedProducts,
         id: "1",
     }
 ]
@@ -53,15 +54,15 @@ export const suggestedProducts = [
         id: "1",
     },
     {
-        title: "Pencil",
-        description: "Stationaries",
+        title: "Fanta",
+        description: "Snack",
         price: "50",
         seller: "----",
         image: "../assets/icon.png",
         id: "2",
     },
     {
-        title: "Pencil",
+        title: "Cookies",
         description: "Stationaries",
         price: "50",
         seller: "----",
@@ -69,8 +70,8 @@ export const suggestedProducts = [
         id: "3",
     },
     {
-        title: "Pencil",
-        description: "Stationaries",
+        title: "Coke",
+        description: "Snacks",
         price: "50",
         seller: "----",
         image: "../assets/icon.png",
@@ -78,9 +79,24 @@ export const suggestedProducts = [
     }
 ]
 
-export const recommendedProducts = [
-    new product("","","","",require("../assets/icon.png")),
-    
+export const categories = [
+    {
+        name: "Stationaries",
+        image: require("../assets/icon.png"),
+        id: "1",
+    },
+
+    {
+        name: "Snacks",
+        image: require("../assets/icon.png"),
+        id: "1",
+    },
+
+    {
+        name: "Homework",
+        image: require("../assets/icon.png"),
+        id: "1",
+    },
 ]
 
 export const colors = {
