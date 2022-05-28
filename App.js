@@ -19,6 +19,7 @@ export default function App() {
         <Stack.Screen 
           name="Home" 
           component={HomeScreen} 
+          options = {{headerShown: false}}
         />
         <Stack.Screen 
           name="Account" 
@@ -37,8 +38,9 @@ export default function App() {
           component={SettingScreen}
         />
         <Stack.Screen 
+
           name="Search" 
-          component={SettingScreen}
+          component={SearchScreen}
           options = {{headerShown: false}}
         />
       </Stack.Navigator>

@@ -1,33 +1,52 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button , Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Button , Image, TouchableOpacity, TextInput} from 'react-native';
 import {colors, fonts, user, sizes} from "./Data"
 
 
 export function RoundButton(props) {
     return (
         <TouchableOpacity 
-        style = {{
-            borderRadius: sizes.ExtraLarge,
-            backgroundColor: props.color,
-            height: 50,
-            width: 50,
-            margin: sizes.ExtraSmall,
-        }} 
-        onPress={props.method}>
+            style = {{
+                borderRadius: sizes.ExtraLarge,
+                backgroundColor: props.color,
+                height: props.height,
+                width: props.width,
+                margin: sizes.ExtraSmall,
+            }} 
+            onPress={props.method}
+        >
             <Image source={props.image} />
         </TouchableOpacity>
     );
 }
+
+export const SearchBar = (props) => {
+  return (
+    <View>
+        <TextInput 
+            style = {{
+                borderRadius: sizes.ExtraSmall,
+                borderWidth: 1,
+                marginHorizontal: sizes.ExtraSmall,
+                paddingHorizontal: sizes.Small,
+                backgroundColor: colors.white,
+                height: 40,
+                width: props.width,
+                borderColor: "transparent",
+            }} 
+            placeholder = "snacks, assignments, stationaries..." />
+    </View>
+  );
+}
+
 export const Header = ({navigation}) => {
     return(
         <View style = {styles.header}>
-
             <View>
-                <Text></Text>
+                <RoundButton color = {colors.blue} method= {()=>{
+                    navigation.push("Account");
+                }} />
             </View>
-            <RoundButton color = {colors.blue} method= {()=>{
-                navigation.push("Account");
-            }} />
         </View>
     );
 }
@@ -42,6 +61,16 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "center"
     },
+
+    SearchBar: {
+        borderRadius: sizes.ExtraSmall,
+        borderWidth: 1,
+        marginHorizontal: sizes.Small,
+        paddingHorizontal: sizes.Small,
+        backgroundColor: colors.white,
+        height: 40,
+        borderColor: "transparent",
+    }
 })
 
 

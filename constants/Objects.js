@@ -56,12 +56,14 @@ export const ProductMin = (props)=>{
                 borderRadius: sizes.ExtraLarge,
                 height: 70,
                 width: 70,
-                backgroundColor: colors.grey,
+                backgroundColor: colors.black,
                 marginBottom: sizes.ExtraSmall,
             }}>
                 <Image source = {props.image}/>
             </View>
-            <View>
+            <View style={{
+                alignItems: "flex-start",
+            }}>
                 <Text style={{
                     fontSize: sizes.Medium,
                 }}>{props.title}</Text>
@@ -123,22 +125,26 @@ const styles = StyleSheet.create({
         padding: sizes.ExtraSmall,
         borderRadius: sizes.Small,
         elevation: sizes.Small,
+        margin: sizes.Small,
+        height: 200,
+        width: 150,
     },
 
     productMin : {
         backgroundColor: colors.white,
-        padding: sizes.ExtraSmall,
+        paddingVertical: sizes.ExtraSmall,
         borderRadius: sizes.Small,
         elevation: sizes.ExtraSmall,
         margin: sizes.Small,
-        width: 100,
+        width: 105,
+        alignItems: 'center',
     },
 
     productCategory : {
         backgroundColor: colors.white,
         borderRadius: sizes.Medium,
-        height: 70,
-        width: 70,
+        height: 50,
+        width: 50,
         margin: sizes.Small,
         elevation: sizes.ExtraSmall,
     }

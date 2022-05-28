@@ -21,7 +21,7 @@ function AccountScreen({route,  navigation }) {
                     horizontal
                     showsHorizontalScrollIndicator = {false}
                     keyExtractor={(item)=>item.id}
-                    data={user.productList} 
+                    data={products}
                     renderItem = {({item}) => {
                         return(
                             <ProductMin 

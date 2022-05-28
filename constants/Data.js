@@ -89,13 +89,13 @@ export const categories = [
     {
         name: "Snacks",
         image: require("../assets/icon.png"),
-        id: "1",
+        id: "2",
     },
 
     {
         name: "Homework",
         image: require("../assets/icon.png"),
-        id: "1",
+        id: "3",
     },
 ]
 
