@@ -11,7 +11,6 @@ export function RoundButton(props) {
                 backgroundColor: props.color,
                 height: props.height,
                 width: props.width,
-                margin: sizes.ExtraSmall,
             }} 
             onPress={props.method}
         >
@@ -34,7 +33,9 @@ export const SearchBar = (props) => {
                 width: props.width,
                 borderColor: "transparent",
             }} 
-            placeholder = "snacks, assignments, stationaries..." />
+            placeholder = "snacks, assignments, stationaries..." 
+            autoComplete='on'
+        />
     </View>
   );
 }
@@ -43,9 +44,7 @@ export const Header = ({navigation}) => {
     return(
         <View style = {styles.header}>
             <View>
-                <RoundButton color = {colors.blue} method= {()=>{
-                    navigation.push("Account");
-                }} />
+                
             </View>
         </View>
     );

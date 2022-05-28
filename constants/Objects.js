@@ -69,7 +69,7 @@ export const ProductMin = (props)=>{
                 }}>{props.title}</Text>
                 <Text style={{
                     fontSize: sizes.Small,
-                }}>{props.price}</Text>
+                }}>{props.price + " Naira"}</Text>
             </View>
         </TouchableOpacity>
     );
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     productMax : {
         backgroundColor: colors.white,
         padding: sizes.ExtraSmall,
-        borderRadius: sizes.Small,
+        borderRadius: sizes.Medium,
         elevation: sizes.Small,
         margin: sizes.Small,
         height: 200,
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     productMin : {
         backgroundColor: colors.white,
         paddingVertical: sizes.ExtraSmall,
-        borderRadius: sizes.Small,
+        borderRadius: sizes.Medium,
         elevation: sizes.ExtraSmall,
         margin: sizes.Small,
         width: 105,

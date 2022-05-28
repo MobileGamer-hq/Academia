@@ -5,9 +5,8 @@ import { categories } from '../constants/Data';
 import { ProductCategory} from '../constants/Objects';
 
 
-const [searchResult, setSearchResult] = useState([])
-
 export default function SearchScreen({navigation, route}) {
+    const [searchResult, setSearchResult] = useState([])
     
     const search = route.params.search;
     return (
