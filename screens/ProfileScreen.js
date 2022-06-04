@@ -17,7 +17,7 @@ function ProfileScreen({route, navigation}) {
                 elevation: sizes.Medium,
                 marginVertical: sizes.Medium,
             }}>
-                <ProfilePicture color = {colors.defaultBG2} image = {user.image}/>
+                <ProfilePicture color = {colors.defaultBG2} image = {user.profilePicture}/>
                 <View style={{
                     flexDirection: 'column',
                 }}>
