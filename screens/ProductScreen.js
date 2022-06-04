@@ -33,7 +33,7 @@ function ProductScreen({route, navigation}) {
                 <FlatList
                     horizontal
                     showsHorizontalScrollIndicator = {false}
-                    // keyExtractor={(item)=>item.id}
+                    //keyExtractor={(item)=>item.id}
                     data={product.tags}
                     renderItem = {({item}) => {
                         return(
@@ -72,15 +72,19 @@ function ProductScreen({route, navigation}) {
                     }}>{product.price + " Naira"}
                 </Text>
 
-                <TouchableOpacity style={{
-                    borderRadius: sizes.Small,
-                    backgroundColor: colors.black,
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    padding: sizes.ExtraSmall,
-                    alignItems: "center",
-                    elevation: sizes.Small,
-                }}>
+                <TouchableOpacity 
+                    style={{
+                        borderRadius: sizes.Small,
+                        backgroundColor: colors.black,
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        padding: sizes.ExtraSmall,
+                        alignItems: "center",
+                        elevation: sizes.Small,
+                    }}
+
+                    onPress = {navigation.navigate("Profile", {product})}
+                >
                     <Text style={{
                         color: colors.white,
                     }}>Add to cart</Text>
