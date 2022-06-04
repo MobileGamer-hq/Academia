@@ -1,6 +1,8 @@
 import React from 'react';
+import { StyleSheet, Text, View , FlatList, TouchableOpacity, Image} from 'react-native'
+import { ImageButton } from '../constants/Components';
 import { colors, sizes  } from '../constants/Data';
-import { UserProfile } from '../constants/Objects';
+import { UserProfile, ProfilePicture } from '../constants/Objects';
 
 function ProfileScreen({route, navigation}) {
     const user = route.params.item;;
@@ -15,22 +17,22 @@ function ProfileScreen({route, navigation}) {
                 elevation: sizes.Medium,
                 marginVertical: sizes.Medium,
             }}>
-                <ProfilePicture color = {colors.defaultBG2} image = {props.image}/>
+                <ProfilePicture color = {colors.defaultBG2} image = {user.image}/>
                 <View style={{
                     flexDirection: 'column',
                 }}>
                     <Text style = {{
                         paddingHorizontal: 10,
                         fontSize: sizes.Medium,
-                    }}>{props.name}</Text>
+                    }}>{user.name}</Text>
                     <Text style = {{
                         paddingHorizontal: 10,
                         fontSize: sizes.Small,
-                    }}>{props.description}</Text>
+                    }}>{user.description}</Text>
                 <Text style = {{
                     paddingHorizontal: 10,
                     fontSize: sizes.Small,
-                }}>{props.followers+ " followers"}</Text>
+                }}>{user.followers+ " followers"}</Text>
                 </View>
                 <View>
                     <ImageButton image = {require("../images/othersIcon.png")}/>

@@ -8,11 +8,11 @@ export default function SearchScreen({navigation, route}) {
     let items  = [];
     const [searchResult, setSearchResult] = useState(products)
 
-    const searchText = useState(route.params.search);
+    const searchText = route.params.search;
 
     const Search = (val) => {
         if(!val.length) return setSearchResult(products);
-        val = val.toLowerCase()
+        val = val.toLowerCase();
         for (let i = 0; i < products.length; i++) {
             let item =  products[i].tags
             for (let x = 0; x < item.length; x++) {
@@ -23,7 +23,7 @@ export default function SearchScreen({navigation, route}) {
             }
         }
         setSearchResult(items)
-        console.log(searchText, searchResult);
+        console.log(val,"\n", searchResult);
     }
 
     const goThroughData = (val) => {
@@ -35,7 +35,7 @@ export default function SearchScreen({navigation, route}) {
         console.log(filterData, "\n", searchResult);
     }
 
-    Search(searchText);
+    //Search(searchText);
     return (
         <View style = {styles.container}>
             <SearchBar
@@ -60,8 +60,7 @@ export default function SearchScreen({navigation, route}) {
             <View>
                 <FlatList
                     vertical
-                    showsHorizontalScrollIndicator = {false}
-                    keyExtractor={(item)=>item.id}
+                    showsVerticalScrollIndicator = {false}
                     data={searchResult}
                     renderItem = {({item}) => {
                         return(
