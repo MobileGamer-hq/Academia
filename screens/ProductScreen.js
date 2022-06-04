@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button , Image, FlatList, TouchableOpacity} from 'react-native';
-import { colors, images, fonts, products, users, sizes} from '../constants/Data';
+import {colors, images, fonts, products, users, sizes, categories} from '../constants/Data';
+import {ProductCategory} from "../constants/Objects";
 
 function ProductScreen({route, navigation}) {
     const product = route.params.item;
@@ -14,26 +15,52 @@ function ProductScreen({route, navigation}) {
             <View style = {{
                 height: 500,
                 width:350,
-                backgroundColor: colors.grey,
-                alignSelf: "center"
+                alignSelf: "center",
+                alignItems: "center",
             }}>
-                {/* <Image style ={{
-                    resizeMode: "contain",
-                }}source={}/> */}
+                <Image
+                    style = {{
+                        flex: 1,
+                    }}
+                    resizeMode = "contain"
+                    source={product.image}/>
             </View>
             <Text style={{
-                fontSize: sizes.Small
+                fontSize: sizes.Small,
+                color: colors.grey,
             }}>{product.description}</Text>
+            <FlatList
+                horizontal
+                showsHorizontalScrollIndicator = {false}
+                keyExtractor={(item)=>item.id}
+                data={product.tags}
+                renderItem = {({item}) => {
+                    return(
+                        <TouchableOpacity style = {{
+                            backgroundColor: colors.black,
+                            borderRadius: sizes.ExtraLarge,
+                            alignItems: "center",
+                        }}>
+                            <Text style = {{
+                                fontSize: sizes.Small,
+
+                            }}>
+                                {item}
+                            </Text>
+                        </TouchableOpacity>
+                    );
+                }}
+            />
             <View style={{
                 flexDirection: "row",
                 justifyContent: 'space-between',
                 padding: sizes.Medium,
                 alignItems: "center"
             }}>
-                <Text 
+                <Text
                     style={{
                         fontSize: sizes.Large,
-                    }}>{product.price}
+                    }}>{product.price + " Naira"}
                 </Text>
 
                 <TouchableOpacity style={{
@@ -41,7 +68,6 @@ function ProductScreen({route, navigation}) {
                     backgroundColor: colors.black,
                     flexDirection: "row",
                     justifyContent: "space-between",
-                    width: 150,
                     padding: sizes.ExtraSmall,
                     alignItems: "center",
                     elevation: sizes.Small,
@@ -52,10 +78,17 @@ function ProductScreen({route, navigation}) {
                     <View style={{
                         height: sizes.Large,
                         width: sizes.Large,
-                        backgroundColor: colors.white,
                         borderRadius: sizes.Large,
+                        alignItems: "center",
+                        marginHorizontal: sizes.ExtraSmall,
                     }}>
-                        {/* <Image source={images.cart}/> */}
+                         <Image
+                             style = {{
+                                 flex: 1,
+                             }}
+                             resizeMode = "contain"
+                             source={images.cartWhite}
+                         />
                     </View>
                 </TouchableOpacity>
             </View>
@@ -66,9 +99,10 @@ function ProductScreen({route, navigation}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backfaceVisibility: colors.white,
+        backgroundColor: colors.white,
         padding: sizes.ExtraSmall,
+        paddingTop: sizes.ExtraLarge,
     },
-})  
+})
 
 export default ProductScreen;

@@ -1,45 +1,72 @@
 import React, {useState} from 'react'
 import { StyleSheet, Text, View , FlatList} from 'react-native'
 import { SearchBar, RoundButton } from '../constants/Components'
-import { categories } from '../constants/Data';
+import { categories, products } from '../constants/Data';
 import { ProductCategory} from '../constants/Objects';
+
+
+const SearchResult = (props) => {
+    return(
+        <View>
+            <FlatList
+                Vertical
+                showsHorizontalScrollIndicator = {false}
+                keyExtractor={(item)=>item.id}
+                data={props.list}
+                renderItem = {({item}) => {
+                    return(
+                        <View>
+                            <Text>{item.name}</Text>
+                        </View>
+                    );
+                }}
+            />
+        </View>
+    );
+}
 
 
 export default function SearchScreen({navigation, route}) {
     const [searchResult, setSearchResult] = useState([])
-    
-    const search = route.params.search;
+
+    const [searchText, setSearchText] = useState(route.params.search);
+
+    const Search = (val) => {
+        let items  = []
+        setSearchText(val);
+        for (let item in products) {
+            if(item.tag.includes(searchText)) {
+                items.push(item)
+            }
+        }
+        setSearchResult(items)
+        console.log(searchText)
+    }
     return (
         <View style = {styles.container}>
-            <SearchBar />
+            <SearchBar
+                method = {(val)=>Search(val)}
+            />
             <View>
                 <FlatList
                     horizontal
                     showsHorizontalScrollIndicator = {false}
                     keyExtractor={(item)=>item.id}
-                    data={categories} 
+                    data={categories}
                     renderItem = {({item}) => {
                         return(
-                            <ProductCategory method = {()=>navigation.navigate("Search", {search: item.name})} />
-                        )
+                            <ProductCategory
+                                image = {item.image}
+                                method = {()=>navigation.navigate("Search", {search: item.name})}
+                            />
+                        );
                     }}
                 />
             </View>
-            <View>
-                <FlatList 
-                    horizontal
-                    showsHorizontalScrollIndicator = {false}
-                    keyExtractor={(item)=>item.id}
-                    data={searchResult} 
-                    renderItem = {({item}) => {
-                        return(
-                            <View>
-                                <Text>{item.name}</Text>
-                            </View>
-                        )
-                    }}
-                />
-            </View>
+            <Text>
+                {searchText}
+            </Text>
+            <SearchResult list = {searchResult}/>
         </View>
     )
 }

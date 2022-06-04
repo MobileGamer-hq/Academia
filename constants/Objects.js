@@ -1,47 +1,68 @@
 import React , {useState} from 'react';
 import { StyleSheet, Text, View, Button , Image, TouchableOpacity} from 'react-native';
-import {colors, fonts, images, sizes, user} from "./Data"
+import {colors, fonts, images, sizes} from "./Data"
 
 export const ProfilePicture = (props)=>{
     return(
-        <TouchableOpacity style={{
-            backgroundColor: colors.mediumslateblue,
+        <View style={{
+            backgroundColor: props.color,
             height: 100,
             width: 100,
-            borderStartColor: colors.black,
             borderRadius: sizes.ExtraLarge,
             marginEnd: sizes.ExtraSmall,
-        }}
-        
-        onPress={props.method}>
-            <Image source = {props.image}/>
-        </TouchableOpacity>
+            alignItems: "center",
+            alignSelf: "center",
+        }}>
+            <Image
+                source = {props.image}
+                style = {{
+                    height: 100,
+                    width: 100,
+                    flex: 1,
+                    borderRadius: sizes.ExtraLarge,
+                }}
+                resizeMode = "contain"
+            />
+        </View>
     );
 }
 
 export function ProductMax(props) {
     return (
-        <TouchableOpacity 
+        <TouchableOpacity
         style={styles.productMax}
-        onPress = {()=>{
-            console.log(props.title + " was clicked");
-        }}>
-            <View style = {{
-                borderRadius: sizes.ExtraLarge,
-                height: 70,
-                width: 70,
-                backgroundColor: colors.grey,
-                marginBottom: sizes.ExtraSmall,
+        onPress = {props.method}>
+            <View styles = {{
+                flexDirection: "row",
+                justifyContent: "space-between",
             }}>
-                <Image source = {props.image}/>
-            </View>
-            <View>
                 <Text style={{
                     fontSize: sizes.Medium,
                 }}>{props.title}</Text>
                 <Text style={{
                     fontSize: sizes.Small,
-                }}>{props.price}</Text>
+                }}>{props.price + " naira"}</Text>
+            </View>
+            <View style = {{
+                height: sizes.ExtraLarge,
+                width: sizes.ExtraLarge,
+                alignSelf: "center",
+                justifyContent: "center",
+            }}>
+                <Image
+                    style = {{
+                        flex: 1,
+                        alignSelf: "center",
+                    }}
+                    resizeMode = "contain"
+                    source = {props.image}/>
+            </View>
+            <View style = {{
+                justifyContent: "flex-end",
+            }}>
+                <Text style = {{
+
+                }}>{"Sold by " + props.seller}</Text>
             </View>
         </TouchableOpacity>
     );
@@ -49,17 +70,25 @@ export function ProductMax(props) {
 
 export const ProductMin = (props)=>{
     return(
-        <TouchableOpacity 
-        style = {styles.productMin}
-        onPress = {props.method}>
+        <TouchableOpacity
+            style = {styles.productMin}
+            onPress = {props.method}
+        >
             <View style = {{
                 borderRadius: sizes.ExtraLarge,
                 height: 70,
                 width: 70,
-                backgroundColor: colors.black,
-                marginBottom: sizes.ExtraSmall,
+                backgroundColor: colors.defaultBG2,
+                margin: sizes.ExtraSmall,
+                alignItems: "center",
+
             }}>
-                <Image source = {props.image}/>
+                <Image
+                    style = {{
+                    flex: 1,
+                    }}
+                   resizeMode = "contain"
+                   source = {props.image}/>
             </View>
             <View style={{
                 alignItems: "flex-start",
@@ -77,11 +106,20 @@ export const ProductMin = (props)=>{
 
 export const ProductCategory = (props) => {
     return(
-        <TouchableOpacity 
+        <TouchableOpacity
             style={styles.productCategory}
             onPress= {props.method}>
-            <View>
-                <Image source = {props.image}/>
+            <View style= {{
+                height: 35,
+                width: 35,
+            }}>
+                <Image
+                    style = {{
+                        flex: 1,
+                    }}
+                    resizeMode = "contain"
+                    source = {props.image}
+                />
             </View>
         </TouchableOpacity>
     );
@@ -91,52 +129,79 @@ export const ProductCategory = (props) => {
 export function UserProfile(props) {
     return (
        <View style = {{
-           height: 150,
            backgroundColor: colors.white,
            flexDirection: 'row',
            alignContent: 'center',
            justifyContent: "flex-start",
            padding: sizes.Medium,
            elevation: sizes.Medium,
-        //    borderColor: colors.grey,
-        //    borderWidth: 2.5,
-        //    borderRadius: fonts.sizeSmall
+           margin: sizes.ExtraSmall,
        }}>
-           <ProfilePicture image = {props.image}/>
+           <ProfilePicture color = {colors.defaultBG2} image = {props.image}/>
            <View style={{
                flexDirection: 'column',
            }}>
             <Text style = {{
                 paddingHorizontal: 10,
-                fontSize: sizes.Medium
+                fontSize: sizes.Medium,
             }}>{props.name}</Text>
             <Text style = {{
                 paddingHorizontal: 10,
                 fontSize: sizes.Small,
             }}>{props.description}</Text>
+           <Text style = {{
+               paddingHorizontal: 10,
+               fontSize: sizes.Small,
+           }}>{props.followers+ " followers"}</Text>
            </View>
-       </View> 
+       </View>
     );
+}
+
+export const UserProfileMin = (props) => {
+    const user = props.user
+  return(
+      <View style = {{
+          alignItems: "center",
+          margin: sizes.Small,
+      }}>
+          <TouchableOpacity
+              onPress= {props.method}
+          >
+              <ProfilePicture color={colors.white} image ={props.image} />
+          </TouchableOpacity>
+          <View style = {{
+              alignItems: "center",
+          }}>
+              <Text style = {{
+                  fontSize: sizes.Medium,
+              }}>{user.name}</Text>
+              <Text>{user.followers+ " followers"}</Text>
+          </View>
+      </View>
+  )
 }
 
 const styles = StyleSheet.create({
     productMax : {
+        flexDirection: "column",
         backgroundColor: colors.white,
         padding: sizes.ExtraSmall,
         borderRadius: sizes.Medium,
-        elevation: sizes.Small,
+        // elevation: sizes.Small,
         margin: sizes.Small,
         height: 200,
         width: 150,
     },
 
     productMin : {
+        flexDirection: "row",
         backgroundColor: colors.white,
-        paddingVertical: sizes.ExtraSmall,
+        padding: sizes.ExtraSmall,
         borderRadius: sizes.Medium,
-        elevation: sizes.ExtraSmall,
+        // elevation: sizes.ExtraSmall,
         margin: sizes.Small,
-        width: 105,
+        width: 350,
         alignItems: 'center',
     },
 
@@ -146,6 +211,7 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         margin: sizes.Small,
-        elevation: sizes.ExtraSmall,
+        // elevation: sizes.ExtraSmall,
+        paddingTop: 8,
     }
 })

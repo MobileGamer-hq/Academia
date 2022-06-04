@@ -7,6 +7,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -24,8 +31,46 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Node.js.Data.js">
+    <configuration name="DataManagers.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/constants/Managers/DataManagers.js" working-dir="$PROJECT_DIR$/constants/Managers">
+      <method v="2" />
+    </configuration>
+    <configuration name="Data.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/constants/Data.js" working-dir="$PROJECT_DIR$/constants">
+      <method v="2" />
+    </configuration>
+    <configuration name="SeverManager.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/constants/Managers/SeverManager.js" working-dir="$PROJECT_DIR$/constants/Managers">
+      <method v="2" />
+    </configuration>
+    <configuration name="testJS.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/assets/testJS.js" working-dir="$PROJECT_DIR$/assets">
+      <method v="2" />
+    </configuration>
+    <configuration name="testJson.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/assets/testJson.js" working-dir="$PROJECT_DIR$/assets">
+      <method v="2" />
+    </configuration>
+    <configuration name="Android" type="ReactNative" factoryName="React Native">
+      <node-interpreter value="project" />
+      <react-native value="$PROJECT_DIR$/node_modules/react-native" />
+      <platform value="ANDROID" />
+      <envs />
+      <only-packager />
+      <browser value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <method v="2">
+        <option name="ReactNativePackager" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.Data.js" />
+        <item itemvalue="Node.js.testJS.js" />
+        <item itemvalue="Node.js.testJson.js" />
+        <item itemvalue="Node.js.SeverManager.js" />
+        <item itemvalue="Node.js.DataManagers.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -36,10 +81,37 @@
       <option name="presentableId" value="Default" />
       <updated>1653586632451</updated>
       <workItem from="1653586636123" duration="893000" />
+      <workItem from="1653859813518" duration="6475000" />
+      <workItem from="1654014242697" duration="1157000" />
+      <workItem from="1654015752988" duration="596000" />
+      <workItem from="1654021120284" duration="1231000" />
+      <workItem from="1654031496511" duration="102000" />
+      <workItem from="1654034841976" duration="5281000" />
+      <workItem from="1654077945906" duration="3589000" />
+      <workItem from="1654103822637" duration="3502000" />
+      <workItem from="1654117840698" duration="127000" />
+      <workItem from="1654120626641" duration="5000000" />
+      <workItem from="1654270574504" duration="4735000" />
+      <workItem from="1654324456626" duration="4676000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

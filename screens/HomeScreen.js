@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button , Image, FlatList} from 'react-native';
-import { colors, images, fonts, products, suggestedProducts, categories, users} from '../constants/Data';
-import { ProductMin, ProductCategory, ProductMax } from '../constants/Objects';
+import { colors, images, fonts, products, suggestedProducts, categories, users, sizes} from '../constants/Data';
+import {ProductMin, ProductCategory, ProductMax, UserProfileMin} from '../constants/Objects';
 import { RoundButton, SearchBar} from '../constants/Components';
 
 function HomeScreen({ navigation }) {
@@ -14,43 +14,77 @@ function HomeScreen({ navigation }) {
                 justifyContent: "space-evenly",
                 alignItems: "center",
             }}>
-                <SearchBar width={325} />
-                <RoundButton height = {45} width = {45} color = {colors.white} method = {()=>{
-                navigation.navigate("Account", {currentUser});}}/>
+                <SearchBar />
+                <RoundButton image = {currentUser.profilePicture} height = {45} width = {45} color = {colors.white} method = {()=>{
+                    let item = currentUser;
+                    navigation.navigate("Account", {item});}}/>
             </View>
-            {/* <RoundButton color = {colors.red} method= {()=>{
-                navigation.push("Cart");
-            }} />
-            <RoundButton color = {colors.yellow} method= {()=>{
-                navigation.push("Settings");
-            }} /> */}
-            <View>
+            <View style = {{
+                marginBottom: sizes.Medium,
+            }}>
                 <FlatList
                     horizontal
                     showsHorizontalScrollIndicator = {false}
                     keyExtractor={(item)=>item.id}
-                    data={categories} 
+                    data={categories}
                     renderItem = {({item}) => {
                         return(
-                            <ProductCategory method = {()=>navigation.navigate("Search", {search: item.name})} />
+                            <ProductCategory
+                                image = {item.image}
+                                method = {()=>navigation.navigate("Search", {search: item.name})}
+                            />
                         )
                     }}
                 />
             </View>
-            <View style= {styles.suggested}>
+            <View style = {{
+                flexDirection: "column",
+                justifyContent: "center",
+                width: "100%",
+                alignItems: "center",
+                marginVertical: sizes.Medium,
+            }}>
+                <Text style = {{
+                    fontSize: sizes.Medium,
+                    alignSelf: "flex-start",
+                    marginLeft: sizes.Small,
+                }}>
+                    Suggested
+                </Text>
                 <FlatList
                     horizontal
                     showsHorizontalScrollIndicator = {false}
                     keyExtractor={(item)=>item.id}
-                    data={suggestedProducts} 
+                    data={suggestedProducts}
                     renderItem = {({item}) => {
                         return(
-                            <ProductMin 
+                            <ProductMax
                                 product = {item}
                                 title = {item.title}
                                 price = {item.price}
-                                //image = {item.image} 
-                                method = {()=>navigation.navigate("Product", {item})} 
+                                image = {item.image}
+                                seller = {item.seller}
+                                method = {()=>navigation.navigate("Product", {item})}
+                            />
+                        )
+                    }}
+                />
+            </View>
+            <View style = {{
+                marginVertical: sizes.Medium,
+            }}>
+                <FlatList
+                    horizontal
+                    showsHorizontalScrollIndicator = {false}
+                    keyExtractor={(item)=>item.id}
+                    data={users}
+                    renderItem = {({item}) => {
+                        return(
+                            <UserProfileMin
+                                user = {item}
+                                color = {item.colors}
+                                image = {item.profilePicture}
+                                method = {() =>navigation.navigate("Account", {item})}
                             />
                         )
                     }}
@@ -64,15 +98,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.defaultBG2,
-        paddingTop: 50,
+        paddingTop: sizes.ExtraLarge,
     },
-    suggested: {
-        flexDirection: "row",
-        justifyContent: "flex-start",
-        width: "100%",
-        height: 200,
-        alignItems: "center",
-    }
 })
 
 export default HomeScreen;

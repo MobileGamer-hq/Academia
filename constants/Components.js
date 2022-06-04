@@ -1,20 +1,61 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button , Image, TouchableOpacity, TextInput} from 'react-native';
-import {colors, fonts, user, sizes} from "./Data"
+import {colors, fonts, sizes} from "./Data"
 
 
 export function RoundButton(props) {
     return (
-        <TouchableOpacity 
+        <TouchableOpacity
             style = {{
                 borderRadius: sizes.ExtraLarge,
                 backgroundColor: props.color,
                 height: props.height,
                 width: props.width,
-            }} 
+                alignItems: "center",
+            }}
             onPress={props.method}
         >
-            <Image source={props.image} />
+            <View style = {{
+                height: props.height,
+                width: props.width,
+                alignItems: "center",
+            }}>
+                <Image
+                    source={props.image}
+                    style = {{
+                        height: props.height,
+                        width: props.width,
+                        flex: 1,
+                        borderRadius: sizes.ExtraLarge,
+                    }}
+                    resizeMode = "contain"
+                />
+            </View>
+        </TouchableOpacity>
+    );
+}
+
+export const ImageButton = (props) => {
+    return(
+        <TouchableOpacity
+
+            onPress={props.method}
+        >
+            <View style = {{
+                height: props.height,
+                width: props.width,
+                alignItems: "center",
+            }}>
+                <Image
+                    source = {props.image}
+                    style = {{
+                        height: props.height,
+                        width: props.width,
+                        flex: 1,
+                    }}
+                    resizeMode = "contain"
+                />
+            </View>
         </TouchableOpacity>
     );
 }
@@ -22,7 +63,8 @@ export function RoundButton(props) {
 export const SearchBar = (props) => {
   return (
     <View>
-        <TextInput 
+        <TextInput
+            onChangeText = {props.method}
             style = {{
                 borderRadius: sizes.ExtraSmall,
                 borderWidth: 1,
@@ -30,11 +72,9 @@ export const SearchBar = (props) => {
                 paddingHorizontal: sizes.Small,
                 backgroundColor: colors.white,
                 height: 40,
-                width: props.width,
                 borderColor: "transparent",
-            }} 
-            placeholder = "snacks, assignments, stationaries..." 
-            autoComplete='on'
+            }}
+            placeholder = "snacks, assignments, stationaries..."
         />
     </View>
   );
@@ -44,7 +84,7 @@ export const Header = ({navigation}) => {
     return(
         <View style = {styles.header}>
             <View>
-                
+
             </View>
         </View>
     );
