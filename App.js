@@ -9,6 +9,7 @@ import CartScreen from "./screens/CartScreen"
 import ProductScreen from './screens/ProductScreen';
 import SettingScreen from './screens/SettingScreen';
 import SearchScreen from './screens/SearchScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +44,12 @@ export default function App() {
           name="Search"
           component={SearchScreen}
           options = {{headerShown: false}}
+        />
+        <Stack.Screen
+
+          name="Profile"
+          component={ProfileScreen}
+          //options = {{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>

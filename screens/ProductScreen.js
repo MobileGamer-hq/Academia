@@ -29,28 +29,37 @@ function ProductScreen({route, navigation}) {
                 fontSize: sizes.Small,
                 color: colors.grey,
             }}>{product.description}</Text>
-            <FlatList
-                horizontal
-                showsHorizontalScrollIndicator = {false}
-                keyExtractor={(item)=>item.id}
-                data={product.tags}
-                renderItem = {({item}) => {
-                    return(
-                        <TouchableOpacity style = {{
-                            backgroundColor: colors.black,
-                            borderRadius: sizes.ExtraLarge,
-                            alignItems: "center",
-                        }}>
-                            <Text style = {{
-                                fontSize: sizes.Small,
-
-                            }}>
-                                {item}
-                            </Text>
-                        </TouchableOpacity>
-                    );
-                }}
-            />
+            <View>
+                <FlatList
+                    horizontal
+                    showsHorizontalScrollIndicator = {false}
+                    // keyExtractor={(item)=>item.id}
+                    data={product.tags}
+                    renderItem = {({item}) => {
+                        return(
+                            <TouchableOpacity
+                                onPress={()=>navigation.navigate("Search", {search: item})}
+                            >
+                                <View style = {{
+                                    margin: 10,
+                                    padding: 5,
+                                    backgroundColor: colors.black,
+                                    borderRadius: sizes.ExtraLarge,
+                                    alignItems: "center",
+                                    justifyContent:"center",
+                                }}>
+                                    <Text style = {{
+                                        fontSize: sizes.Small,
+                                        color: colors.white,
+                                    }}>
+                                        {item}
+                                    </Text>
+                                </View>
+                            </TouchableOpacity>
+                        );
+                    }}
+                />
+            </View>
             <View style={{
                 flexDirection: "row",
                 justifyContent: 'space-between',

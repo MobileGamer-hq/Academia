@@ -17,7 +17,7 @@ function HomeScreen({ navigation }) {
                 <SearchBar />
                 <RoundButton image = {currentUser.profilePicture} height = {45} width = {45} color = {colors.white} method = {()=>{
                     let item = currentUser;
-                    navigation.navigate("Account", {item});}}/>
+                    navigation.navigate("Profile", {item});}}/>
             </View>
             <View style = {{
                 marginBottom: sizes.Medium,
