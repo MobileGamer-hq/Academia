@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
-import {firebase} from "@react-native-firebase/firestore";
-import firestore from "firebase/compat";
+//import {firebase} from "@react-native-firebase/firestore";
+//import firestore from "firebase/compat";
+import * as firebase from "firebase"
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase, ref, onValue } from "firebase/database";
@@ -22,13 +23,22 @@ const firebaseConfig = {
   measurementId: "G-V4KTR5JSNP"
 };
 
-// Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app);
-export const database = getDatabase();
 
-const starCountRef = ref(database, 'posts/' + postId + '/starCount');
-onValue(starCountRef, (snapshot) => {
-  const data = snapshot.val();
-  updateStarCount(postElement, data);
-});
+const SignUp = () => {
+  const email = ""
+}
+
+const SignIn = () => {
+  
+}
+
+// // Initialize Firebase
+// export const app = initializeApp(firebaseConfig);
+// export const analytics = getAnalytics(app);
+// export const database = getDatabase();
+
+// const starCountRef = ref(database, 'posts/' + postId + '/starCount');
+// onValue(starCountRef, (snapshot) => {
+//   const data = snapshot.val();
+//   updateStarCount(postElement, data);
+// });
