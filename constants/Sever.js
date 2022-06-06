@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import {firebase} from "@react-native-firebase/firestore";
-import firestore from "firebase/compat";
+import firestore from "firebase";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase, ref, onValue } from "firebase/database";
@@ -11,7 +11,7 @@ import { getDatabase, ref, onValue } from "firebase/database";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyBWrzegp3MkMikhLXjdMv74Rga4cwmSPZo",
   authDomain: "academia-c3d0e.firebaseapp.com",
   databaseURL: "https://academia-c3d0e-default-rtdb.firebaseio.com",
@@ -26,9 +26,3 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 export const database = getDatabase();
-
-const starCountRef = ref(database, 'posts/' + postId + '/starCount');
-onValue(starCountRef, (snapshot) => {
-  const data = snapshot.val();
-  updateStarCount(postElement, data);
-});

@@ -20,7 +20,7 @@ export const colors = {
     defaultBG2: "#f6f6f6",
     defaultBG3: "#f6e5e5",
     defaultTC: "black",
-}
+};
 
 export const images = {
     logo: require("../assets/icon.png"),
@@ -30,11 +30,11 @@ export const images = {
     stationaries: require("../images/stationariesIcon.png"),
     homework: require("../images/homeworkIcon.png"),
     snacks: require("../images/sancksIcon.png"),
-}
+};
 
 export const fonts ={
     default: "Arial, Helvetica, sans-seri",
-}
+};
 
 export const sizes = {
     ExtraSmall: 10,
@@ -42,7 +42,7 @@ export const sizes = {
     Medium: 20,
     Large: 30,
     ExtraLarge: 50,
-}
+};
 
 
 class user {
@@ -53,7 +53,7 @@ class user {
         this.loginDetail = loginDetails;
         this.id = id;
     }
-}
+};
 
 class product {
     constructor(title, description, price, category, seller, image, tags){
@@ -68,7 +68,7 @@ class product {
         this.tag.push(this.title);
         this.tag.push(this.seller);
     }
-}
+};
 
 export const products = [
     {
@@ -88,7 +88,7 @@ export const products = [
         image: require("../images/othersIcon.png"),
         id: "2",
     }
-]
+];
 
 export const suggestedProducts = [
     {
@@ -123,7 +123,7 @@ export const suggestedProducts = [
         image: require("../images/othersIcon.png"),
         id: "4",
     }
-]
+];
 
 export const categories = [
     {
@@ -143,7 +143,7 @@ export const categories = [
         image: images.homework,
         id: "3",
     },
-]
+];
 
 export const users = [
     {
@@ -214,23 +214,23 @@ export const users = [
         },
         id: "3",
     }
-]
+];
 
 export const suggestedUsers = [
 
-]
+];
 
 export const cart = [
 
-]
+];
 
 export const settings = {
     currency: " naira",
-}
+};
 
 export const InitialState = {
     currentUser : users[0],
-}
+};
 
 const dataObject = {
     users: users,
@@ -238,20 +238,4 @@ const dataObject = {
     categories: categories,
     cart: cart,
     settings: settings,
-}
-
-// const convertObject = (dataObject) => {
-//     let jsonObject = JSON.stringify(dataObject);
-
-//     fs.writeFile("user.json",jsonObject,"utf8",(err)=>{
-//         if(err){
-//             console.log("it did not work")
-//             return console.log(err);
-//         }
-//         console.log("fill has been saved");
-//     })
-// }
-
-// convertObject(dataObject)
-
-
+};
