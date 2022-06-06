@@ -29,28 +29,37 @@ function ProductScreen({route, navigation}) {
                 fontSize: sizes.Small,
                 color: colors.grey,
             }}>{product.description}</Text>
-            <FlatList
-                horizontal
-                showsHorizontalScrollIndicator = {false}
-                keyExtractor={(item)=>item.id}
-                data={product.tags}
-                renderItem = {({item}) => {
-                    return(
-                        <TouchableOpacity style = {{
-                            backgroundColor: colors.black,
-                            borderRadius: sizes.ExtraLarge,
-                            alignItems: "center",
-                        }}>
-                            <Text style = {{
-                                fontSize: sizes.Small,
-
-                            }}>
-                                {item}
-                            </Text>
-                        </TouchableOpacity>
-                    );
-                }}
-            />
+            <View>
+                <FlatList
+                    horizontal
+                    showsHorizontalScrollIndicator = {false}
+                    //keyExtractor={(item)=>item.id}
+                    data={product.tags}
+                    renderItem = {({item}) => {
+                        return(
+                            <TouchableOpacity
+                                onPress={()=>navigation.navigate("Search", {search: item})}
+                            >
+                                <View style = {{
+                                    margin: 10,
+                                    padding: 5,
+                                    backgroundColor: colors.black,
+                                    borderRadius: sizes.ExtraLarge,
+                                    alignItems: "center",
+                                    justifyContent:"center",
+                                }}>
+                                    <Text style = {{
+                                        fontSize: sizes.Small,
+                                        color: colors.white,
+                                    }}>
+                                        {item}
+                                    </Text>
+                                </View>
+                            </TouchableOpacity>
+                        );
+                    }}
+                />
+            </View>
             <View style={{
                 flexDirection: "row",
                 justifyContent: 'space-between',
@@ -63,15 +72,19 @@ function ProductScreen({route, navigation}) {
                     }}>{product.price + " Naira"}
                 </Text>
 
-                <TouchableOpacity style={{
-                    borderRadius: sizes.Small,
-                    backgroundColor: colors.black,
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    padding: sizes.ExtraSmall,
-                    alignItems: "center",
-                    elevation: sizes.Small,
-                }}>
+                <TouchableOpacity 
+                    style={{
+                        borderRadius: sizes.Small,
+                        backgroundColor: colors.black,
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        padding: sizes.ExtraSmall,
+                        alignItems: "center",
+                        elevation: sizes.Small,
+                    }}
+
+                    onPress = {navigation.navigate("Profile", {product})}
+                >
                     <Text style={{
                         color: colors.white,
                     }}>Add to cart</Text>

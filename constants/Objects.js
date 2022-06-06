@@ -1,5 +1,6 @@
 import React , {useState} from 'react';
-import { StyleSheet, Text, View, Button , Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Button , Image, TouchableOpacity, FlatList} from 'react-native';
+import { ImageButton } from './Components';
 import {colors, fonts, images, sizes} from "./Data"
 
 export const ProfilePicture = (props)=>{
@@ -59,9 +60,10 @@ export function ProductMax(props) {
             </View>
             <View style = {{
                 justifyContent: "flex-end",
+                marginTop: sizes.ExtraSmall,
             }}>
                 <Text style = {{
-
+                    fontSize: sizes.ExtraSmall,
                 }}>{"Sold by " + props.seller}</Text>
             </View>
         </TouchableOpacity>
@@ -154,6 +156,9 @@ export function UserProfile(props) {
                fontSize: sizes.Small,
            }}>{props.followers+ " followers"}</Text>
            </View>
+           <View>
+               <ImageButton image = {require("../images/othersIcon.png")}/>
+           </View>
        </View>
     );
 }
@@ -182,15 +187,52 @@ export const UserProfileMin = (props) => {
   )
 }
 
+
+export const SearchResult = (props) => {
+    return(
+        <View>
+            <FlatList
+                Vertical
+                showsHorizontalScrollIndicator = {false}
+                keyExtractor={(item)=>item.id}
+                data={props.data}
+                renderItem = {({item}) => {
+                    return(
+                        <TouchableOpacity 
+                            style = {{
+                                backgroundColor: colors.white,
+
+                            }}
+                        >
+                            <View style = {{
+                                height: 100,
+                            }}>
+                                <Image 
+                                    style = {{
+                                        flex: 1,
+                                    }}
+                                    resizeMode = "contain"
+                                    source = {item.image}/>
+                            </View>
+                            <View>
+                                <Text>{item.title}</Text>
+                            </View>
+                        </TouchableOpacity>
+                    );
+                }}
+            />
+        </View>
+    );
+}
+
+
 const styles = StyleSheet.create({
     productMax : {
         flexDirection: "column",
         backgroundColor: colors.white,
         padding: sizes.ExtraSmall,
         borderRadius: sizes.Medium,
-        // elevation: sizes.Small,
         margin: sizes.Small,
-        height: 200,
         width: 150,
     },
 
@@ -199,7 +241,6 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         padding: sizes.ExtraSmall,
         borderRadius: sizes.Medium,
-        // elevation: sizes.ExtraSmall,
         margin: sizes.Small,
         width: 350,
         alignItems: 'center',
@@ -211,7 +252,6 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         margin: sizes.Small,
-        // elevation: sizes.ExtraSmall,
         paddingTop: 8,
     }
 })

@@ -75,8 +75,9 @@ export const products = [
         title: "Oreo's",
         description: "dark creamy chocolate biscuits, so sweat that you wont want anything else",
         price: "100",
-        seller: "----",
+        seller: "Nick",
         image: require("../images/othersIcon.png"),
+        tags: ["chocolate", "biscuits", "sweat", "wont want anything else"],
         id: "1",
     },
 
@@ -86,33 +87,23 @@ export const products = [
         price: "100",
         seller: "----",
         image: require("../images/othersIcon.png"),
+        tags: ["soda", "sweet", "orange", "sweet taste"],
         id: "2",
+<<<<<<< HEAD
     }
 ];
 
 export const suggestedProducts = [
+=======
+    },
+>>>>>>> 491951587819c72c35175d3437be62aed8a7598c
     {
         title: "Pencil",
         description: "Stationaries",
         price: "50",
         seller: "Rick",
         image: require("../images/othersIcon.png"),
-        id: "1",
-    },
-    {
-        title: "Fanta",
-        description: "Snack",
-        price: "150",
-        seller: "----",
-        image: require("../images/othersIcon.png"),
-        id: "2",
-    },
-    {
-        title: "Oreo",
-        description: "Stationaries",
-        price: "500",
-        seller: "----",
-        image: require("../images/oreos.jpg"),
+        tags: ["stationaries", "pencil", "nataraj"],
         id: "3",
     },
     {
@@ -121,9 +112,17 @@ export const suggestedProducts = [
         price: "150",
         seller: "----",
         image: require("../images/othersIcon.png"),
+        tags: ["snacks", "coke", "sweet"],
         id: "4",
     }
 ];
+
+export const suggestedProducts = [
+    products[0],
+    products[3],
+    products[1],
+    products[2],
+]
 
 export const categories = [
     {
@@ -220,9 +219,18 @@ export const suggestedUsers = [
 
 ];
 
+export const bestSellers = [
+    products[0],
+    products[2],
+]
+
 export const cart = [
 
 ];
+
+export const orders = [
+
+]
 
 export const settings = {
     currency: " naira",
