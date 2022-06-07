@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button , Image, FlatList, TouchableOpacity} from 'react-native';
-import {colors, images, fonts, products, users, sizes, categories} from '../constants/Data';
-import {ProductCategory} from "../constants/Objects";
+import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {colors, images, sizes} from '../constants/Data';
 
 function ProductScreen({route, navigation}) {
     const product = route.params.item;
@@ -12,17 +11,17 @@ function ProductScreen({route, navigation}) {
                 fontSize: sizes.ExtraLarge,
                 marginBottom: sizes.Small,
             }}>{product.title}</Text>
-            <View style = {{
+            <View style={{
                 height: 500,
-                width:350,
+                width: 350,
                 alignSelf: "center",
                 alignItems: "center",
             }}>
                 <Image
-                    style = {{
+                    style={{
                         flex: 1,
                     }}
-                    resizeMode = "contain"
+                    resizeMode="contain"
                     source={product.image}/>
             </View>
             <Text style={{
@@ -32,23 +31,23 @@ function ProductScreen({route, navigation}) {
             <View>
                 <FlatList
                     horizontal
-                    showsHorizontalScrollIndicator = {false}
-                    //keyExtractor={(item)=>item.id}
+                    showsHorizontalScrollIndicator={false}
+                    keyExtractor={(item)=>item.id}
                     data={product.tags}
-                    renderItem = {({item}) => {
-                        return(
+                    renderItem={({item}) => {
+                        return (
                             <TouchableOpacity
-                                onPress={()=>navigation.navigate("Search", {search: item})}
+                                onPress={() => navigation.navigate("Search", {search: item})}
                             >
-                                <View style = {{
+                                <View style={{
                                     margin: 10,
                                     padding: 5,
                                     backgroundColor: colors.black,
                                     borderRadius: sizes.ExtraLarge,
                                     alignItems: "center",
-                                    justifyContent:"center",
+                                    justifyContent: "center",
                                 }}>
-                                    <Text style = {{
+                                    <Text style={{
                                         fontSize: sizes.Small,
                                         color: colors.white,
                                     }}>
@@ -72,7 +71,7 @@ function ProductScreen({route, navigation}) {
                     }}>{product.price + " Naira"}
                 </Text>
 
-                <TouchableOpacity 
+                <TouchableOpacity
                     style={{
                         borderRadius: sizes.Small,
                         backgroundColor: colors.black,
@@ -83,7 +82,7 @@ function ProductScreen({route, navigation}) {
                         elevation: sizes.Small,
                     }}
 
-                    onPress = {navigation.navigate("Profile", {product})}
+                    onPress={navigation.navigate("Profile", {product})}
                 >
                     <Text style={{
                         color: colors.white,
@@ -95,13 +94,13 @@ function ProductScreen({route, navigation}) {
                         alignItems: "center",
                         marginHorizontal: sizes.ExtraSmall,
                     }}>
-                         <Image
-                             style = {{
-                                 flex: 1,
-                             }}
-                             resizeMode = "contain"
-                             source={images.cartWhite}
-                         />
+                        <Image
+                            style={{
+                                flex: 1,
+                            }}
+                            resizeMode="contain"
+                            source={images.cartWhite}
+                        />
                     </View>
                 </TouchableOpacity>
             </View>

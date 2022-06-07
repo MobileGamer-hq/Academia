@@ -11,7 +11,7 @@ export const colors = {
     grey: "grey",
     gold: "gold",
     darkCyan: "darkcyan",
-    darkblue:  "darkblue",
+    darkblue: "darkblue",
     darkslategray: "darkslategray",
     mediumslateblue: "mediumslateblue",
 
@@ -32,7 +32,7 @@ export const images = {
     snacks: require("../images/sancksIcon.png"),
 };
 
-export const fonts ={
+export const fonts = {
     default: "Arial, Helvetica, sans-seri",
 };
 
@@ -44,19 +44,18 @@ export const sizes = {
     ExtraLarge: 50,
 };
 
-
 class user {
-    constructor(name, description, profilePicture, loginDetails, id){
+    constructor(name, description, profilePicture, loginDetails, id) {
         this.name = name;
         this.description = description;
         this.profilePicture = profilePicture;
         this.loginDetail = loginDetails;
         this.id = id;
     }
-};
+}
 
 class product {
-    constructor(title, description, price, category, seller, image, tags){
+    constructor(title, description, price, category, seller, image, tags) {
         this.title = title;
         this.description = description;
         this.price = price;
@@ -68,7 +67,7 @@ class product {
         this.tag.push(this.title);
         this.tag.push(this.seller);
     }
-};
+}
 
 export const products = [
     {
@@ -89,14 +88,7 @@ export const products = [
         image: require("../images/othersIcon.png"),
         tags: ["soda", "sweet", "orange", "sweet taste"],
         id: "2",
-<<<<<<< HEAD
-    }
-];
-
-export const suggestedProducts = [
-=======
     },
->>>>>>> 491951587819c72c35175d3437be62aed8a7598c
     {
         title: "Pencil",
         description: "Stationaries",
@@ -149,11 +141,14 @@ export const users = [
         name: "Brandon",
         description: "........",
         profilePicture: require("../images/profile1.jpg"),
-        loginDetails : {
+        loginDetails: {
             email: "durulego@gmail",
             password: "1234",
         },
         followers: "1,000,000",
+        following: [
+            "Nicky", "Ricky", "Dicky", "Dawn", "Amy"
+        ],
         location: "----",
         colors: colors.white,
         sellerInfo: {
@@ -166,7 +161,7 @@ export const users = [
         name: "Nick",
         description: "Game Developer and UI designer",
         profilePicture: require("../images/profile2.png"),
-        loginDetails : {
+        loginDetails: {
             email: "----",
             password: "----",
         },
@@ -183,7 +178,7 @@ export const users = [
         name: "Amy",
         description: "School supplies distributor",
         profilePicture: require("../images/profile2.jpg"),
-        loginDetails : {
+        loginDetails: {
             email: "----",
             password: "----",
         },
@@ -215,29 +210,23 @@ export const users = [
     }
 ];
 
-export const suggestedUsers = [
-
-];
+export const suggestedUsers = [];
 
 export const bestSellers = [
     products[0],
     products[2],
 ]
 
-export const cart = [
+export const cart = [];
 
-];
-
-export const orders = [
-
-]
+export const orders = []
 
 export const settings = {
     currency: " naira",
 };
 
 export const InitialState = {
-    currentUser : users[0],
+    currentUser: users[0],
 };
 
 const dataObject = {

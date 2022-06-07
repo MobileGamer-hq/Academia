@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button , Image, TouchableOpacity, TextInput} from 'react-native';
-import {colors, fonts, sizes} from "./Data"
+import {Image, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {colors, sizes} from "./Data"
 
 
 export function RoundButton(props) {
     return (
         <TouchableOpacity
-            style = {{
+            style={{
                 borderRadius: sizes.ExtraLarge,
                 backgroundColor: props.color,
                 height: props.height,
@@ -15,20 +15,26 @@ export function RoundButton(props) {
             }}
             onPress={props.method}
         >
-            <View style = {{
+            <View style={{
                 height: props.height,
                 width: props.width,
                 alignItems: "center",
             }}>
+                <Text style={{
+                    fontSize: props.fontSize,
+                    color: props.textColor,
+                }}>
+                    {props.text}
+                </Text>
                 <Image
                     source={props.image}
-                    style = {{
+                    style={{
                         height: props.height,
                         width: props.width,
                         flex: 1,
                         borderRadius: sizes.ExtraLarge,
                     }}
-                    resizeMode = "contain"
+                    resizeMode="contain"
                 />
             </View>
         </TouchableOpacity>
@@ -36,24 +42,24 @@ export function RoundButton(props) {
 }
 
 export const ImageButton = (props) => {
-    return(
+    return (
         <TouchableOpacity
 
             onPress={props.method}
         >
-            <View style = {{
+            <View style={{
                 height: props.height,
                 width: props.width,
                 alignItems: "center",
             }}>
                 <Image
-                    source = {props.image}
-                    style = {{
+                    source={props.image}
+                    style={{
                         height: props.height,
                         width: props.width,
                         flex: 1,
                     }}
-                    resizeMode = "contain"
+                    resizeMode="contain"
                 />
             </View>
         </TouchableOpacity>
@@ -61,28 +67,28 @@ export const ImageButton = (props) => {
 }
 
 export const SearchBar = (props) => {
-  return (
-    <View>
-        <TextInput
-            onChangeText = {props.method}
-            style = {{
-                borderRadius: sizes.ExtraSmall,
-                borderWidth: 1,
-                marginHorizontal: sizes.ExtraSmall,
-                paddingHorizontal: sizes.Small,
-                backgroundColor: colors.white,
-                height: 40,
-                borderColor: "transparent",
-            }}
-            placeholder = "snacks, assignments, stationaries..."
-        />
-    </View>
-  );
+    return (
+        <View>
+            <TextInput
+                onChangeText={props.method}
+                style={{
+                    borderRadius: sizes.ExtraSmall,
+                    borderWidth: 1,
+                    marginHorizontal: sizes.ExtraSmall,
+                    paddingHorizontal: sizes.Small,
+                    backgroundColor: colors.white,
+                    height: 40,
+                    borderColor: "transparent",
+                }}
+                placeholder="snacks, assignments, stationaries..."
+            />
+        </View>
+    );
 }
 
 export const Header = ({navigation}) => {
-    return(
-        <View style = {styles.header}>
+    return (
+        <View style={styles.header}>
             <View>
 
             </View>
@@ -92,7 +98,7 @@ export const Header = ({navigation}) => {
 
 
 const styles = StyleSheet.create({
-    header : {
+    header: {
         width: "100%",
         height: "100%",
         backgroundColor: colors.white,

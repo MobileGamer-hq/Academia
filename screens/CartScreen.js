@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button , Image} from 'react-native';
-import { colors, images, fonts, products} from '../constants/Data';
+import {Text, View} from 'react-native';
 
 
 function OrdersScreen(props) {

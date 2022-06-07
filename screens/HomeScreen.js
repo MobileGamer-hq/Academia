@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button , Image, FlatList} from 'react-native';
-import { colors, images, fonts, products, suggestedProducts, categories, users, sizes} from '../constants/Data';
-import {ProductMin, ProductCategory, ProductMax, UserProfileMin} from '../constants/Objects';
-import { RoundButton, SearchBar} from '../constants/Components';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {categories, colors, sizes, suggestedProducts, users} from '../constants/Data';
+import {ProductCategory, ProductMax, UserProfileMin} from '../constants/Objects';
+import {RoundButton, SearchBar} from '../constants/Components';
 
-function HomeScreen({ navigation }) {
+function HomeScreen({navigation}) {
     const currentUser = users[0];
 
     return (
@@ -14,37 +14,44 @@ function HomeScreen({ navigation }) {
                 justifyContent: "space-evenly",
                 alignItems: "center",
             }}>
-                <SearchBar />
-                <RoundButton image = {currentUser.profilePicture} height = {45} width = {45} color = {colors.white} method = {()=>{
-                    let item = currentUser;
-                    navigation.navigate("Profile", {item});}}/>
+                <SearchBar/>
+                <RoundButton
+                    image={currentUser.profilePicture}
+                    height={45}
+                    width={45}
+                    color={colors.white}
+                    method={() => {
+                        let item = currentUser;
+                        navigation.navigate("Profile", {item});
+                    }}
+                />
             </View>
-            <View style = {{
+            <View style={{
                 marginBottom: sizes.Medium,
             }}>
                 <FlatList
                     horizontal
-                    showsHorizontalScrollIndicator = {false}
-                    keyExtractor={(item)=>item.id}
+                    showsHorizontalScrollIndicator={false}
+                    keyExtractor={(item) => item.id}
                     data={categories}
-                    renderItem = {({item}) => {
-                        return(
+                    renderItem={({item}) => {
+                        return (
                             <ProductCategory
-                                image = {item.image}
-                                method = {()=>navigation.navigate("Search", {search: item.name})}
+                                image={item.image}
+                                method={() => navigation.navigate("Search", {search: item.name})}
                             />
                         )
                     }}
                 />
             </View>
-            <View style = {{
+            <View style={{
                 flexDirection: "column",
                 justifyContent: "center",
                 width: "100%",
                 alignItems: "center",
                 marginVertical: sizes.Medium,
             }}>
-                <Text style = {{
+                <Text style={{
                     fontSize: sizes.Medium,
                     alignSelf: "flex-start",
                     marginLeft: sizes.Small,
@@ -53,38 +60,38 @@ function HomeScreen({ navigation }) {
                 </Text>
                 <FlatList
                     horizontal
-                    showsHorizontalScrollIndicator = {false}
-                    keyExtractor={(item)=>item.id}
+                    showsHorizontalScrollIndicator={false}
+                    keyExtractor={(item) => item.id}
                     data={suggestedProducts}
-                    renderItem = {({item}) => {
-                        return(
+                    renderItem={({item}) => {
+                        return (
                             <ProductMax
-                                product = {item}
-                                title = {item.title}
-                                price = {item.price}
-                                image = {item.image}
-                                seller = {item.seller}
-                                method = {()=>navigation.navigate("Product", {item})}
+                                product={item}
+                                title={item.title}
+                                price={item.price}
+                                image={item.image}
+                                seller={item.seller}
+                                method={() => navigation.navigate("Product", {item})}
                             />
                         )
                     }}
                 />
             </View>
-            <View style = {{
+            <View style={{
                 marginVertical: sizes.Medium,
             }}>
                 <FlatList
                     horizontal
-                    showsHorizontalScrollIndicator = {false}
-                    keyExtractor={(item)=>item.id}
+                    showsHorizontalScrollIndicator={false}
+                    keyExtractor={(item) => item.id}
                     data={users}
-                    renderItem = {({item}) => {
-                        return(
+                    renderItem={({item}) => {
+                        return (
                             <UserProfileMin
-                                user = {item}
-                                color = {item.colors}
-                                image = {item.profilePicture}
-                                method = {() =>navigation.navigate("Account", {item})}
+                                user={item}
+                                color={item.colors}
+                                image={item.profilePicture}
+                                method={() => navigation.navigate("Account", {item})}
                             />
                         )
                     }}

@@ -1,24 +1,25 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
-import { colors, images, fonts, sizes} from '../constants/Data';
+import {StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {colors, sizes} from '../constants/Data';
 
 function SignUpScreen({navigation}) {
     return (
-        <View>
+        <View style = {styles.container}>
             <Text>SignUp</Text>
-            <TextInput />
-            <TextInput />
-            <TextInput />
-            <TouchableOpacity 
-                style = {{
+            <TextInput/>
+            <TextInput/>
+            <TextInput/>
+            <TouchableOpacity
+                style={{
                     backgroundColor: colors.black,
                     height: 30,
                     width: 70,
                 }}
 
-                onPress = {() => {}}
+                onPress={() => {
+                }}
             >
-                <Text style = {{
+                <Text style={{
                     fontSize: sizes.Medium,
                     color: colors.white,
                 }}>SignUp</Text>
@@ -28,7 +29,7 @@ function SignUpScreen({navigation}) {
 }
 
 const styles = StyleSheet.create({
-    container : {
+    container: {
         backgroundColor: colors.white,
         flex: 1,
         alignItems: "flex-start",
