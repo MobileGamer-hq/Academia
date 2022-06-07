@@ -21,10 +21,11 @@ export const firebaseConfig = {
   measurementId: "G-V4KTR5JSNP"
 };
 
+// Initialize Firebase
+export const app = initializeApp(firebaseConfig);
+export const analytics = getAnalytics(app);
+export const database = getDatabase();
 
-const SignUp = () => {
-  const email = ""
-}
 
 const SignIn = () => {
   
