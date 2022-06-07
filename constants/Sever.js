@@ -1,11 +1,9 @@
 // Import the functions you need from the SDKs you need
 //import {firebase} from "@react-native-firebase/firestore";
-//import firestore from "firebase/compat";
 import * as firebase from "firebase"
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase, ref, onValue } from "firebase/database";
-
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -27,3 +25,13 @@ export const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 export const database = getDatabase();
+
+
+const SignIn = () => {
+  
+}
+
+// // Initialize Firebase
+// export const app = initializeApp(firebaseConfig);
+// export const analytics = getAnalytics(app);
+// export const database = getDatabase();

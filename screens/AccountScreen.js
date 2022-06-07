@@ -1,10 +1,10 @@
 import React from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
-import {colors, sizes} from '../constants/Data';
-import {ProductMin, UserProfile} from '../constants/Objects';
+import { StyleSheet, Text, View, Button, Image, FlatList } from 'react-native';
+import { colors, images, fonts, products, users, sizes } from '../constants/Data';
+import { UserProfile, ProductMin } from '../constants/Objects';
 
 
-function AccountScreen({route, navigation}) {
+function AccountScreen({ route, navigation }) {
 
     //const user = navigation.getParam("item");
     const user = route.params.item;
@@ -31,14 +31,14 @@ function AccountScreen({route, navigation}) {
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={(item) => item.id}
                     data={user.sellerInfo.productList}
-                    renderItem={({item}) => {
+                    renderItem={({ item }) => {
                         return (
                             <ProductMin
                                 product={item}
                                 title={item.title}
                                 price={item.price}
                                 image={item.image}
-                                method={() => navigation.navigate("Product", {item})}
+                                method={() => navigation.navigate("Product", { item })}
                             />
                         )
                     }}

@@ -14,6 +14,10 @@ const firebaseConfig = {
   measurementId: "G-V4KTR5JSNP"
 };
 
+if (firebase.apps.length === 0) {
+  firebase.initializeApp(firebaseConfig);
+}
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
