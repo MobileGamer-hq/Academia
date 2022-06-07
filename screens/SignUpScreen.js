@@ -7,7 +7,12 @@ import {
     TextInput,
 } from "react-native";
 import { colors, images, fonts, sizes } from "../constants/Data";
-import firebase from "firebase";
+import {
+    getAuth,
+    onAuthStateChanged,
+    FacebookAuthProvider,
+    signInWithCredential,
+  } from 'firebase/auth';
 
 export class SignUpScreen extends Component {
     constructor(props) {

@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput } from 'react-native';
 import { colors, images, fonts, sizes} from '../constants/Data';
-import firebase from "firebase"
+import {
+    getAuth,
+    onAuthStateChanged,
+    FacebookAuthProvider,
+    signInWithCredential,
+} from 'firebase/auth';
 
 export class SignInScreen extends Component {
     constructor(props) {
