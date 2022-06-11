@@ -44,17 +44,25 @@ export const sizes = {
     ExtraLarge: 50,
 };
 
-class user {
-    constructor(name, description, profilePicture, loginDetails, id) {
+export class User {
+    constructor(name, description, profilePicture, loginDetails, location, sellerInfo, id) {
+
+        //
         this.name = name;
         this.description = description;
         this.profilePicture = profilePicture;
         this.loginDetail = loginDetails;
+        this.location = location
+        this.sellerInfo = sellerInfo;
         this.id = id;
+
+        //
+        this.followers = [];
+        this.following = [];
     }
 }
 
-class product {
+export class Product {
     constructor(title, description, price, category, seller, image, tags) {
         this.title = title;
         this.description = description;
@@ -134,6 +142,24 @@ export const categories = [
         image: images.homework,
         id: "3",
     },
+
+    {
+        name: "Drinks",
+        image: images.homework,
+        id: "4",
+    },
+
+    {
+        name: "Books",
+        image: images.homework,
+        id: "5",
+    },
+
+    {
+        name: "Games",
+        image: images.homework,
+        id: "6",
+    },
 ];
 
 export const users = [
@@ -150,7 +176,6 @@ export const users = [
             "Nicky", "Ricky", "Dicky", "Dawn", "Amy"
         ],
         location: "----",
-        colors: colors.white,
         sellerInfo: {
             rating: 5,
             productList: suggestedProducts,
@@ -167,7 +192,6 @@ export const users = [
         },
         followers: "10,000",
         location: "----",
-        colors: colors.red,
         sellerInfo: {
             rating: 5,
             productList: suggestedProducts,
@@ -184,7 +208,6 @@ export const users = [
         },
         followers: "1,000",
         location: "----",
-        colors: colors.yellow,
         sellerInfo: {
             rating: 5,
             productList: [
@@ -227,9 +250,10 @@ export const settings = {
 
 export const InitialState = {
     currentUser: users[0],
+    setting: settings,
 };
 
-const dataObject = {
+export const dataObject = {
     users: users,
     products: [products, suggestedProducts],
     categories: categories,

@@ -20,12 +20,6 @@ export function RoundButton(props) {
                 width: props.width,
                 alignItems: "center",
             }}>
-                <Text style={{
-                    fontSize: props.fontSize,
-                    color: props.textColor,
-                }}>
-                    {props.text}
-                </Text>
                 <Image
                     source={props.image}
                     style={{

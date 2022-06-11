@@ -32,7 +32,7 @@ function ProductScreen({route, navigation}) {
                 <FlatList
                     horizontal
                     showsHorizontalScrollIndicator={false}
-                    keyExtractor={(item)=>item.id}
+                    //keyExtractor={(item)=>item.id}
                     data={product.tags}
                     renderItem={({item}) => {
                         return (
@@ -51,7 +51,7 @@ function ProductScreen({route, navigation}) {
                                         fontSize: sizes.Small,
                                         color: colors.white,
                                     }}>
-                                        {item}
+                                        {"#"+item}
                                     </Text>
                                 </View>
                             </TouchableOpacity>
@@ -82,7 +82,7 @@ function ProductScreen({route, navigation}) {
                         elevation: sizes.Small,
                     }}
 
-                    onPress={navigation.navigate("Profile", {product})}
+                    onPress={navigation.navigate("Cart", {product})}
                 >
                     <Text style={{
                         color: colors.white,

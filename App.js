@@ -10,8 +10,9 @@ import CartScreen from "./screens/CartScreen"
 import ProductScreen from './screens/ProductScreen';
 import SettingScreen from './screens/SettingScreen';
 import SearchScreen from './screens/SearchScreen';
-import ProfileScreen from './screens/ProfileScreen';
 import LandingScreen from './screens/LandingScreen';
+import SignInScreen from "./screens/SignInScreen";
+import SignUpScreen from "./screens/SignUpScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,11 @@ export default function App() {
           name="Home"
           component={HomeScreen}
           options = {{headerShown: false}}
+        />
+        <Stack.Screen
+            name="Landing"
+            component={LandingScreen}
+            options = {{headerShown: false}}
         />
         <Stack.Screen
           name="Account"
@@ -44,16 +50,19 @@ export default function App() {
           component={SettingScreen}
         />
         <Stack.Screen
-
           name="Search"
           component={SearchScreen}
           options = {{headerShown: false}}
         />
         <Stack.Screen
-
-          name="Profile"
-          component={ProfileScreen}
-          //options = {{headerShown: false}}
+            name="SignIn"
+            component={SignInScreen}
+            options = {{headerShown: false}}
+        />
+        <Stack.Screen
+            name="SignUp"
+            component={SignUpScreen}
+            options = {{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>

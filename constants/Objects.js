@@ -111,7 +111,7 @@ export const ProductCategory = (props) => {
         <TouchableOpacity
             style={styles.productCategory}
             onPress={props.method}>
-            <View style={{
+            {/* <View style={{
                 height: 35,
                 width: 35,
             }}>
@@ -122,6 +122,18 @@ export const ProductCategory = (props) => {
                     resizeMode="contain"
                     source={props.image}
                 />
+            </View> */}
+
+            <View
+                style = {{
+                    marginHorizontal: sizes.ExtraSmall,
+                    marginVertical: 5,
+                }}
+            >
+                <Text style = {{
+                    color: colors.white,
+                    fontSize: sizes.Medium,
+                }}>{"#"+props.text}</Text>
             </View>
         </TouchableOpacity>
     );
@@ -130,15 +142,7 @@ export const ProductCategory = (props) => {
 
 export function UserProfile(props) {
     return (
-        <View style={{
-            backgroundColor: colors.white,
-            flexDirection: 'row',
-            alignContent: 'center',
-            justifyContent: "flex-start",
-            padding: sizes.Medium,
-            elevation: sizes.Medium,
-            margin: sizes.ExtraSmall,
-        }}>
+        <View style={styles.userProfile}>
             <ProfilePicture color={colors.defaultBG2} image={props.image}/>
             <View style={{
                 flexDirection: 'column',
@@ -156,25 +160,30 @@ export function UserProfile(props) {
                     fontSize: sizes.Small,
                 }}>{props.followers + " followers"}</Text>
             </View>
-            <RoundButton
-                text={"follow"}
-                color={colors.black}
-                fontSize={sizes.Medium}
-                textColor={colors.white}
-                width={70}
-                method={props.method}
-            />
+            <TouchableOpacity style = {{
+                backgroundColor: colors.black,
+                alignItems: "center",
+                justifyContent: "center",
+                height: sizes.Medium+ 10,
+                padding: 5,
+                borderRadius: sizes.ExtraSmall,
+            }}>
+                <Text style={{
+                    fontSize: sizes.Small+2.5,
+                    color: colors.white,
+                }}>
+                    Follow
+                </Text>
+            </TouchableOpacity>
         </View>
     );
 }
 
+
 export const UserProfileMin = (props) => {
     const user = props.user
     return (
-        <View style={{
-            alignItems: "center",
-            margin: sizes.Small,
-        }}>
+        <View style={styles.userProfileMin}>
             <TouchableOpacity
                 onPress={props.method}
             >
@@ -188,14 +197,13 @@ export const UserProfileMin = (props) => {
                 }}>{user.name}</Text>
                 <Text>{user.followers + " followers"}</Text>
             </View>
-            <RoundButton
-                text={"follow"}
-                color={colors.black}
-                fontSize={sizes.Medium}
-                textColor={colors.white}
-                width={70}
-                method={props.method}
-            />
+            <View>
+                <TouchableOpacity style = {{
+                    borderRadius: sizes.ExtraLarge,
+                }}>
+
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
@@ -260,11 +268,22 @@ const styles = StyleSheet.create({
     },
 
     productCategory: {
-        backgroundColor: colors.white,
+        backgroundColor: colors.black,
         borderRadius: sizes.Medium,
-        height: 50,
-        width: 50,
+    },
+
+    userProfile: {
+        backgroundColor: colors.white,
+        flexDirection: 'row',
+        alignContent: 'center',
+        padding: sizes.Medium,
+        elevation: sizes.Medium,
+        margin: sizes.ExtraSmall,
+    },
+
+    userProfileMin: {
+        alignItems: "center",
         margin: sizes.Small,
-        paddingTop: 8,
-    }
+    },
+
 })

@@ -69,11 +69,15 @@ export default function SearchScreen({navigation, route}) {
                             <TouchableOpacity
                                 style={{
                                     backgroundColor: colors.white,
-                                    marginVertical: sizes.Small,
+                                    marginVertical: sizes.ExtraSmall,
+                                    marginHorizontal: 5,
+                                    padding: sizes.ExtraSmall,
+                                    flexDirection: "row",
                                 }}
                             >
                                 <View style={{
                                     height: 100,
+                                    width: 100,
                                 }}>
                                     <Image
                                         style={{
@@ -82,8 +86,42 @@ export default function SearchScreen({navigation, route}) {
                                         resizeMode="contain"
                                         source={item.image}/>
                                 </View>
-                                <View>
+                                <View style = {{
+                                    flexDirection: "column",
+                                }}>
                                     <Text>{item.title}</Text>
+                                    <Text>{item.price}</Text>
+                                    <View>
+                                        <FlatList
+                                            horizontal
+                                            showsHorizontalScrollIndicator={false}
+                                            //keyExtractor={(item)=>item.id}
+                                            data={product.tags}
+                                            renderItem={({item}) => {
+                                                return (
+                                                    <TouchableOpacity
+                                                        onPress={() => navigation.navigate("Search", {search: item})}
+                                                    >
+                                                        <View style={{
+                                                            margin: 10,
+                                                            padding: 5,
+                                                            backgroundColor: colors.black,
+                                                            borderRadius: sizes.ExtraLarge,
+                                                            alignItems: "center",
+                                                            justifyContent: "center",
+                                                        }}>
+                                                            <Text style={{
+                                                                fontSize: sizes.Small,
+                                                                color: colors.white,
+                                                            }}>
+                                                                {item}
+                                                            </Text>
+                                                        </View>
+                                                    </TouchableOpacity>
+                                                );
+                                            }}
+                                        />
+                                    </View>
                                 </View>
                             </TouchableOpacity>
                         );

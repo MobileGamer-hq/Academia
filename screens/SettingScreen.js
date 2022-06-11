@@ -1,9 +1,10 @@
 import React from 'react';
 import {Text, View} from 'react-native';
+import {sizes} from '../constants/Data'
 
 
 function SettingScreen({navigation}) {
-    return (
+    return ( 
         <View>
             <Text>
                 Setting Screen
@@ -11,5 +12,12 @@ function SettingScreen({navigation}) {
         </View>
     );
 }
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+})
 
 export default SettingScreen;

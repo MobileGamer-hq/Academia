@@ -1,12 +1,11 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
-import {categories, colors, sizes, suggestedProducts, users} from '../constants/Data';
+import {categories, colors, sizes, suggestedProducts, users, dataObject} from '../constants/Data';
 import {ProductCategory, ProductMax, UserProfileMin} from '../constants/Objects';
 import {RoundButton, SearchBar} from '../constants/Components';
 
 function HomeScreen({navigation}) {
     const currentUser = users[0];
-
     return (
         <View style={styles.container}>
             <View style={{
@@ -22,7 +21,7 @@ function HomeScreen({navigation}) {
                     color={colors.white}
                     method={() => {
                         let item = currentUser;
-                        navigation.navigate("Profile", {item});
+                        navigation.navigate("Account", {item});
                     }}
                 />
             </View>
