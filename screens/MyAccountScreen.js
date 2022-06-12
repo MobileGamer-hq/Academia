@@ -1,54 +1,67 @@
-import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import { colors, sizes } from '../constants/Data'
-import { ProfilePicture } from "../constants/Objects"
+import { ProfilePicture, ProductMin } from "../constants/Objects"
 
 const MyAccountScreen = ({ route, navigation }) => {
   const user = route.params.item;
 
   return (
     <View style={styles.container}>
-      <View>
+      <View style = {{
+        backgroundColor: colors.white,
+        padding: 10,
+      }}>
         <View style={{
-          backgroundColor: colors.white,
           flexDirection: "row",
-          justifyContent: "space-around"
+          justifyContent: "space-around",
+          width: 350,
         }}>
-          <ProfilePicture 
-            image = {user.profilePicture}
-            color = {colors.white}
+          <ProfilePicture
+            image={user.profilePicture}
+            color={colors.white}
           />
           <View style={{
             flexDirection: "row",
-            justifyContent: "space-between"
+            justifyContent: "space-between",
+            alignItems: "center"
           }}>
             <View>
-              <TouchableOpacity>
+              <TouchableOpacity style={{
+                alignItems: "center",
+                margin: 5,
+              }}>
                 <Text style={{
-                  fontSize: sizes.Small
-                }}>{user.productList.length}</Text>
+                  fontSize: sizes.Small+5
+                }}>{user.sellerInfo.amountSelling}</Text>
                 <Text style={{
-                  fontSize: sizes.ExtraSmall
+                  fontSize: sizes.ExtraSmall+5
                 }}>Products</Text>
               </TouchableOpacity>
             </View>
             <View>
-              <TouchableOpacity>
+              <TouchableOpacity style={{
+                alignItems: "center",
+                margin: 5,
+              }}>
                 <Text style={{
-                  fontSize: sizes.Small
+                  fontSize: sizes.Small+5
                 }}>{user.followers}</Text>
                 <Text style={{
-                  fontSize: sizes.ExtraSmall
+                  fontSize: sizes.ExtraSmall+5
                 }}>Followers</Text>
               </TouchableOpacity>
             </View>
             <View>
-              <TouchableOpacity>
+              <TouchableOpacity style={{
+                alignItems: "center",
+                margin: 5,
+              }}>
                 <Text style={{
-                  fontSize: sizes.Small
+                  fontSize: sizes.Small+5
                 }}>{user.following.length}</Text>
                 <Text style={{
-                  fontSize: sizes.ExtraSmall
+                  fontSize: sizes.ExtraSmall+5
                 }}>Following</Text>
               </TouchableOpacity>
             </View>
@@ -57,10 +70,14 @@ const MyAccountScreen = ({ route, navigation }) => {
         <View style={{
           alignItems: "flex-start",
         }}>
-          <Text>{user.name}</Text>
+          <Text style = {{
+            fontSize: sizes.Small,
+          }}>{user.name}</Text>
           <Text>{user.descrition}</Text>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity style = {{
+          alignSelf: "flex-end"
+        }}>
           <Text>Edit Profile</Text>
         </TouchableOpacity>
       </View>
@@ -76,9 +93,12 @@ const MyAccountScreen = ({ route, navigation }) => {
                 <View>
                   <TouchableOpacity style={{
                     height: 300,
-                    width: 150,
+                    width: 200,
                     backgroundColor: colors.white,
                     padding: sizes.ExtraSmall,
+                    margin: 10,
+                    justifyContent: "space-between",
+                    borderRadius: sizes.Small,
                   }}>
                     <View style={{
                       alignItems: "flex-start",
@@ -107,7 +127,7 @@ const MyAccountScreen = ({ route, navigation }) => {
                       alignItems: "flex-start",
                     }}>
                       <TouchableOpacity
-                        onPress={navigation.navigate("Product", { item })}
+                      //onPress={navigation.navigate("Product", { item })}
                       >
                         <Text style={{
                           fontSize: sizes.Small
@@ -115,13 +135,6 @@ const MyAccountScreen = ({ route, navigation }) => {
                       </TouchableOpacity>
                     </View>
                   </TouchableOpacity>
-                  <ProductMin
-                    product={item}
-                    title={item.title}
-                    price={item.price}
-                    image={item.image}
-                    method={() => navigation.navigate("Product", { item })}
-                  />
                 </View>
               )
             }}
@@ -142,6 +155,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: "flex-start",
     paddingTop: sizes.ExtraLarge,
-    paddingHorizontal: sizes.ExtraSmall,
   },
 });

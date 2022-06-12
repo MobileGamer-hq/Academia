@@ -126,13 +126,13 @@ export const ProductCategory = (props) => {
 
             <View
                 style = {{
-                    marginHorizontal: sizes.ExtraSmall,
-                    marginVertical: 5,
+                    marginHorizontal: 10,
+                    marginVertical: 0,
                 }}
             >
                 <Text style = {{
                     color: colors.white,
-                    fontSize: sizes.Medium,
+                    fontSize: sizes.Small+2,
                 }}>{"#"+props.text}</Text>
             </View>
         </TouchableOpacity>
@@ -270,6 +270,7 @@ const styles = StyleSheet.create({
     productCategory: {
         backgroundColor: colors.black,
         borderRadius: sizes.Medium,
+        margin: sizes.ExtraSmall,
     },
 
     userProfile: {
@@ -277,7 +278,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignContent: 'center',
         padding: sizes.Medium,
-        elevation: sizes.Medium,
+        //elevation: sizes.Medium,
         margin: sizes.ExtraSmall,
     },
 

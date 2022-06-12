@@ -93,7 +93,7 @@ export const products = [
         description: "Orange flavored soda, with a sweet taste and incredible ",
         price: "100",
         seller: "----",
-        image: require("../images/othersIcon.png"),
+        image: require("../images/fanta.jpg"),
         tags: ["soda", "sweet", "orange", "sweet taste"],
         id: "2",
     },
@@ -111,7 +111,7 @@ export const products = [
         description: "Snacks",
         price: "150",
         seller: "----",
-        image: require("../images/othersIcon.png"),
+        image: require("../images/coke.png"),
         tags: ["snacks", "coke", "sweet"],
         id: "4",
     }
@@ -122,6 +122,42 @@ export const suggestedProducts = [
     products[3],
     products[1],
     products[2],
+]
+
+export const topSellers = [
+    {
+        title: "Coke",
+        description: "Snacks",
+        price: "150",
+        color: "black",
+        seller: "----",
+        image: require("../images/coke.png"),
+        tags: ["snacks", "coke", "sweet"],
+        id: "1",
+    },
+
+    {
+        title: "Fanta",
+        description: "Snacks",
+        price: "150",
+        color: "orange",
+        seller: "----",
+        image: require("../images/coke.png"),
+        tags: ["snacks", "coke", "sweet"],
+        id: "2",
+    },
+
+    {
+        title: "Pencil",
+        description: "Stationaries",
+        price: "150",
+        color: "darkblue",
+        seller: "----",
+        image: require("../images/coke.png"),
+        tags: ["snacks", "coke", "sweet"],
+        id: "3",
+    },
+
 ]
 
 export const categories = [
@@ -171,7 +207,7 @@ export const users = [
             email: "durulego@gmail",
             password: "1234",
         },
-        followers: "1,000,000",
+        followers: "1M",
         following: [
             "Nicky", "Ricky", "Dicky", "Dawn", "Amy"
         ],
@@ -179,6 +215,7 @@ export const users = [
         sellerInfo: {
             rating: 5,
             productList: suggestedProducts,
+            amountSelling: "500",
         },
         id: "1",
     },
@@ -190,7 +227,7 @@ export const users = [
             email: "----",
             password: "----",
         },
-        followers: "10,000",
+        followers: "10K",
         location: "----",
         sellerInfo: {
             rating: 5,
@@ -206,7 +243,7 @@ export const users = [
             email: "----",
             password: "----",
         },
-        followers: "1,000",
+        followers: "1K",
         location: "----",
         sellerInfo: {
             rating: 5,

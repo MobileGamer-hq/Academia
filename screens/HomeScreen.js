@@ -1,13 +1,13 @@
 import React from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
-import {categories, colors, sizes, suggestedProducts, users, dataObject} from '../constants/Data';
+import {FlatList, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity} from 'react-native';
+import {categories, colors, sizes, suggestedProducts, users, dataObject, products, topSellers} from '../constants/Data';
 import {ProductCategory, ProductMax, UserProfileMin} from '../constants/Objects';
 import {RoundButton, SearchBar} from '../constants/Components';
 
 function HomeScreen({navigation}) {
     const currentUser = users[0];
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View style={{
                 flexDirection: "row",
                 justifyContent: "space-evenly",
@@ -21,12 +21,12 @@ function HomeScreen({navigation}) {
                     color={colors.white}
                     method={() => {
                         let item = currentUser;
-                        navigation.navigate("Account", {item});
+                        navigation.navigate("UserAccount", {item});
                     }}
                 />
             </View>
             <View style={{
-                marginBottom: sizes.Medium,
+                marginVertical: sizes.Small,
             }}>
                 <FlatList
                     horizontal
@@ -36,8 +36,8 @@ function HomeScreen({navigation}) {
                     renderItem={({item}) => {
                         return (
                             <ProductCategory
-                                image={item.image}
-                                method={() => navigation.navigate("Search", {search: item.name})}
+                                text = {item.name}
+                                method={() => console.log(item.name)}
                             />
                         )
                     }}
@@ -96,7 +96,51 @@ function HomeScreen({navigation}) {
                     }}
                 />
             </View>
-        </View>
+            <View style={{
+                marginVertical: sizes.Medium,
+            }}>
+                <FlatList
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    keyExtractor={(item) => item.id}
+                    data={topSellers}
+                    renderItem={({item}) => {
+                        return (
+                            <View style = {{
+                                backgroundColor: item.color,
+                                width: 300,
+                                height: 200,
+                                borderRadius: sizes.Medium,
+                                margin: sizes.Small,
+                                padding: sizes.ExtraSmall
+                            }}>
+                                <View>
+                                    <Text style = {{
+                                        fontSize: sizes.ExtraLarge,
+                                        color: colors.white,
+                                    }}>
+                                        {item.title}
+                                    </Text>
+                                    <TouchableOpacity style = {{
+                                        backgroundColor: colors.white,
+                                        alignItems: "center",
+                                        alignSelf: "flex-end",
+                                        padding: 5,
+                                        borderRadius: sizes.ExtraSmall,
+                                    }}>
+                                        <Text style = {{
+                                            fontSize: sizes.Medium,
+                                        }}>
+                                            Get Some
+                                        </Text>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        )
+                    }}
+                />
+            </View>
+        </ScrollView>
     );
 }
 
@@ -104,7 +148,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.defaultBG2,
-        paddingTop: sizes.ExtraLarge,
+        paddingVertical: sizes.ExtraLarge,
     },
 })
 

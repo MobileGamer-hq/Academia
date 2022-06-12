@@ -52,7 +52,7 @@ export default function SearchScreen({navigation, route}) {
                     renderItem={({item}) => {
                         return (
                             <ProductCategory
-                                image={item.image}
+                                text = {item.name}
                                 method={() => navigation.navigate("Search", {search: item.name})}
                             />
                         );
