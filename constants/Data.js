@@ -114,7 +114,16 @@ export const products = [
         image: require("../images/coke.png"),
         tags: ["snacks", "coke", "sweet"],
         id: "4",
-    }
+    },
+    {
+        title: "PS4 Controller",
+        description: "Working PS4 Dualshock controller",
+        price: "1,000",
+        seller: "----",
+        image: require("../images/ps4gamepad.png"),
+        tags: ["snacks", "coke", "sweet"],
+        id: "5",
+    },
 ];
 
 export const suggestedProducts = [
@@ -122,6 +131,7 @@ export const suggestedProducts = [
     products[3],
     products[1],
     products[2],
+    products[4],
 ]
 
 export const topSellers = [

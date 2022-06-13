@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
-import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
-import {SearchBar} from '../constants/Components'
-import {categories, colors, products, sizes} from '../constants/Data';
-import {ProductCategory} from '../constants/Objects';
+import React, { useState } from 'react'
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { SearchBar } from '../constants/Components'
+import { categories, colors, products, sizes } from '../constants/Data';
+import { ProductCategory } from '../constants/Objects';
 
-export default function SearchScreen({navigation, route}) {
+export default function SearchScreen({ navigation, route }) {
     let items = [];
     const [searchResult, setSearchResult] = useState(products)
 
@@ -49,11 +49,11 @@ export default function SearchScreen({navigation, route}) {
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={(item) => item.id}
                     data={categories}
-                    renderItem={({item}) => {
+                    renderItem={({ item }) => {
                         return (
                             <ProductCategory
-                                text = {item.name}
-                                method={() => navigation.navigate("Search", {search: item.name})}
+                                text={item.name}
+                                method={() => navigation.navigate("Search", { search: item.name })}
                             />
                         );
                     }}
@@ -64,16 +64,20 @@ export default function SearchScreen({navigation, route}) {
                     vertical
                     showsVerticalScrollIndicator={false}
                     data={searchResult}
-                    renderItem={({item}) => {
+                    renderItem={({ item }) => {
                         return (
                             <TouchableOpacity
                                 style={{
                                     backgroundColor: colors.white,
                                     marginVertical: sizes.ExtraSmall,
                                     marginHorizontal: 5,
+                                    borderRadius: 10,
                                     padding: sizes.ExtraSmall,
                                     flexDirection: "row",
+                                    height: 200,
                                 }}
+
+                                onPress = {()=> console.log(item)}
                             >
                                 <View style={{
                                     height: 100,
@@ -84,44 +88,14 @@ export default function SearchScreen({navigation, route}) {
                                             flex: 1,
                                         }}
                                         resizeMode="contain"
-                                        source={item.image}/>
+                                        source={item.image}
+                                    />
                                 </View>
                                 <View style = {{
                                     flexDirection: "column",
                                 }}>
                                     <Text>{item.title}</Text>
-                                    <Text>{item.price}</Text>
-                                    <View>
-                                        <FlatList
-                                            horizontal
-                                            showsHorizontalScrollIndicator={false}
-                                            //keyExtractor={(item)=>item.id}
-                                            data={product.tags}
-                                            renderItem={({item}) => {
-                                                return (
-                                                    <TouchableOpacity
-                                                        onPress={() => navigation.navigate("Search", {search: item})}
-                                                    >
-                                                        <View style={{
-                                                            margin: 10,
-                                                            padding: 5,
-                                                            backgroundColor: colors.black,
-                                                            borderRadius: sizes.ExtraLarge,
-                                                            alignItems: "center",
-                                                            justifyContent: "center",
-                                                        }}>
-                                                            <Text style={{
-                                                                fontSize: sizes.Small,
-                                                                color: colors.white,
-                                                            }}>
-                                                                {item}
-                                                            </Text>
-                                                        </View>
-                                                    </TouchableOpacity>
-                                                );
-                                            }}
-                                        />
-                                    </View>
+                                    <Text>{item.description}</Text>
                                 </View>
                             </TouchableOpacity>
                         );
@@ -134,7 +108,7 @@ export default function SearchScreen({navigation, route}) {
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 50,
+        paddingVertical: 50,
         flex: 1,
     }
 })

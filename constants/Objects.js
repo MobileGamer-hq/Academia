@@ -1,7 +1,7 @@
 import React from 'react';
-import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {RoundButton} from './Components';
-import {colors, sizes} from "./Data"
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { RoundButton } from './Components';
+import { colors, sizes } from "./Data"
 
 export const ProfilePicture = (props) => {
     return (
@@ -56,7 +56,7 @@ export function ProductMax(props) {
                         alignSelf: "center",
                     }}
                     resizeMode="contain"
-                    source={props.image}/>
+                    source={props.image} />
             </View>
             <View style={{
                 justifyContent: "flex-end",
@@ -90,7 +90,7 @@ export const ProductMin = (props) => {
                         flex: 1,
                     }}
                     resizeMode="contain"
-                    source={props.image}/>
+                    source={props.image} />
             </View>
             <View style={{
                 alignItems: "flex-start",
@@ -111,29 +111,16 @@ export const ProductCategory = (props) => {
         <TouchableOpacity
             style={styles.productCategory}
             onPress={props.method}>
-            {/* <View style={{
-                height: 35,
-                width: 35,
-            }}>
-                <Image
-                    style={{
-                        flex: 1,
-                    }}
-                    resizeMode="contain"
-                    source={props.image}
-                />
-            </View> */}
-
             <View
-                style = {{
+                style={{
                     marginHorizontal: 10,
                     marginVertical: 0,
                 }}
             >
-                <Text style = {{
+                <Text style={{
                     color: colors.white,
-                    fontSize: sizes.Small+2,
-                }}>{"#"+props.text}</Text>
+                    fontSize: sizes.Small + 2,
+                }}>{"#" + props.text}</Text>
             </View>
         </TouchableOpacity>
     );
@@ -143,7 +130,7 @@ export const ProductCategory = (props) => {
 export function UserProfile(props) {
     return (
         <View style={styles.userProfile}>
-            <ProfilePicture color={colors.defaultBG2} image={props.image}/>
+            <ProfilePicture color={colors.defaultBG2} image={props.image} />
             <View style={{
                 flexDirection: 'column',
             }}>
@@ -160,16 +147,16 @@ export function UserProfile(props) {
                     fontSize: sizes.Small,
                 }}>{props.followers + " followers"}</Text>
             </View>
-            <TouchableOpacity style = {{
+            <TouchableOpacity style={{
                 backgroundColor: colors.black,
                 alignItems: "center",
                 justifyContent: "center",
-                height: sizes.Medium+ 10,
+                height: sizes.Medium + 10,
                 padding: 5,
                 borderRadius: sizes.ExtraSmall,
             }}>
                 <Text style={{
-                    fontSize: sizes.Small+2.5,
+                    fontSize: sizes.Small + 2.5,
                     color: colors.white,
                 }}>
                     Follow
@@ -187,7 +174,7 @@ export const UserProfileMin = (props) => {
             <TouchableOpacity
                 onPress={props.method}
             >
-                <ProfilePicture color={colors.white} image={props.image}/>
+                <ProfilePicture color={colors.white} image={props.image} />
             </TouchableOpacity>
             <View style={{
                 alignItems: "center",
@@ -198,7 +185,7 @@ export const UserProfileMin = (props) => {
                 <Text>{user.followers + " followers"}</Text>
             </View>
             <View>
-                <TouchableOpacity style = {{
+                <TouchableOpacity style={{
                     borderRadius: sizes.ExtraLarge,
                 }}>
 
@@ -217,7 +204,7 @@ export const SearchResult = (props) => {
                 showsHorizontalScrollIndicator={false}
                 keyExtractor={(item) => item.id}
                 data={props.data}
-                renderItem={({item}) => {
+                renderItem={({ item }) => {
                     return (
                         <TouchableOpacity
                             style={{
@@ -233,7 +220,7 @@ export const SearchResult = (props) => {
                                         flex: 1,
                                     }}
                                     resizeMode="contain"
-                                    source={item.image}/>
+                                    source={item.image} />
                             </View>
                             <View>
                                 <Text>{item.title}</Text>

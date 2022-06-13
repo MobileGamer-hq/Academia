@@ -1,10 +1,10 @@
 import React from 'react';
-import {FlatList, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity} from 'react-native';
-import {categories, colors, sizes, suggestedProducts, users, dataObject, products, topSellers} from '../constants/Data';
-import {ProductCategory, ProductMax, UserProfileMin} from '../constants/Objects';
-import {RoundButton, SearchBar} from '../constants/Components';
+import { FlatList, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { categories, colors, sizes, suggestedProducts, users, dataObject, products, topSellers } from '../constants/Data';
+import { ProductCategory, ProductMax, UserProfileMin } from '../constants/Objects';
+import { RoundButton, SearchBar } from '../constants/Components';
 
-function HomeScreen({navigation}) {
+function HomeScreen({ navigation }) {
     const currentUser = users[0];
     return (
         <ScrollView style={styles.container}>
@@ -13,7 +13,7 @@ function HomeScreen({navigation}) {
                 justifyContent: "space-evenly",
                 alignItems: "center",
             }}>
-                <SearchBar/>
+                <SearchBar />
                 <RoundButton
                     image={currentUser.profilePicture}
                     height={45}
@@ -21,7 +21,7 @@ function HomeScreen({navigation}) {
                     color={colors.white}
                     method={() => {
                         let item = currentUser;
-                        navigation.navigate("UserAccount", {item});
+                        navigation.navigate("UserAccount", { item });
                     }}
                 />
             </View>
@@ -33,10 +33,10 @@ function HomeScreen({navigation}) {
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={(item) => item.id}
                     data={categories}
-                    renderItem={({item}) => {
+                    renderItem={({ item }) => {
                         return (
                             <ProductCategory
-                                text = {item.name}
+                                text={item.name}
                                 method={() => console.log(item.name)}
                             />
                         )
@@ -62,7 +62,7 @@ function HomeScreen({navigation}) {
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={(item) => item.id}
                     data={suggestedProducts}
-                    renderItem={({item}) => {
+                    renderItem={({ item }) => {
                         return (
                             <ProductMax
                                 product={item}
@@ -70,7 +70,7 @@ function HomeScreen({navigation}) {
                                 price={item.price}
                                 image={item.image}
                                 seller={item.seller}
-                                method={() => navigation.navigate("Product", {item})}
+                                method={() => navigation.navigate("Product", { item })}
                             />
                         )
                     }}
@@ -84,13 +84,13 @@ function HomeScreen({navigation}) {
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={(item) => item.id}
                     data={users}
-                    renderItem={({item}) => {
+                    renderItem={({ item }) => {
                         return (
                             <UserProfileMin
                                 user={item}
                                 color={item.colors}
                                 image={item.profilePicture}
-                                method={() => navigation.navigate("Account", {item})}
+                                method={() => navigation.navigate("Account", { item })}
                             />
                         )
                     }}
@@ -104,9 +104,9 @@ function HomeScreen({navigation}) {
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={(item) => item.id}
                     data={topSellers}
-                    renderItem={({item}) => {
+                    renderItem={({ item }) => {
                         return (
-                            <View style = {{
+                            <View style={{
                                 backgroundColor: item.color,
                                 width: 300,
                                 height: 200,
@@ -115,23 +115,23 @@ function HomeScreen({navigation}) {
                                 padding: sizes.ExtraSmall
                             }}>
                                 <View>
-                                    <Text style = {{
+                                    <Text style={{
                                         fontSize: sizes.ExtraLarge,
                                         color: colors.white,
                                     }}>
                                         {item.title}
                                     </Text>
-                                    <TouchableOpacity style = {{
+                                    <TouchableOpacity style={{
                                         backgroundColor: colors.white,
                                         alignItems: "center",
                                         alignSelf: "flex-end",
                                         padding: 5,
                                         borderRadius: sizes.ExtraSmall,
                                     }}>
-                                        <Text style = {{
+                                        <Text style={{
                                             fontSize: sizes.Medium,
                                         }}>
-                                            Get Some
+                                            Check Out
                                         </Text>
                                     </TouchableOpacity>
                                 </View>

@@ -8,7 +8,7 @@ const MyAccountScreen = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style = {{
+      <View style={{
         backgroundColor: colors.white,
         padding: 10,
       }}>
@@ -17,10 +17,16 @@ const MyAccountScreen = ({ route, navigation }) => {
           justifyContent: "space-around",
           width: 350,
         }}>
-          <ProfilePicture
-            image={user.profilePicture}
-            color={colors.white}
-          />
+          <View>
+            <ProfilePicture
+              image={user.profilePicture}
+              color={colors.white}
+            />
+            <Text style={{
+              fontSize: sizes.Small,
+            }}>{user.name}</Text>
+            <Text>{user.descrition}</Text>
+          </View>
           <View style={{
             flexDirection: "row",
             justifyContent: "space-between",
@@ -32,10 +38,10 @@ const MyAccountScreen = ({ route, navigation }) => {
                 margin: 5,
               }}>
                 <Text style={{
-                  fontSize: sizes.Small+5
+                  fontSize: sizes.Small + 5
                 }}>{user.sellerInfo.amountSelling}</Text>
                 <Text style={{
-                  fontSize: sizes.ExtraSmall+5
+                  fontSize: sizes.ExtraSmall + 5
                 }}>Products</Text>
               </TouchableOpacity>
             </View>
@@ -45,10 +51,10 @@ const MyAccountScreen = ({ route, navigation }) => {
                 margin: 5,
               }}>
                 <Text style={{
-                  fontSize: sizes.Small+5
+                  fontSize: sizes.Small + 5
                 }}>{user.followers}</Text>
                 <Text style={{
-                  fontSize: sizes.ExtraSmall+5
+                  fontSize: sizes.ExtraSmall + 5
                 }}>Followers</Text>
               </TouchableOpacity>
             </View>
@@ -58,24 +64,16 @@ const MyAccountScreen = ({ route, navigation }) => {
                 margin: 5,
               }}>
                 <Text style={{
-                  fontSize: sizes.Small+5
+                  fontSize: sizes.Small + 5
                 }}>{user.following.length}</Text>
                 <Text style={{
-                  fontSize: sizes.ExtraSmall+5
+                  fontSize: sizes.ExtraSmall + 5
                 }}>Following</Text>
               </TouchableOpacity>
             </View>
           </View>
         </View>
-        <View style={{
-          alignItems: "flex-start",
-        }}>
-          <Text style = {{
-            fontSize: sizes.Small,
-          }}>{user.name}</Text>
-          <Text>{user.descrition}</Text>
-        </View>
-        <TouchableOpacity style = {{
+        <TouchableOpacity style={{
           alignSelf: "flex-end"
         }}>
           <Text>Edit Profile</Text>
