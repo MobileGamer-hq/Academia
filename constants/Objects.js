@@ -126,6 +126,22 @@ export const ProductCategory = (props) => {
     );
 }
 
+export function CartItem(props) {
+  return (
+    <View>
+        <TouchableOpacity style = {{
+            flexDirection: "row",
+            backgroundColor: colors.white,
+            borderRadius: sizes.Small,
+            height: 150,
+            alignItems: 'center',
+            justifyContent: "flex-start"
+        }}>
+            
+        </TouchableOpacity>
+    </View>
+  )
+}
 
 export function UserProfile(props) {
     return (
