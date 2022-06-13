@@ -127,20 +127,33 @@ export const ProductCategory = (props) => {
 }
 
 export function CartItem(props) {
-  return (
-    <View>
-        <TouchableOpacity style = {{
-            flexDirection: "row",
-            backgroundColor: colors.white,
-            borderRadius: sizes.Small,
-            height: 150,
-            alignItems: 'center',
-            justifyContent: "flex-start"
-        }}>
-            
-        </TouchableOpacity>
-    </View>
-  )
+    return (
+        <View>
+            <TouchableOpacity style={{
+                flexDirection: "row",
+                backgroundColor: colors.white,
+                borderRadius: sizes.Small,
+                height: 150,
+                alignItems: 'center',
+                justifyContent: "flex-start"
+            }}>
+                <View style={{
+                    height: 100,
+                    alignSelf: "center",
+                    justifyContent: "center",
+                }}>
+                    <Image
+                        style={{
+                            flex: 1,
+                            alignSelf: "center",
+                        }}
+                        resizeMode="contain"
+                        source={props.image} />
+                </View>
+
+            </TouchableOpacity>
+        </View>
+    )
 }
 
 export function UserProfile(props) {
