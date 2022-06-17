@@ -112,7 +112,7 @@ function HomeScreen({ navigation }) {
                                 height: 200,
                                 borderRadius: sizes.Medium,
                                 margin: sizes.Small,
-                                padding: sizes.ExtraSmall
+                                padding: sizes.ExtraSmall,
                             }}>
                                 <View>
                                     <Text style={{

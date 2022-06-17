@@ -128,15 +128,23 @@ export const ProductCategory = (props) => {
 
 export function CartItem(props) {
     return (
-        <View>
-            <TouchableOpacity style={{
-                flexDirection: "row",
-                backgroundColor: colors.white,
-                borderRadius: sizes.Small,
-                height: 150,
-                alignItems: 'center',
-                justifyContent: "flex-start"
-            }}>
+        <View style={{
+            elevation: sizes.ExtraSmall,
+            marginVertical: sizes.ExtraSmall,
+        }}>
+            <TouchableOpacity
+                style={{
+                    flexDirection: "row",
+                    backgroundColor: colors.white,
+                    borderRadius: sizes.Small,
+                    height: 150,
+                    alignItems: 'center',
+                    justifyContent: "flex-start",
+                    padding: 5,
+                }}
+
+                onPress={props.method}
+            >
                 <View style={{
                     height: 100,
                     alignSelf: "center",
@@ -150,11 +158,38 @@ export function CartItem(props) {
                         resizeMode="contain"
                         source={props.image} />
                 </View>
-
+                <View>
+                    <Text>{props.title}</Text>
+                    <Text>{props.description}</Text>
+                </View>
+                <View>
+                    <TouchableOpacity style={{
+                        backgroundColor: colors.grey,
+                        padding: 5,
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}>
+                        <Text style={{
+                            fontSize: sizes.Small,
+                        }}>Cancle</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{
+                        backgroundColor: colors.black,
+                        padding: 5,
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}>
+                        <Text style={{
+                            color: colors.white,
+                            fontSize: sizes.Small,
+                        }}>Cancle</Text>
+                    </TouchableOpacity>
+                </View>
             </TouchableOpacity>
         </View>
     )
-}
+};
+
 
 export function UserProfile(props) {
     return (

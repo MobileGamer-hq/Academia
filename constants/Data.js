@@ -289,7 +289,9 @@ export const bestSellers = [
 
 export const cart = [];
 
-export const orders = []
+export const orders = [
+    [products[0], products[2], products[3]],[products[1], products[4], products[5]]
+];
 
 export const settings = {
     currency: " naira",

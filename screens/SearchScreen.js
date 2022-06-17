@@ -77,7 +77,7 @@ export default function SearchScreen({ navigation, route }) {
                                     height: 200,
                                 }}
 
-                                onPress = {()=> console.log(item)}
+                                onPress={() => console.log(item)}
                             >
                                 <View style={{
                                     height: 100,
@@ -91,7 +91,7 @@ export default function SearchScreen({ navigation, route }) {
                                         source={item.image}
                                     />
                                 </View>
-                                <View style = {{
+                                <View style={{
                                     flexDirection: "column",
                                 }}>
                                     <Text>{item.title}</Text>

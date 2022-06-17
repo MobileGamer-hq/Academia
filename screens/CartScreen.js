@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
 import { colors, images, fonts, products, cart } from '../constants/Data';
+import { CartItem } from '../constants/Objects';
 
 
-function CartScreen(props) {
-
+function CartScreen({route, navigation}) {
     return (
         <View style={styles.container}>
             <View>
@@ -15,9 +15,11 @@ function CartScreen(props) {
                     data={cart}
                     renderItem={({ item }) => {
                         return (
-                            <View>
-                                
-                            </View>
+                            <CartItem
+                                image={item.image}
+                                title={item.title}
+                                description={item.description}
+                            />
                         );
                     }}
                 />
