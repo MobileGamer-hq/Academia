@@ -83,7 +83,7 @@ export const products = [
         description: "dark creamy chocolate biscuits, so sweat that you wont want anything else",
         price: "100",
         seller: "Nick",
-        image: require("../images/othersIcon.png"),
+        image: require("../images/oreos.jpg"),
         tags: ["chocolate", "biscuits", "sweat", "wont want anything else"],
         id: "1",
     },
@@ -121,7 +121,7 @@ export const products = [
         price: "1,000",
         seller: "----",
         image: require("../images/ps4gamepad.png"),
-        tags: ["snacks", "coke", "sweet"],
+        tags: ["game", "ps4", "console", "black controller"],
         id: "5",
     },
 ];
