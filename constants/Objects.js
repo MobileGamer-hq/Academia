@@ -114,7 +114,7 @@ export const ProductCategory = (props) => {
             <View
                 style={{
                     marginHorizontal: 10,
-                    marginVertical: 0,
+                    height: 25,
                 }}
             >
                 <Text style={{

@@ -1,19 +1,19 @@
 import React from 'react';
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
 import { colors, images, sizes } from '../constants/Data';
 
 function ProductScreen({ route, navigation }) {
     const product = route.params.item;
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container} showsVerticalScrollIndicator ={false}>
             <Text style={{
                 fontSize: sizes.ExtraLarge,
                 marginBottom: sizes.Small,
             }}>{product.title}</Text>
             <View style={{
                 height: 500,
-                width: 350,
+                width: "100%",
                 alignSelf: "center",
                 alignItems: "center",
             }}>
@@ -102,7 +102,7 @@ function ProductScreen({ route, navigation }) {
                     </View>
                 </TouchableOpacity>
             </View>
-        </View>
+        </ScrollView>
     );
 }
 

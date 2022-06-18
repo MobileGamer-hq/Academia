@@ -18,7 +18,6 @@ export default function SearchScreen({ navigation, route }) {
             for (let x = 0; x < item.length; x++) {
                 if (item[x].toLowerCase().includes(val)) {
                     items.push(products[i])
-
                 }
             }
         }
@@ -40,9 +39,11 @@ export default function SearchScreen({ navigation, route }) {
     //Search(searchText);
     return (
         <View style={styles.container}>
-            <SearchBar
-                method={(val) => Search(val)}
-            />
+            <View>
+                <SearchBar
+                    method={(val) => Search(val)}
+                />
+            </View>
             <View>
                 <FlatList
                     horizontal
@@ -108,7 +109,7 @@ export default function SearchScreen({ navigation, route }) {
 
 const styles = StyleSheet.create({
     container: {
-        paddingVertical: 50,
+        paddingVertical: sizes.ExtraLarge,
         flex: 1,
     }
 })

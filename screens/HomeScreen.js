@@ -7,11 +7,12 @@ import { RoundButton, SearchBar } from '../constants/Components';
 function HomeScreen({ navigation }) {
     const currentUser = users[0];
     return (
-        <ScrollView style={styles.container}>
+        <View style={styles.container}>
             <View style={{
                 flexDirection: "row",
                 justifyContent: "space-evenly",
                 alignItems: "center",
+                backgroundColor: colors.defaultBG2,
             }}>
                 <SearchBar />
                 <RoundButton
@@ -25,96 +26,97 @@ function HomeScreen({ navigation }) {
                     }}
                 />
             </View>
-            <View style={{
-                marginVertical: sizes.Small,
-            }}>
-                <FlatList
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                    keyExtractor={(item) => item.id}
-                    data={categories}
-                    renderItem={({ item }) => {
-                        return (
-                            <ProductCategory
-                                text={item.name}
-                                method={() => console.log(item.name)}
-                            />
-                        )
-                    }}
-                />
-            </View>
-            <View style={{
-                flexDirection: "column",
-                justifyContent: "center",
-                width: "100%",
-                alignItems: "center",
-                marginVertical: sizes.Medium,
-            }}>
-                <Text style={{
-                    fontSize: sizes.Medium,
-                    alignSelf: "flex-start",
-                    marginLeft: sizes.Small,
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <View style={{
+                    marginVertical: sizes.Small,
                 }}>
-                    Suggested
-                </Text>
-                <FlatList
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                    keyExtractor={(item) => item.id}
-                    data={suggestedProducts}
-                    renderItem={({ item }) => {
-                        return (
-                            <ProductMax
-                                product={item}
-                                title={item.title}
-                                price={item.price}
-                                image={item.image}
-                                seller={item.seller}
-                                method={() => navigation.navigate("Product", { item })}
-                            />
-                        )
-                    }}
-                />
-            </View>
-            <View style={{
-                marginVertical: sizes.Medium,
-            }}>
-                <FlatList
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                    keyExtractor={(item) => item.id}
-                    data={users}
-                    renderItem={({ item }) => {
-                        return (
-                            <UserProfileMin
-                                user={item}
-                                color={item.colors}
-                                image={item.profilePicture}
-                                method={() => navigation.navigate("Account", { item })}
-                            />
-                        )
-                    }}
-                />
-            </View>
-            <View style={{
-                marginVertical: sizes.Medium,
-            }}>
-                <FlatList
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                    keyExtractor={(item) => item.id}
-                    data={topSellers}
-                    renderItem={({ item }) => {
-                        return (
-                            <View style={{
-                                backgroundColor: item.color,
-                                width: 300,
-                                height: 200,
-                                borderRadius: sizes.Medium,
-                                margin: sizes.Small,
-                                padding: sizes.ExtraSmall,
-                            }}>
-                                <View>
+                    <FlatList
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        keyExtractor={(item) => item.id}
+                        data={categories}
+                        renderItem={({ item }) => {
+                            return (
+                                <ProductCategory
+                                    text={item.name}
+                                    method={() => navigation.navigate("Search", { item })}
+                                />
+                            )
+                        }}
+                    />
+                </View>
+                <View style={{
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    width: "100%",
+                    alignItems: "center",
+                    marginVertical: sizes.Medium,
+                }}>
+                    <Text style={{
+                        fontSize: sizes.Medium,
+                        alignSelf: "flex-start",
+                        marginLeft: sizes.Small,
+                    }}>
+                        Suggested
+                    </Text>
+                    <FlatList
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        keyExtractor={(item) => item.id}
+                        data={suggestedProducts}
+                        renderItem={({ item }) => {
+                            return (
+                                <ProductMax
+                                    product={item}
+                                    title={item.title}
+                                    price={item.price}
+                                    image={item.image}
+                                    seller={item.seller}
+                                    method={() => navigation.navigate("Product", { item })}
+                                />
+                            )
+                        }}
+                    />
+                </View>
+                <View style={{
+                    marginVertical: sizes.Medium,
+                }}>
+                    <FlatList
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        keyExtractor={(item) => item.id}
+                        data={users}
+                        renderItem={({ item }) => {
+                            return (
+                                <UserProfileMin
+                                    user={item}
+                                    color={item.colors}
+                                    image={item.profilePicture}
+                                    method={() => navigation.navigate("Account", { item })}
+                                />
+                            )
+                        }}
+                    />
+                </View>
+                <View style={{
+                    marginVertical: sizes.Medium,
+                }}>
+                    <FlatList
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        keyExtractor={(item) => item.id}
+                        data={topSellers}
+                        renderItem={({ item }) => {
+                            return (
+                                <View style={{
+                                    backgroundColor: item.color,
+                                    width: 300,
+                                    height: 200,
+                                    borderRadius: sizes.Medium,
+                                    margin: sizes.Small,
+                                    padding: sizes.ExtraSmall,
+                                    justifyContent: "space-between",
+                                }}>
                                     <Text style={{
                                         fontSize: sizes.ExtraLarge,
                                         color: colors.white,
@@ -127,7 +129,9 @@ function HomeScreen({ navigation }) {
                                         alignSelf: "flex-end",
                                         padding: 5,
                                         borderRadius: sizes.ExtraSmall,
-                                    }}>
+                                    }}
+
+                                        onPress={() => navigation.navigate("Product", { item })}>
                                         <Text style={{
                                             fontSize: sizes.Medium,
                                         }}>
@@ -135,12 +139,18 @@ function HomeScreen({ navigation }) {
                                         </Text>
                                     </TouchableOpacity>
                                 </View>
-                            </View>
-                        )
-                    }}
-                />
-            </View>
-        </ScrollView>
+                            )
+                        }}
+                    />
+                </View>
+
+                <View style = {{
+                    marginVertical: sizes.Medium,
+                }}>
+                    <Text>Hello</Text>
+                </View>
+            </ScrollView>
+        </View>
     );
 }
 
