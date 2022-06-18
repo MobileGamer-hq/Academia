@@ -10,11 +10,12 @@ const SignInScreen = ({navigation}) => {
 
     return (
         <View style={styles.container}>
-            <Text style={{
-                fontSize: sizes.ExtraLarge,
-                alignSelf: "flex-start",
-            }}>SignIn</Text>
             <View>
+                <Text style={{
+                    fontSize: sizes.ExtraLarge,
+                    alignSelf: "flex-start",
+                    marginVertical: sizes.Medium,
+                }}>SignIn</Text>
                 <TextInput
                     onChangeText={(val) => setEmail(val)}
                     style={styles.textInput}
@@ -26,12 +27,17 @@ const SignInScreen = ({navigation}) => {
                     placeholder="Enter your password"
                 />
             </View>
-            <View>
+            <View style = {{
+                alignItems: "center",
+            }}>
                 <TouchableOpacity
                     style={{
                         backgroundColor: colors.black,
-                        height: 30,
-                        width: 70,
+                        height: 50,
+                        width: 350,
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderRadius: sizes.ExtraLarge,
                     }}
 
                     onPress={() => {
@@ -43,11 +49,9 @@ const SignInScreen = ({navigation}) => {
                         color: colors.white,
                     }}>SignIn</Text>
                 </TouchableOpacity>
-            </View>
-            <View>
                 <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
                     <Text style={{
-                        fontSize: sizes.Medium,
+                        fontSize: sizes.Small+2.5,
                         color: colors.black,
                     }}>
                         Don't have an account, create one.
@@ -64,16 +68,18 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         paddingVertical: sizes.ExtraLarge,
+        justifyContent: "space-between",
     },
 
     textInput: {
         borderRadius: sizes.ExtraSmall,
         borderWidth: 1,
-        marginHorizontal: sizes.ExtraSmall,
+        margin: sizes.ExtraSmall,
         paddingHorizontal: sizes.Small,
         backgroundColor: colors.white,
-        height: 40,
-        borderColor: "transparent",
+        height: 50,
+        width: 350,
+        borderColor: "black",
     },
 })
 
