@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+
 //Screens
 import HomeScreen from './screens/HomeScreen';
 import AccountScreen from './screens/AccountScreen';
@@ -12,14 +13,20 @@ import SettingScreen from './screens/SettingScreen';
 import SearchScreen from './screens/SearchScreen';
 import LandingScreen from './screens/LandingScreen';
 import MyAccountScreen from './screens/MyAccountScreen';
-// import SignInScreen from "./screens/SignInScreen";
-// import SignUpScreen from "./screens/SignUpScreen";
+import SignUpScreen from "./screens/SignUpScreen";
+import SignInScreen from "./screens/SignInScreen";
+import { saveData, getData} from './constants/Sever';
+import { users } from './constants/Data';
+
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [loggedIn, setLoggedIn] =  useState(true);
-
+  users.forEach(element => {
+    saveData(element, "AppData");
+  });
+  getData("AppData");
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -60,7 +67,7 @@ export default function App() {
           component={SearchScreen}
           options = {{headerShown: false}}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
             name="SignIn"
             component={SignInScreen}
             options = {{headerShown: false}}
@@ -69,7 +76,7 @@ export default function App() {
             name="SignUp"
             component={SignUpScreen}
             options = {{headerShown: false}}
-        /> */}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

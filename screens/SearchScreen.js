@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { SearchBar } from '../constants/Components'
 import { categories, colors, products, sizes } from '../constants/Data';
-import { ProductCategory } from '../constants/Objects';
+import { ProductCategory, SearchBar} from '../constants/Components';
 
 export default function SearchScreen({ navigation, route }) {
     let items = [];
@@ -18,6 +17,8 @@ export default function SearchScreen({ navigation, route }) {
             for (let x = 0; x < item.length; x++) {
                 if (item[x].toLowerCase().includes(val)) {
                     items.push(products[i])
+                }else{
+                    continue;
                 }
             }
         }

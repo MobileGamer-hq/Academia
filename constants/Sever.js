@@ -30,6 +30,8 @@ const auth = getAuth(app);
 const firestore = getFirestore(app);
 const storage = getStorage(app, "gs://academia-c3d0e.appspot.com/");
 
+export let data = [];
+
 // const providerGoogle = new GoogleAuthProvider();
 // providerGoogle.addScope('https://www.googleapis.com/auth/contacts.readonly');
 // auth.languageCode = 'it';
@@ -55,7 +57,10 @@ export async function getData(path){
     const querySnapshot = await getDocs(collection(firestore, path));
     querySnapshot.forEach((doc) => {
         console.log(`${doc.id} => ${doc.data()}`);
+        data.push(doc.data());
+        console.log(data)
     });
+
 }
 
 export function readData(ref, callback) {

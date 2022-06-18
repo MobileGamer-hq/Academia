@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
 import { colors, images, fonts, products, cart } from '../constants/Data';
-import { CartItem } from '../constants/Objects';
+import { CartItem } from '../constants/Components';
 
 
 function CartScreen({route, navigation}) {

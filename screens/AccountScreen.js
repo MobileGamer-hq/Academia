@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Image, FlatList } from 'react-native';
 import { colors, images, fonts, products, users, sizes } from '../constants/Data';
-import { UserProfile, ProductMin } from '../constants/Objects';
+import { UserProfile, ProductMin } from '../constants/Components';
 
 
 function AccountScreen({ route, navigation }) {

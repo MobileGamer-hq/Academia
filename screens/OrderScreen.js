@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native'
 import { sizes, colors, products, images, fonts, orders } from '../constants/Data'
-import { ProductMax } from '../constants/Objects'
+import { ProductMax } from '../constants/Components'
 
 const OrderScreen = ({ navigation }) => {
     return (

@@ -1,11 +1,13 @@
 import React from 'react';
 import { FlatList, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { categories, colors, sizes, suggestedProducts, users, dataObject, products, topSellers } from '../constants/Data';
-import { ProductCategory, ProductMax, UserProfileMin } from '../constants/Objects';
-import { RoundButton, SearchBar } from '../constants/Components';
+import { RoundButton, SearchBar, ProductCategory, ProductMax, UserProfileMin  } from '../constants/Components';
+import {saveData, getData } from "../constants/Sever"
+
 
 function HomeScreen({ navigation }) {
     const currentUser = users[0];
+
     return (
         <View style={styles.container}>
             <View style={{
@@ -13,6 +15,7 @@ function HomeScreen({ navigation }) {
                 justifyContent: "space-evenly",
                 alignItems: "center",
                 backgroundColor: colors.defaultBG2,
+                paddingBottom: sizes.Medium
             }}>
                 <SearchBar />
                 <RoundButton

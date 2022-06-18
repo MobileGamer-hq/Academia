@@ -1,53 +1,33 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, TextInput } from "react-native";
 import { colors, images, fonts, sizes } from "../constants/Data";
 import {SignUp} from "../constants/Sever"
 
 
-class SignUpScreen extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: "",
-            email: "",
-            password: "",
-        };
+const SignUpScreen = ({navigation}) => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-        // this.onSignUp = this.onSignUp.bind(this);
-    }
-
-    // onSignUp() {
-    //     const { name, email, password } = this.state;
-    //     firebase
-    //         .auth()
-    //         .createUserWithEmailAndPassword(email, password)
-    //         .then((result) => {
-    //             console.log(result);
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         });
-    // }
-
-    render() {
-        return (
-            <View>
+    return(
+        <View style={styles.container}>
                 <Text style = {{
                     fontSize: sizes.ExtraLarge,
+                    alignSelf: "flex-start",
                 }}>SignUp</Text>
                 <View>
                     <TextInput 
-                        onChangeText={(val) => this.state.name = val}
+                        onChangeText={(val) => setName(val)}
                         style={styles.textInput}
                         placeholder="Username"
                     />
                     <TextInput 
-                        onChangeText={(val) => this.state.email = val}
+                        onChangeText={(val) => setEmail(val)}
                         style={styles.textInput}
                         placeholder="Enter your email"
                     />
                     <TextInput 
-                        onChangeText={(val) => this.state.password = val}
+                        onChangeText={(val) => setPassword(val)}
                         style={styles.textInput}
                         placeholder="Enter a password"
                     />
@@ -60,7 +40,7 @@ class SignUpScreen extends Component {
                             width: 70,
                         }}
                         onPress={() => {
-                            SignUp(this.state.email,this.state.password,this.state.name);
+                            SignUp(email,password,name);
                         }}
                     >
                         <Text
@@ -74,7 +54,7 @@ class SignUpScreen extends Component {
                     </TouchableOpacity>
                 </View>
                 <View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
                         <Text style={{
                             fontSize:  sizes.Medium,
                             color: colors.black,
@@ -84,15 +64,18 @@ class SignUpScreen extends Component {
                     </TouchableOpacity>
                 </View>
             </View>
-        );
-    }
+    );
+
 }
+
+
 
 const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.white,
         flex: 1,
-        alignItems: "flex-start",
+        alignItems: "center",
+        paddingVertical: sizes.ExtraLarge,
     },
 
     textInput: {

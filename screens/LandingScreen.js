@@ -7,7 +7,9 @@ function LandingScreen({ navigation }) {
         <View style={styles.container}>
             <Text style = {{
                 fontSize: sizes.ExtraLarge,
-            }}>Academia</Text>
+            }}>
+                Academia
+            </Text>
             <View style={{
                 height: 300,
                 width: 300,
@@ -28,30 +30,21 @@ function LandingScreen({ navigation }) {
                 justifyContent: "space-evenly",
                 margin: sizes.Large,
             }}>
-                //SignIn Button
-                <TouchableOpacity
-                    style={styles.buttonStyle}
-                    onPress={() => navigation.navigate("SignIn")}
-                >
+                <TouchableOpacity 
+                    style = {styles.buttonStyle} 
+                    onPress={() => navigation.navigate("SignIn")}>
                     <Text style={{
                         color: colors.white,
-                        fontSize: sizes.Medium
-                    }}>
-                        SignIn
-                    </Text>
+                       fontSize: sizes.Medium,
+                    }}>SignIn</Text>
                 </TouchableOpacity>
-
-                //SignUp Button
-                <TouchableOpacity
-                    style={styles.buttonStyle}
-                    onPress={() => navigation.navigate("SignIn")}
-                >
+                <TouchableOpacity 
+                    style = {styles.buttonStyle} 
+                    onPress={() => navigation.navigate("SignUp")}>
                     <Text style={{
                         color: colors.white,
-                        fontSize: sizes.Medium
-                    }}>
-                        SignIn
-                    </Text>
+                       fontSize: sizes.Medium,
+                    }}>SignUp</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -59,17 +52,22 @@ function LandingScreen({ navigation }) {
     );
 }
 
+
 const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.white,
         flex: 1,
         alignItems: "center",
+        paddingVertical: sizes.ExtraLarge,
+        justifyContent: "space-evenly",
     },
 
     buttonStyle: {
         backgroundColor: colors.black,
         paddingHorizontal: sizes.ExtraLarge,
         paddingVertical: sizes.Small,
+        margin: sizes.Medium,
+        borderRadius: sizes.ExtraLarge,
     },
 
 

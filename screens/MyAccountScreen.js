@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import { colors, sizes } from '../constants/Data'
-import { ProfilePicture, ProductMin } from "../constants/Objects"
+import { ProfilePicture, ProductMin } from "../constants/Components"
 
 const MyAccountScreen = ({ route, navigation }) => {
   const user = route.params.item;
@@ -17,7 +17,9 @@ const MyAccountScreen = ({ route, navigation }) => {
           justifyContent: "space-around",
           width: 350,
         }}>
-          <View>
+          <View style={{
+            alignItems: "center",
+          }}>
             <ProfilePicture
               image={user.profilePicture}
               color={colors.white}
@@ -77,6 +79,11 @@ const MyAccountScreen = ({ route, navigation }) => {
           alignSelf: "flex-end"
         }}>
           <Text>Edit Profile</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{
+          alignSelf: "flex-end"
+        }} onPress = {()=>{navigation.navigate("Landing")}}>
+          <Text>Log Out</Text>
         </TouchableOpacity>
       </View>
       <View>
