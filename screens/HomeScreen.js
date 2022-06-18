@@ -15,7 +15,6 @@ function HomeScreen({ navigation }) {
                 justifyContent: "space-evenly",
                 alignItems: "center",
                 backgroundColor: colors.defaultBG2,
-                paddingBottom: sizes.Medium
             }}>
                 <SearchBar />
                 <RoundButton
@@ -31,7 +30,7 @@ function HomeScreen({ navigation }) {
             </View>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={{
-                    marginVertical: sizes.Small,
+                    marginVertical: sizes.ExtraSmall,
                 }}>
                     <FlatList
                         horizontal
@@ -53,7 +52,7 @@ function HomeScreen({ navigation }) {
                     justifyContent: "center",
                     width: "100%",
                     alignItems: "center",
-                    marginVertical: sizes.Medium,
+                    marginVertical: sizes.ExtraSmall,
                 }}>
                     <Text style={{
                         fontSize: sizes.Medium,
@@ -82,7 +81,7 @@ function HomeScreen({ navigation }) {
                     />
                 </View>
                 <View style={{
-                    marginVertical: sizes.Medium,
+                    marginVertical: sizes.Small,
                 }}>
                     <FlatList
                         horizontal
@@ -102,7 +101,7 @@ function HomeScreen({ navigation }) {
                     />
                 </View>
                 <View style={{
-                    marginVertical: sizes.Medium,
+                    marginVertical: sizes.Small,
                 }}>
                     <FlatList
                         horizontal
@@ -131,6 +130,7 @@ function HomeScreen({ navigation }) {
                                         alignItems: "center",
                                         alignSelf: "flex-end",
                                         padding: 5,
+                                        margin: 5,
                                         borderRadius: sizes.ExtraSmall,
                                     }}
 
@@ -145,12 +145,6 @@ function HomeScreen({ navigation }) {
                             )
                         }}
                     />
-                </View>
-
-                <View style = {{
-                    marginVertical: sizes.Medium,
-                }}>
-                    <Text>Hello</Text>
                 </View>
             </ScrollView>
         </View>

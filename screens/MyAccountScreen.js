@@ -87,6 +87,13 @@ const MyAccountScreen = ({ route, navigation }) => {
         </TouchableOpacity>
       </View>
       <View>
+        <Text style={{
+          fontSize: sizes.Medium,
+          alignSelf: "flex-start",
+          marginLeft: sizes.Small,
+        }}>
+          Products
+        </Text>
         <View>
           <FlatList
             horizontal
@@ -146,6 +153,18 @@ const MyAccountScreen = ({ route, navigation }) => {
           />
         </View>
 
+      </View>
+      <View>
+        <TouchableOpacity style={{
+          backgroundColor: colors.black,
+        }}>
+          <Text style={{
+            fontSize: sizes.Medium,
+            color: colors.white,
+          }}>
+            add product
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
