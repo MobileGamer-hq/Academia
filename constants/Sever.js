@@ -58,6 +58,20 @@ export async function getData(path){
     });
 }
 
+export function readData(ref, callback) {
+    const docRef = ref(firestore, ref);
+    docRef.get().then((doc) => {
+        if (doc.exists) {
+            callback(doc.data());
+        } else {
+            console.log("No such document!");
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+}
+
+
 export const SignIn = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
