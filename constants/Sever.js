@@ -1,11 +1,11 @@
 // Import the functions you need from the SDKs you need
 //import {firebase} from "@react-native-firebase/firestore";
-import {initializeApp} from "firebase/app";
-import {getAnalytics} from "firebase/analytics";
-import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword} from 'firebase/auth';
-import {doc, getFirestore, setDoc, collection, addDoc, getDocs} from 'firebase/firestore';
-import { getStorage, ref, uploadBytes} from "firebase/storage";
-import {dataObject, users, User, images} from "./Data"
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
+import { doc, getFirestore, setDoc, collection, addDoc, getDocs } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { dataObject, users, User, images } from "./Data"
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -22,6 +22,7 @@ export const firebaseConfig = {
     appId: "1:585448979814:web:6ee03139f41aa723041ca7",
     measurementId: "G-V4KTR5JSNP"
 };
+
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
@@ -41,7 +42,7 @@ export function saveFiles(ref, file) {
     });
 }
 
-export async function saveData(data, path){
+export async function saveData(data, path) {
     try {
         const docRef = await addDoc(collection(firestore, path), data);
         console.log(data);
@@ -51,7 +52,7 @@ export async function saveData(data, path){
     }
 }
 
-export async function getData(path){
+export async function getData(path) {
     let data = [];
     const querySnapshot = await getDocs(collection(firestore, path));
     querySnapshot.forEach((doc) => {
@@ -80,12 +81,22 @@ export const SignIn = (email, password) => {
         .then((userCredential) => {
             // Signed in
             const userCred = userCredential.user;
+            return {
+                result: true,
+                message: "succesfull",
+                user: userCred,
+            };
 
             // ...
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+
+            return {
+                result: false,
+                message: errorMessage,
+            };
         });
 }
 
@@ -93,16 +104,28 @@ export const SignUp = (email, password, username) => {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in
-            let userId = (users.length+1).toString();
+            let userId = (users.length + 1).toString();
             const user = userCredential.user;
-            const newUser = new User(username, "", images.defaultProfile,{email: email, password :password}, "",{rating: 0, productList: []}, userId);
+            const newUser = new User(username, "", images.defaultProfile, { email: email, password: password }, "", { rating: 0, productList: [] }, userId);
             users.push(newUser);
             // ...
+
+            console.log(newUser + "\n" + user);
+            return {
+                result: false,
+                message: "succesfull",
+                user: newUser,
+            };;
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorCode, "\n", errorMessage)
+            console.log(errorCode, "\n", errorMessage);
+
             // ..
+            return {
+                result: false,
+                message: errorMessage,
+            };;
         });
 }

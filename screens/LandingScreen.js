@@ -5,11 +5,21 @@ import { colors, images, fonts, sizes } from '../constants/Data';
 function LandingScreen({ navigation }) {
     return (
         <View style={styles.container}>
-            <Text style = {{
-                fontSize: sizes.ExtraLarge,
+            <View style={{
+                height: 300,
+                width: 300,
+                alignSelf: "center",
+                justifyContent: "center",
             }}>
-                Academia
-            </Text>
+                <Image
+                    style={{
+                        flex: 1,
+                        alignSelf: "center",
+                    }}
+                    resizeMode="contain"
+                    source={images.academia}
+                />
+            </View>
             <View style={{
                 height: 300,
                 width: 300,
@@ -30,20 +40,20 @@ function LandingScreen({ navigation }) {
                 justifyContent: "space-evenly",
                 margin: sizes.Large,
             }}>
-                <TouchableOpacity 
-                    style = {styles.buttonStyle} 
+                <TouchableOpacity
+                    style={styles.buttonStyle}
                     onPress={() => navigation.navigate("SignIn")}>
                     <Text style={{
                         color: colors.white,
-                       fontSize: sizes.Medium,
+                        fontSize: sizes.Medium,
                     }}>SignIn</Text>
                 </TouchableOpacity>
-                <TouchableOpacity 
-                    style = {styles.buttonStyle} 
+                <TouchableOpacity
+                    style={styles.buttonStyle}
                     onPress={() => navigation.navigate("SignUp")}>
                     <Text style={{
                         color: colors.white,
-                       fontSize: sizes.Medium,
+                        fontSize: sizes.Medium,
                     }}>SignUp</Text>
                 </TouchableOpacity>
             </View>
@@ -63,7 +73,7 @@ const styles = StyleSheet.create({
     },
 
     buttonStyle: {
-        backgroundColor: colors.black,
+        backgroundColor: colors.defaultBG4,
         paddingHorizontal: sizes.ExtraLarge,
         paddingVertical: sizes.Small,
         margin: sizes.Medium,

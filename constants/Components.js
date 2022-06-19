@@ -424,7 +424,7 @@ const styles = StyleSheet.create({
     },
 
     productCategory: {
-        backgroundColor: colors.black,
+        backgroundColor: colors.defaultBG4,
         borderRadius: sizes.Medium,
         margin: sizes.ExtraSmall,
     },

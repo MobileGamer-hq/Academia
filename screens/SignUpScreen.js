@@ -38,7 +38,7 @@ const SignUpScreen = ({ navigation }) => {
             }}>
                 <TouchableOpacity
                     style={{
-                        backgroundColor: colors.black,
+                        backgroundColor: colors.defaultBG4,
                         height: 50,
                         width: 350,
                         alignItems: "center",
@@ -46,7 +46,8 @@ const SignUpScreen = ({ navigation }) => {
                         borderRadius: sizes.ExtraLarge,
                     }}
                     onPress={() => {
-                        SignUp(email, password, name);
+                        let item = SignUp(email, password, name);
+                        navigation.navigate("Loading", { item })
                     }}
                 >
                     <Text
@@ -61,7 +62,7 @@ const SignUpScreen = ({ navigation }) => {
                 <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
                     <Text style={{
                         fontSize: sizes.Small + 2.5,
-                        color: colors.black,
+                        color: colors.defaultBG4,
                     }}>
                         Already have an account, SignIn.
                     </Text>
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         height: 50,
         width: 350,
-        borderColor: "black",
+        borderColor: colors.defaultBG4,
     },
 });
 

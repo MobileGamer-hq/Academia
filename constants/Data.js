@@ -19,11 +19,13 @@ export const colors = {
     defaultBG: "#c4d8dd",
     defaultBG2: "#f6f6f6",
     defaultBG3: "#f6e5e5",
+    defaultBG4: "#00C2FF",
     defaultTC: "black",
 };
 
 export const images = {
     logo: require("../assets/icon.png"),
+    academia: require("../images/Academia.png"),
     defaultProfile: require("../images/profileIcon.png"),
     cartBlack: require("../images/ShopingCartBlackIcon.png"),
     cartWhite: require("../images/ShopingCartWhiteIcon.png"),

@@ -40,7 +40,7 @@ function ProductScreen({ route, navigation }) {
                                 <View style={{
                                     margin: 10,
                                     padding: 5,
-                                    backgroundColor: colors.black,
+                                    backgroundColor: colors.defaultBG4,
                                     borderRadius: sizes.ExtraLarge,
                                     alignItems: "center",
                                     justifyContent: "center",
@@ -48,6 +48,7 @@ function ProductScreen({ route, navigation }) {
                                     <Text style={{
                                         fontSize: sizes.Small,
                                         color: colors.white,
+                                        marginHorizontal: sizes.ExtraSmall,
                                     }}>
                                         {"#" + item}
                                     </Text>
@@ -72,7 +73,7 @@ function ProductScreen({ route, navigation }) {
                 <TouchableOpacity
                     style={{
                         borderRadius: sizes.Small,
-                        backgroundColor: colors.black,
+                        backgroundColor: colors.defaultBG4,
                         flexDirection: "row",
                         justifyContent: "space-between",
                         padding: sizes.ExtraSmall,
