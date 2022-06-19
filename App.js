@@ -25,7 +25,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(true);
   users.forEach(element => {
-    saveData(element, "Users/"+element.name);
+    saveData(element, "Users", element.name);
   });
   getData("Users");
   return (

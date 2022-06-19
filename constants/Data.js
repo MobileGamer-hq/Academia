@@ -217,7 +217,7 @@ export const users = [
         profilePicture: require("../images/profile1.jpg"),
         loginDetails: {
             email: "durulego@gmail",
-            password: "1234",
+            password: "123456",
         },
         followers: "1M",
         following: [
@@ -236,8 +236,8 @@ export const users = [
         description: "Game Developer and UI designer",
         profilePicture: require("../images/profile2.png"),
         loginDetails: {
-            email: "----",
-            password: "----",
+            email: "example@gmail.com",
+            password: "example",
         },
         followers: "10K",
         location: "----",

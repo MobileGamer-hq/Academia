@@ -6,12 +6,12 @@ const LoadingScreen = ({ route, navigation }) => {
 	const item = route.params.item;
 	console.log(item);
 
-	// if (item.result === true) {
-	// 	console.log(item.message);
-	// } else {
-	// 	console.log(item.message);
-	// 	navigation.navigate("Landing");
-	// }
+	if (item.result === true) {
+		console.log(item.message);
+	} else {
+		console.log(item.message);
+		navigation.goBack();
+	}
 
 	return (
 		<View style={styles.container}>

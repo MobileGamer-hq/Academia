@@ -411,6 +411,7 @@ const styles = StyleSheet.create({
         borderRadius: sizes.Medium,
         margin: sizes.Small,
         width: 150,
+        justifyContent: "space-between"
     },
 
     productMin: {

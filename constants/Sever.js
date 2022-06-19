@@ -1,9 +1,8 @@
 // Import the functions you need from the SDKs you need
 //import {firebase} from "@react-native-firebase/firestore";
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
-import { doc, getFirestore, setDoc, collection, addDoc, getDocs } from 'firebase/firestore';
+import { getFirestore, setDoc, collection, addDoc, getDocs, doc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { dataObject, users, User, images } from "./Data"
 
@@ -26,7 +25,6 @@ export const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const firestore = getFirestore(app);
 const storage = getStorage(app, "gs://academia-c3d0e.appspot.com/");
@@ -35,6 +33,8 @@ const storage = getStorage(app, "gs://academia-c3d0e.appspot.com/");
 // providerGoogle.addScope('https://www.googleapis.com/auth/contacts.readonly');
 // auth.languageCode = 'it';
 
+
+//Cloud Storage
 export function saveFiles(ref, file) {
     const storageRef = ref(storage, ref);
     uploadBytes(storageRef, file).then((snapshot) => {
@@ -42,11 +42,13 @@ export function saveFiles(ref, file) {
     });
 }
 
-export async function saveData(data, path) {
+
+
+//Firestore Database
+export async function saveData(data, path, id) {
     try {
-        const docRef = await addDoc(collection(firestore, path), data);
-        console.log(data);
-        console.log("Document written with ID: ", docRef.id);
+        const docRef = await setDoc(doc(firestore, path, id), data);
+        console.log("Document written with ID: ", docRef, "\n", id);
     } catch (e) {
         console.error("Error adding document: ", e);
     }
@@ -76,56 +78,93 @@ export function readData(ref, callback) {
 }
 
 
+
+//Authentication
 export const SignIn = (email, password) => {
+    let user;
+    let result;
+    let message;
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in
             const userCred = userCredential.user;
-            return {
-                result: true,
-                message: "succesfull",
-                user: userCred,
-            };
+            users.forEach(element => {
+                if (element.loginDetails.email === userCred.email) {
+                    user = element;
+                    result = true;
+                    message = "It worked"
+                    console.log(user, result, message);
 
-            // ...
+
+                }
+            });
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
 
-            return {
-                result: false,
-                message: errorMessage,
-            };
+            result = false;
+            message = errorMessage;
+
         });
+
+    return ({
+        user: user,
+        result: result,
+        message: message,
+    })
 }
+
 
 export const SignUp = (email, password, username) => {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            // Signed in
+            // Signed up
             let userId = (users.length + 1).toString();
             const user = userCredential.user;
-            const newUser = new User(username, "", images.defaultProfile, { email: email, password: password }, "", { rating: 0, productList: [] }, userId);
-            users.push(newUser);
+            users.push({
+                name: username,
+                description: "",
+                profilePicture: images.defaultProfile,
+                loginDetails: {
+                    email: email,
+                    password: password,
+                },
+                followers: "0",
+                location: "----",
+                sellerInfo: {
+                    rating: 0,
+                    productList: [],
+                },
+                id: userId,
+            },);
+            users.forEach(element => {
+                saveData(element, "Users", element.name);
+            });
             // ...
 
             console.log(newUser + "\n" + user);
-            return {
-                result: false,
-                message: "succesfull",
-                user: newUser,
-            };;
+            users.forEach(element => {
+                console.log(element);
+                user = element;
+                result = true;
+                message = "It worked"
+            })
+
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorCode, "\n", errorMessage);
 
-            // ..
-            return {
-                result: false,
-                message: errorMessage,
-            };;
+            result = false;
+            message = errorMessage;
         });
+
+
+    return ({
+        user: user,
+        result: result,
+        message: message,
+    })
 }

@@ -16,7 +16,8 @@ const SignUpScreen = ({ navigation }) => {
                     fontSize: sizes.ExtraLarge,
                     alignSelf: "flex-start",
                     marginVertical: sizes.Medium,
-                }}>SignUp</Text>
+                    color: colors.defaultBG4,
+                }}>Creat an account</Text>
                 <TextInput
                     onChangeText={(val) => setName(val)}
                     style={styles.textInput}
@@ -46,7 +47,7 @@ const SignUpScreen = ({ navigation }) => {
                         borderRadius: sizes.ExtraLarge,
                     }}
                     onPress={() => {
-                        let item = SignUp(email, password, name);
+                        const item = SignUp(email, password, name);
                         navigation.navigate("Loading", { item })
                     }}
                 >

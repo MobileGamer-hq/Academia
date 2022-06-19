@@ -15,7 +15,8 @@ const SignInScreen = ({ route, navigation }) => {
                     fontSize: sizes.ExtraLarge,
                     alignSelf: "flex-start",
                     marginVertical: sizes.Medium,
-                }}>SignIn</Text>
+                    color: colors.defaultBG4,
+                }}>Log in to your account</Text>
                 <TextInput
                     onChangeText={(val) => setEmail(val)}
                     style={styles.textInput}
@@ -41,7 +42,7 @@ const SignInScreen = ({ route, navigation }) => {
                     }}
 
                     onPress={() => {
-                        let item = SignIn(email, password);
+                        const item = SignIn(email, password);
                         navigation.navigate("Loading", { item })
                     }}
                 >
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         height: 50,
         width: 350,
-        borderColor: "black",
+        borderColor: colors.defaultBG4,
     },
 })
 
