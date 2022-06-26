@@ -5,8 +5,8 @@ import { RoundButton, SearchBar, ProductCategory, ProductMax, UserProfileMin  } 
 import {saveData, getData } from "../constants/Sever"
 
 
-function HomeScreen({ navigation }) {
-    const currentUser = users[0];
+function HomeScreen({ route, navigation }) {
+    const currentUser = route.params.item;
 
     return (
         <View style={styles.container}>

@@ -1,17 +1,31 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
-import React from 'react'
-import { colors, images } from '../constants/Data';
+import React ,{useEffect}from 'react'
+import { colors, images, users } from '../constants/Data';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import {auth} from "../constants/Sever";
 
 const LoadingScreen = ({ route, navigation }) => {
-	const item = route.params.item;
-	console.log(item);
 
-	if (item.result === true) {
-		console.log(item.message);
-	} else {
-		console.log(item.message);
-		navigation.goBack();
-	}
+	useEffect(
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+			  // User is signed in, see docs for a list of available properties
+			  // https://firebase.google.com/docs/reference/js/firebase.User
+
+				users.forEach((item) => {
+					if (item.loginDetails.email === user.email) {
+						navigation.navigate("Home", { item });
+					}
+					// }else{
+					// 	navigation.goBack();
+					// }
+				});
+
+			} else {
+			  navigation.navigate("Landing");
+			}
+		})
+	)
 
 	return (
 		<View style={styles.container}>

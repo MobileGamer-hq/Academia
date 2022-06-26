@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image } from 'react
 import React from 'react'
 import { colors, sizes } from '../constants/Data'
 import { ProfilePicture, ProductMin } from "../constants/Components"
+import { logOut } from '../constants/Sever'
 
 const MyAccountScreen = ({ route, navigation }) => {
   const user = route.params.item;
@@ -82,7 +83,11 @@ const MyAccountScreen = ({ route, navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity style={{
           alignSelf: "flex-end"
-        }} onPress = {()=>{navigation.navigate("Landing")}}>
+        }} onPress = {()=>{
+          logOut()
+          navigation.navigate("Landing")
+          
+          }}>
           <Text>Log Out</Text>
         </TouchableOpacity>
       </View>

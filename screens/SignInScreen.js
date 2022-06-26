@@ -42,8 +42,8 @@ const SignInScreen = ({ route, navigation }) => {
                     }}
 
                     onPress={() => {
-                        const item = SignIn(email, password);
-                        navigation.navigate("Loading", { item })
+                        SignIn(email, password);
+                        navigation.navigate("Loading");
                     }}
                 >
                     <Text style={{

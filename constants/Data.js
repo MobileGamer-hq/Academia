@@ -240,6 +240,9 @@ export const users = [
             password: "example",
         },
         followers: "10K",
+        following: [
+            "Nicky", "Ricky", "Dicky", "Dawn", "Amy"
+        ],
         location: "----",
         sellerInfo: {
             rating: 5,

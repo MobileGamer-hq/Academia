@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 //import {firebase} from "@react-native-firebase/firestore";
 import { initializeApp } from "firebase/app";
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
+import { signOut, createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, setDoc, collection, addDoc, getDocs, doc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { dataObject, users, User, images } from "./Data"
@@ -25,7 +25,7 @@ export const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 const firestore = getFirestore(app);
 const storage = getStorage(app, "gs://academia-c3d0e.appspot.com/");
 
@@ -81,38 +81,16 @@ export function readData(ref, callback) {
 
 //Authentication
 export const SignIn = (email, password) => {
-    let user;
-    let result;
-    let message;
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in
             const userCred = userCredential.user;
-            users.forEach(element => {
-                if (element.loginDetails.email === userCred.email) {
-                    user = element;
-                    result = true;
-                    message = "It worked"
-                    console.log(user, result, message);
-
-
-                }
-            });
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
 
-            result = false;
-            message = errorMessage;
-
         });
-
-    return ({
-        user: user,
-        result: result,
-        message: message,
-    })
 }
 
 
@@ -131,6 +109,7 @@ export const SignUp = (email, password, username) => {
                     password: password,
                 },
                 followers: "0",
+                following: [],
                 location: "----",
                 sellerInfo: {
                     rating: 0,
@@ -143,28 +122,18 @@ export const SignUp = (email, password, username) => {
             });
             // ...
 
-            console.log(newUser + "\n" + user);
-            users.forEach(element => {
-                console.log(element);
-                user = element;
-                result = true;
-                message = "It worked"
-            })
-
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorCode, "\n", errorMessage);
-
-            result = false;
-            message = errorMessage;
         });
+}
 
 
-    return ({
-        user: user,
-        result: result,
-        message: message,
-    })
+export const logOut = () => {
+    signOut(auth).then(() => {
+        // Sign-out successful.
+    }).catch((error) => {
+        // An error happened.
+    });
 }

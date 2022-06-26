@@ -32,13 +32,13 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
-          component={HomeScreen}
+          name="Landing"
+          component={LandingScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Landing"
-          component={LandingScreen}
+          name="Home"
+          component={HomeScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
