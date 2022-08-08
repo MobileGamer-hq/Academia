@@ -28,6 +28,7 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 const firestore = getFirestore(app);
 const storage = getStorage(app, "gs://academia-c3d0e.appspot.com/");
+let data;
 
 // const providerGoogle = new GoogleAuthProvider();
 // providerGoogle.addScope('https://www.googleapis.com/auth/contacts.readonly');
@@ -55,13 +56,13 @@ export async function saveData(data, path, id) {
 }
 
 export async function getData(path) {
-    let data = [];
+    data = [];
     const querySnapshot = await getDocs(collection(firestore, path));
     querySnapshot.forEach((doc) => {
         console.log(`${doc.id} => ${doc.data()}`);
         data.push(doc.data());
     });
-    return data;
+    return doc.data();
 }
 
 export function readData(ref, callback) {
@@ -93,13 +94,12 @@ export const SignIn = (email, password) => {
         });
 }
 
-
 export const SignUp = (email, password, username) => {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed up
-            let userId = (users.length + 1).toString();
             const user = userCredential.user;
+            let userId = user.uid;
             users.push({
                 name: username,
                 description: "",
@@ -114,6 +114,7 @@ export const SignUp = (email, password, username) => {
                 sellerInfo: {
                     rating: 0,
                     productList: [],
+                    amountSelling: "0",
                 },
                 id: userId,
             },);
@@ -128,7 +129,6 @@ export const SignUp = (email, password, username) => {
             const errorMessage = error.message;
         });
 }
-
 
 export const logOut = () => {
     signOut(auth).then(() => {

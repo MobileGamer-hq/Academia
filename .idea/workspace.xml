@@ -3,7 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="2324f860-83e7-4354-8c4e-c52ff494f0c6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/UploadProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/UploadProduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/AppManger.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/AppManger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/Data.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/Objects.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/Sever.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Sever.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/HomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/LoadingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/LoadingScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/MyAccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/MyAccountScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/SignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SignUpScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +55,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../twitter-clone" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="advanced.settings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Node.js.Data.js">
@@ -124,6 +132,9 @@
       <workItem from="1655548691897" duration="12000" />
       <workItem from="1655558767308" duration="93000" />
       <workItem from="1655568095630" duration="543000" />
+      <workItem from="1657236840699" duration="540000" />
+      <workItem from="1657494336812" duration="24000" />
+      <workItem from="1657574941332" duration="3499000" />
     </task>
     <servers />
   </component>

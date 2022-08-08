@@ -47,8 +47,8 @@ const SignUpScreen = ({ navigation }) => {
                         borderRadius: sizes.ExtraLarge,
                     }}
                     onPress={() => {
-                        const item = SignUp(email, password, name);
-                        navigation.navigate("Loading", { item })
+                        SignUp(email, password, name)
+                        navigation.navigate("Loading")
                     }}
                 >
                     <Text

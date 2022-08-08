@@ -23,11 +23,12 @@ import { users } from './constants/Data';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
   users.forEach(element => {
     saveData(element, "Users", element.name);
   });
-  getData("Users");
+  users.push.apply(users, getData("Users"));
+  console.log("Users: ",users);
+
   return (
     <NavigationContainer>
       <Stack.Navigator>

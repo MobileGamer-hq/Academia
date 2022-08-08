@@ -2,11 +2,10 @@ import React from 'react';
 import { FlatList, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { categories, colors, sizes, suggestedProducts, users, dataObject, products, topSellers } from '../constants/Data';
 import { RoundButton, SearchBar, ProductCategory, ProductMax, UserProfileMin  } from '../constants/Components';
-import {saveData, getData } from "../constants/Sever"
-
 
 function HomeScreen({ route, navigation }) {
-    const currentUser = route.params.item;
+    const currentUser = route.params.user;
+    console.log(currentUser);
 
     return (
         <View style={styles.container}>

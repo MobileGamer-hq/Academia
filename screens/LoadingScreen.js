@@ -5,27 +5,25 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import {auth} from "../constants/Sever";
 
 const LoadingScreen = ({ route, navigation }) => {
+	let currentUser;
+	onAuthStateChanged(auth, (user) => {
+		if (user) {
+		  // User is signed in, see docs for a list of available properties
+		  // https://firebase.google.com/docs/reference/js/firebase.User
 
-	useEffect(
-		onAuthStateChanged(auth, (user) => {
-			if (user) {
-			  // User is signed in, see docs for a list of available properties
-			  // https://firebase.google.com/docs/reference/js/firebase.User
+			users.forEach((item) => {
+				console.log(item);
+				if (item.loginDetails.email === user.email) {
+					currentUser  = item
+					console.log("it worked")
+					navigation.navigate("Home", {user})
+				}
+			});
 
-				users.forEach((item) => {
-					if (item.loginDetails.email === user.email) {
-						navigation.navigate("Home", { item });
-					}
-					// }else{
-					// 	navigation.goBack();
-					// }
-				});
-
-			} else {
-			  navigation.navigate("Landing");
-			}
-		})
-	)
+		} else {
+		  navigation.navigate("Landing");
+		}
+	})
 
 	return (
 		<View style={styles.container}>
