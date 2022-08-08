@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2324f860-83e7-4354-8c4e-c52ff494f0c6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/UploadProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/UploadProduct.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,16 +39,16 @@
     <option name="showLibraryContents" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../twitter-clone" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/Documents/Somto/Node.js Projects/ReactNative_Apps/Academia&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RunManager" selected="Node.js.Data.js">
     <configuration name="DataManagers.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/constants/Managers/DataManagers.js" working-dir="$PROJECT_DIR$/constants/Managers">
       <method v="2" />
@@ -124,6 +123,9 @@
       <workItem from="1655548691897" duration="12000" />
       <workItem from="1655558767308" duration="93000" />
       <workItem from="1655568095630" duration="543000" />
+      <workItem from="1659812515247" duration="838000" />
+      <workItem from="1659987499650" duration="597000" />
+      <workItem from="1659989348565" duration="34000" />
     </task>
     <servers />
   </component>
