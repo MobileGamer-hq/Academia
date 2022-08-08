@@ -1,3 +1,5 @@
+import { saveData, readData, getData } from "./Sever";
+
 export const colors = {
     //
     black: "black",
@@ -19,11 +21,13 @@ export const colors = {
     defaultBG: "#c4d8dd",
     defaultBG2: "#f6f6f6",
     defaultBG3: "#f6e5e5",
+    defaultBG4: "#00FFD1",
     defaultTC: "black",
 };
 
 export const images = {
-    logo: require("../assets/icon.png"),
+    logo: require("../images/AppArt3.png"),
+    academia: require("../images/Academia.png"),
     defaultProfile: require("../images/profileIcon.png"),
     cartBlack: require("../images/ShopingCartBlackIcon.png"),
     cartWhite: require("../images/ShopingCartWhiteIcon.png"),
@@ -208,16 +212,37 @@ export const categories = [
     },
 ];
 
-export const users = [
+export const users =[];
+
+export const gottenUsers = [{
+    name: "Brandon",
+    description: "........",
+    profilePicture: require("../images/profile1.jpg"),
+    loginDetails: {
+        email: "durulego@gmail",
+        password: "123456",
+    },
+    followers: "1M",
+    following: [
+        "Nicky", "Ricky", "Dicky", "Dawn", "Amy"
+    ],
+    location: "----",
+    sellerInfo: {
+        rating: 5,
+        productList: suggestedProducts,
+        amountSelling: "500",
+    },
+    id: "1",
+},
     {
-        name: "Brandon",
-        description: "........",
-        profilePicture: require("../images/profile1.jpg"),
+        name: "Nick",
+        description: "Game Developer and UI designer",
+        profilePicture: require("../images/profile2.png"),
         loginDetails: {
-            email: "durulego@gmail",
-            password: "1234",
+            email: "example@gmail.com",
+            password: "example",
         },
-        followers: "1M",
+        followers: "10K",
         following: [
             "Nicky", "Ricky", "Dicky", "Dawn", "Amy"
         ],
@@ -226,22 +251,6 @@ export const users = [
             rating: 5,
             productList: suggestedProducts,
             amountSelling: "500",
-        },
-        id: "1",
-    },
-    {
-        name: "Nick",
-        description: "Game Developer and UI designer",
-        profilePicture: require("../images/profile2.png"),
-        loginDetails: {
-            email: "----",
-            password: "----",
-        },
-        followers: "10K",
-        location: "----",
-        sellerInfo: {
-            rating: 5,
-            productList: suggestedProducts,
         },
         id: "2",
     },
@@ -275,6 +284,7 @@ export const users = [
                     id: "2",
                 },
             ],
+            amountSelling: "500",
         },
         id: "3",
     }

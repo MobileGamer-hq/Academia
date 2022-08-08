@@ -1,11 +1,10 @@
 // Import the functions you need from the SDKs you need
 //import {firebase} from "@react-native-firebase/firestore";
-import {initializeApp} from "firebase/app";
-import {getAnalytics} from "firebase/analytics";
-import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword} from 'firebase/auth';
-import {doc, getFirestore, setDoc, collection, addDoc, getDocs} from 'firebase/firestore';
-import { getStorage, ref, uploadBytes} from "firebase/storage";
-import {dataObject, users, User, images} from "./Data"
+import { initializeApp } from "firebase/app";
+import { signOut, createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
+import { getFirestore, setDoc, collection, addDoc, getDocs, doc } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { dataObject, users, User, images } from "./Data"
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -23,17 +22,20 @@ export const firebaseConfig = {
     measurementId: "G-V4KTR5JSNP"
 };
 
+
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 const firestore = getFirestore(app);
 const storage = getStorage(app, "gs://academia-c3d0e.appspot.com/");
+let data;
 
 // const providerGoogle = new GoogleAuthProvider();
 // providerGoogle.addScope('https://www.googleapis.com/auth/contacts.readonly');
 // auth.languageCode = 'it';
 
+
+//Cloud Storage
 export function saveFiles(ref, file) {
     const storageRef = ref(storage, ref);
     uploadBytes(storageRef, file).then((snapshot) => {
@@ -41,24 +43,26 @@ export function saveFiles(ref, file) {
     });
 }
 
-export async function saveData(data, path){
+
+
+//Firestore Database
+export async function saveData(data, path, id) {
     try {
-        const docRef = await addDoc(collection(firestore, path), data);
-        console.log(data);
-        console.log("Document written with ID: ", docRef.id);
+        const docRef = await setDoc(doc(firestore, path, id), data);
+        console.log("Document written with ID: ", docRef, "\n", id);
     } catch (e) {
         console.error("Error adding document: ", e);
     }
 }
 
-export async function getData(path){
-    let data = [];
+export async function getData(path) {
+    data = [];
     const querySnapshot = await getDocs(collection(firestore, path));
     querySnapshot.forEach((doc) => {
         console.log(`${doc.id} => ${doc.data()}`);
         data.push(doc.data());
     });
-    return data;
+    return doc.data();
 }
 
 export function readData(ref, callback) {
@@ -75,13 +79,50 @@ export function readData(ref, callback) {
 }
 
 
+
+//Authentication
 export const SignIn = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in
             const userCred = userCredential.user;
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
 
+        });
+}
+
+export const SignUp = (email, password, username) => {
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed up
+            const user = userCredential.user;
+            let userId = user.uid;
+            users.push({
+                name: username,
+                description: "",
+                profilePicture: images.defaultProfile,
+                loginDetails: {
+                    email: email,
+                    password: password,
+                },
+                followers: "0",
+                following: [],
+                location: "----",
+                sellerInfo: {
+                    rating: 0,
+                    productList: [],
+                    amountSelling: "0",
+                },
+                id: userId,
+            },);
+            users.forEach(element => {
+                saveData(element, "Users", element.name);
+            });
             // ...
+
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -89,20 +130,10 @@ export const SignIn = (email, password) => {
         });
 }
 
-export const SignUp = (email, password, username) => {
-    createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in
-            let userId = (users.length+1).toString();
-            const user = userCredential.user;
-            const newUser = new User(username, "", images.defaultProfile,{email: email, password :password}, "",{rating: 0, productList: []}, userId);
-            users.push(newUser);
-            // ...
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, "\n", errorMessage)
-            // ..
-        });
+export const logOut = () => {
+    signOut(auth).then(() => {
+        // Sign-out successful.
+    }).catch((error) => {
+        // An error happened.
+    });
 }

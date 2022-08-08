@@ -4,7 +4,7 @@ import { colors, images, fonts, sizes } from '../constants/Data';
 import { SignIn } from "../constants/Sever"
 
 
-const SignInScreen = ({navigation}) => {
+const SignInScreen = ({ route, navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -15,7 +15,8 @@ const SignInScreen = ({navigation}) => {
                     fontSize: sizes.ExtraLarge,
                     alignSelf: "flex-start",
                     marginVertical: sizes.Medium,
-                }}>SignIn</Text>
+                    color: colors.defaultBG4,
+                }}>Log in to your account</Text>
                 <TextInput
                     onChangeText={(val) => setEmail(val)}
                     style={styles.textInput}
@@ -27,12 +28,12 @@ const SignInScreen = ({navigation}) => {
                     placeholder="Enter your password"
                 />
             </View>
-            <View style = {{
+            <View style={{
                 alignItems: "center",
             }}>
                 <TouchableOpacity
                     style={{
-                        backgroundColor: colors.black,
+                        backgroundColor: colors.defaultBG4,
                         height: 50,
                         width: 350,
                         alignItems: "center",
@@ -42,6 +43,7 @@ const SignInScreen = ({navigation}) => {
 
                     onPress={() => {
                         SignIn(email, password);
+                        navigation.navigate("Loading");
                     }}
                 >
                     <Text style={{
@@ -51,8 +53,8 @@ const SignInScreen = ({navigation}) => {
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
                     <Text style={{
-                        fontSize: sizes.Small+2.5,
-                        color: colors.black,
+                        fontSize: sizes.Small + 2.5,
+                        color: colors.defaultBG4,
                     }}>
                         Don't have an account, create one.
                     </Text>
@@ -79,7 +81,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         height: 50,
         width: 350,
-        borderColor: "black",
+        borderColor: colors.defaultBG4,
     },
 })
 
