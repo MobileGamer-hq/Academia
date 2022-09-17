@@ -1,12 +1,39 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Image, FlatList } from 'react-native';
-import { colors, images, fonts, products, users, sizes } from '../constants/Data';
-import { UserProfile, ProductMin } from '../constants/Components';
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {colors, sizes} from '../constants/Data';
+import {ProductMin, ProfilePicture, Button} from '../constants/Components';
 
+function Follow() {
 
-function AccountScreen({ route, navigation }) {
+}
 
-    //const user = navigation.getParam("item");
+function UserProfile(props) {
+    return (
+        <View style={styles.userProfile}>
+            <ProfilePicture color={colors.defaultBG2} image={props.image}/>
+            <View style={{
+                flexDirection: 'column',
+            }}>
+                <Text style={{
+                    paddingHorizontal: 10,
+                    fontSize: sizes.Medium,
+                }}>{props.name}</Text>
+                <Text style={{
+                    paddingHorizontal: 10,
+                    fontSize: sizes.Small,
+                }}>{props.description}</Text>
+                <Text style={{
+                    paddingHorizontal: 10,
+                    fontSize: sizes.Small,
+                }}>{props.followers + " followers"}</Text>
+            </View>
+            <Button title = {"follow"} method = {Follow}/>
+        </View>
+    );
+}
+
+function AccountScreen({route, navigation}) {
+
     const user = route.params.item;
 
     return (
@@ -31,14 +58,14 @@ function AccountScreen({ route, navigation }) {
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={(item) => item.id}
                     data={user.sellerInfo.productList}
-                    renderItem={({ item }) => {
+                    renderItem={({item}) => {
                         return (
                             <ProductMin
                                 product={item}
                                 title={item.title}
                                 price={item.price}
                                 image={item.image}
-                                method={() => navigation.navigate("Product", { item })}
+                                method={() => navigation.navigate("Product", {item})}
                             />
                         )
                     }}
@@ -54,7 +81,16 @@ const styles = StyleSheet.create({
         backgroundColor: colors.defaultBG2,
         paddingTop: 10,
         paddingHorizontal: 5,
-    }
+    },
+
+    userProfile: {
+        backgroundColor: colors.white,
+        flexDirection: 'row',
+        alignContent: 'center',
+        padding: sizes.Medium,
+        //elevation: sizes.Medium,
+        margin: sizes.ExtraSmall,
+    },
 });
 
 export default AccountScreen;

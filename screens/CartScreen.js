@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
-import { colors, images, fonts, products, cart } from '../constants/Data';
-import { CartItem } from '../constants/Components';
+import {FlatList, StyleSheet, View} from 'react-native';
+import {cart, colors} from '../constants/Data';
+import {CartItem} from '../constants/Components';
 
 
 function CartScreen({route, navigation}) {
@@ -13,7 +13,7 @@ function CartScreen({route, navigation}) {
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={(item) => item.id}
                     data={cart}
-                    renderItem={({ item }) => {
+                    renderItem={({item}) => {
                         return (
                             <CartItem
                                 image={item.image}

@@ -1,5 +1,3 @@
-import { saveData, readData, getData } from "./Sever";
-
 export const colors = {
     //
     black: "black",
@@ -212,7 +210,7 @@ export const categories = [
     },
 ];
 
-export const users =[];
+export const users = [];
 
 export const gottenUsers = [{
     name: "Brandon",
@@ -300,7 +298,7 @@ export const bestSellers = [
 export const cart = [];
 
 export const orders = [
-    [products[0], products[2], products[3]],[products[1], products[4], products[5]]
+    [products[0], products[2], products[3]], [products[1], products[4], products[5]]
 ];
 
 export const settings = {

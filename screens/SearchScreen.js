@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { categories, colors, products, sizes } from '../constants/Data';
-import { ProductCategory, SearchBar} from '../constants/Components';
+import React, {useState} from 'react'
+import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {categories, colors, products, sizes} from '../constants/Data';
+import {ProductCategory, SearchBar} from '../constants/Components';
 
-export default function SearchScreen({ navigation, route }) {
+export default function SearchScreen({navigation, route}) {
     let items = [];
     const [searchResult, setSearchResult] = useState(products)
 
@@ -17,8 +17,8 @@ export default function SearchScreen({ navigation, route }) {
             for (let x = 0; x < item.length; x++) {
                 if (item[x].toLowerCase().includes(val)) {
                     items.push(products[i])
-                }else{
-                    continue;
+                } else {
+
                 }
             }
         }
@@ -51,11 +51,11 @@ export default function SearchScreen({ navigation, route }) {
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={(item) => item.id}
                     data={categories}
-                    renderItem={({ item }) => {
+                    renderItem={({item}) => {
                         return (
                             <ProductCategory
                                 text={item.name}
-                                method={() => navigation.navigate("Search", { search: item.name })}
+                                method={() => navigation.navigate("Search", {search: item.name})}
                             />
                         );
                     }}
@@ -66,7 +66,7 @@ export default function SearchScreen({ navigation, route }) {
                     vertical
                     showsVerticalScrollIndicator={false}
                     data={searchResult}
-                    renderItem={({ item }) => {
+                    renderItem={({item}) => {
                         return (
                             <TouchableOpacity
                                 style={{

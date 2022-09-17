@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, TextInput } from "react-native";
-import { colors, images, fonts, sizes } from "../constants/Data";
-import { SignUp } from "../constants/Sever"
+import React, {useState} from "react";
+import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {colors, sizes} from "../constants/Data";
+import {SignUp} from "../constants/Sever"
 
 
-const SignUpScreen = ({ navigation }) => {
+const SignUpScreen = ({navigation}) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -73,7 +73,6 @@ const SignUpScreen = ({ navigation }) => {
     );
 
 }
-
 
 
 const styles = StyleSheet.create({

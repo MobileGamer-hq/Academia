@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import { colors, images, fonts, sizes } from '../constants/Data';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {colors, images, sizes} from '../constants/Data';
 
-function LandingScreen({ navigation }) {
+function LandingScreen({navigation}) {
     return (
         <View style={styles.container}>
             <View style={{

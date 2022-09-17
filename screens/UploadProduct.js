@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { StyleSheet, Text, View, TextInput, ScrollView, TouchableOpacity, FlatList } from 'react-native'
-import { colors, sizes } from '../constants/Data'
+import React, {useState} from 'react'
+import {FlatList, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native'
+import {colors, sizes} from '../constants/Data'
 
 
 const InfoInput = (props) => {
@@ -16,6 +16,24 @@ const InfoInput = (props) => {
                 value={props.valueType}
                 keyboardType={props.keyboardType}
             />
+        </View>
+    );
+}
+
+const Item = (props) => {
+    return(
+        <View>
+            <View style={{
+                backgroundColor: colors.white,
+                flexDirection: "row",
+            }}>
+                <Text>{props.itemName}</Text>
+                <TouchableOpacity>
+                    <View>
+                        <Image/>
+                    </View>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 }
@@ -42,34 +60,38 @@ const UploadProduct = () => {
             <View>
                 <View>
                     //Title
-                    <InfoInput 
+                    <InfoInput
                         method={(val) => setTitle(val)}
                     />
+                    <Text>{title}</Text>
                 </View>
                 <View>
                     //Description
-                    <InfoInput 
+                    <InfoInput
                         method={(val) => setDescription(val)}
                     />
+                    <Text>{description}</Text>
                 </View>
                 <View>
                     //Price
-                    <InfoInput 
+                    <InfoInput
                         method={(val) => setPrice(val)}
                     />
+                    <Text>{"Naira " + price}</Text>
                 </View>
                 <View>
                     //Category
-                    <InfoInput 
+                    <InfoInput
                         method={(val) => setCategory(val)}
                     />
+                    <Text>{category}</Text>
                 </View>
                 <View>
                     //tags
-                    <InfoInput 
+                    <InfoInput
                         method={(val) => setTag(val)}
                     />
-                    <TouchableOpacity 
+                    <TouchableOpacity
                         onPress={() => addTag(tag)}
                     >
                         <Text>Add Tag</Text>
@@ -80,21 +102,9 @@ const UploadProduct = () => {
                             showsHorizontalScrollIndicator={false}
                             keyExtractor={(item) => item.id}
                             data={tags}
-                            renderItem={({ item }) => {
+                            renderItem={({item}) => {
                                 return (
-                                    <View>
-                                        <View style={{
-                                            backgroundColor: colors.white,
-                                            flexDirection: "row",
-                                        }}>
-                                            <Text>{item}</Text>
-                                            <TouchableOpacity>
-                                                <View>
-                                                    <Image />
-                                                </View>
-                                            </TouchableOpacity>
-                                        </View>
-                                    </View>
+                                    <Item item = {item}/>
                                 );
                             }}
                         />
@@ -104,14 +114,10 @@ const UploadProduct = () => {
             <View style={{
                 flexDirection: "row"
             }}>
-                <TouchableOpacity style={{
-
-                }}>
+                <TouchableOpacity style={{}}>
                     <Text>Upload</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{
-
-                }}>
+                <TouchableOpacity style={{}}>
                     <Text>Cancel</Text>
                 </TouchableOpacity>
             </View>
