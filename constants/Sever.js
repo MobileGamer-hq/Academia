@@ -1,10 +1,11 @@
 // Import the functions you need from the SDKs you need
 //import {firebase} from "@react-native-firebase/firestore";
-import {initializeApp} from "firebase/app";
-import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut} from 'firebase/auth';
-import {collection, doc, getDocs, getFirestore, setDoc} from 'firebase/firestore';
-import {getStorage, uploadBytes} from "firebase/storage";
-import {images, users} from "./Data"
+import { initializeApp } from "firebase/app";
+
+import { signOut, createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
+import { getFirestore, setDoc, collection, addDoc, getDocs, doc } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { dataObject, users, User, images } from "./Data"
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries

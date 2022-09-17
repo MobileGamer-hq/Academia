@@ -41,7 +41,6 @@ const Item = (props) => {
 const UploadProduct = () => {
     let tagsList = [];
 
-
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");

@@ -6,24 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2324f860-83e7-4354-8c4e-c52ff494f0c6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constants/AppManger.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/AppManger.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constants/Components.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Components.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constants/Data.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/Sever.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Sever.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/test.css" beforeDir="false" afterPath="$PROJECT_DIR$/constants/test.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/AccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/AccountScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/CartScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/CartScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/HomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/LandingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/LandingScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/LoadingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/LoadingScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/MyAccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/MyAccountScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/OrderScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/OrderScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/ProductScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/ProductScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/SearchScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SearchScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/SettingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SettingScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SignInScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/SignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SignUpScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/UploadProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/UploadProduct.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,24 +48,22 @@
     <option name="showLibraryContents" value="true" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../twitter-clone" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="advanced.settings" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/Documents/Somto/Node.js Projects/ReactNative_Apps/Academia&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RunManager" selected="Node.js.Data.js">
-    <configuration name="DataManagers.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/constants/Managers/DataManagers.js" working-dir="$PROJECT_DIR$/constants/Managers">
-      <method v="2" />
-    </configuration>
     <configuration name="Data.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/constants/Data.js" working-dir="$PROJECT_DIR$/constants">
       <method v="2" />
     </configuration>
@@ -102,13 +87,23 @@
         <option name="ReactNativePackager" enabled="true" />
       </method>
     </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start" />
         <item itemvalue="Node.js.Data.js" />
         <item itemvalue="Node.js.testJS.js" />
         <item itemvalue="Node.js.testJson.js" />
         <item itemvalue="Node.js.SeverManager.js" />
-        <item itemvalue="Node.js.DataManagers.js" />
       </list>
     </recent_temporary>
   </component>
@@ -149,10 +144,18 @@
       <workItem from="1655548691897" duration="12000" />
       <workItem from="1655558767308" duration="93000" />
       <workItem from="1655568095630" duration="543000" />
-      <workItem from="1657236840699" duration="540000" />
-      <workItem from="1657494336812" duration="24000" />
-      <workItem from="1657574941332" duration="3499000" />
-      <workItem from="1663403519046" duration="5309000" />
+      <workItem from="1659812515247" duration="838000" />
+      <workItem from="1659987499650" duration="597000" />
+      <workItem from="1659989348565" duration="34000" />
+      <workItem from="1659999670699" duration="1264000" />
+      <workItem from="1660001480299" duration="561000" />
+      <workItem from="1660121038894" duration="692000" />
+      <workItem from="1660157663235" duration="1484000" />
+      <workItem from="1660162960880" duration="25000" />
+      <workItem from="1660163839253" duration="698000" />
+      <workItem from="1660428006323" duration="517000" />
+      <workItem from="1661589022763" duration="2558000" />
+      <workItem from="1663441457586" duration="2528000" />
     </task>
     <servers />
   </component>
