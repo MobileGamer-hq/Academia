@@ -5,20 +5,32 @@ import * as server from  "./Sever"
 const Users = data.users;
 const Products = data.products;
 
-function manageSuggestedUsers(){
+function ManageProducts() {
+    for (const user in  Users) {
+        for (const product in user.sellerInfo.productList) {
+            data.products.push(product);
+        }
+    }
+}
+
+function ManageSuggestedUsers(){
     let suggestedUsers;
 
-    for (let SU in Users) {
+    for (const user in Users) {
 
     }
 
 }
 
-function manageSuggestedProducts(){
-    let suggestedUsers =  data.suggestedUsers;
+function ManageSuggestedProducts(){
+    let suggestedProducts;
+
+    for (const products in Products) {
+
+    }
 
 }
 
-function manageUsersFeed() {
+function ManageApp() {
 
 }

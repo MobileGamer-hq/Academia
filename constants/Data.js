@@ -48,24 +48,6 @@ export const sizes = {
     ExtraLarge: 50,
 };
 
-export class User {
-    constructor(name, description, profilePicture, loginDetails, location, sellerInfo, id) {
-
-        //
-        this.name = name;
-        this.description = description;
-        this.profilePicture = profilePicture;
-        this.loginDetail = loginDetails;
-        this.location = location
-        this.sellerInfo = sellerInfo;
-        this.id = id;
-
-        //
-        this.followers = [];
-        this.following = [];
-    }
-}
-
 export class Product {
     constructor(title, description, price, category, seller, image, tags) {
         this.title = title;
@@ -310,6 +292,7 @@ export const settings = {
 export const InitialState = {
     currentUser: users[0],
     setting: settings,
+
 };
 
 export const dataObject = {
