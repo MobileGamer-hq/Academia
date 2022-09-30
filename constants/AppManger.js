@@ -1,5 +1,4 @@
 import * as data from "./Data"
-import * as server from  "./Sever"
 
 
 const Users = data.users;

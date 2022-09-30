@@ -1,9 +1,9 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import { sizes, InitialState, settings } from '../constants/Data'
+import {StyleSheet, Text, View} from 'react-native';
+import {InitialState} from '../constants/Data'
 
 
-function SettingScreen({ navigation }) {
+function SettingScreen({navigation}) {
     const [settings, setsettings] = useState(InitialState.setting)
 
     return (

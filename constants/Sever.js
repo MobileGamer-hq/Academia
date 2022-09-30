@@ -62,7 +62,6 @@ export async function getData(path) {
 }
 
 
-
 //Authentication
 export const SignIn = (email, password) => {
     auth.signInWithEmailAndPassword(email, password)

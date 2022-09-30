@@ -1,9 +1,9 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native'
-import { sizes, colors, products, images, fonts, orders } from '../constants/Data'
-import { ProductMax } from '../constants/Components'
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {colors, orders, sizes} from '../constants/Data'
+import {ProductMax} from '../constants/Components'
 
-const OrderScreen = ({ navigation }) => {
+const OrderScreen = ({navigation}) => {
     return (
         <View style={styles.container}>
 
@@ -13,7 +13,7 @@ const OrderScreen = ({ navigation }) => {
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={(item) => item.id}
                     data={orders}
-                    renderItem={({ item }) => {
+                    renderItem={({item}) => {
                         return (
                             <View>
                                 <FlatList
@@ -21,7 +21,7 @@ const OrderScreen = ({ navigation }) => {
                                     showsHorizontalScrollIndicator={false}
                                     keyExtractor={(item1) => item1.id}
                                     data={item}
-                                    renderItem={({ item1 }) => {
+                                    renderItem={({item1}) => {
                                         return (
                                             <ProductMax
                                                 product={item1}
@@ -29,7 +29,7 @@ const OrderScreen = ({ navigation }) => {
                                                 price={item1.price}
                                                 image={item1.image}
                                                 seller={item1.seller}
-                                                method={() => navigation.navigate("Product", { item1 })}
+                                                method={() => navigation.navigate("Product", {item1})}
                                             />
                                         );
                                     }}

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, StyleSheet, Text, TextInput, TouchableOpacity, View, FlatList} from 'react-native';
+import {FlatList, Image, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {colors, sizes} from "./Data"
 
 export function RoundButton(props) {
@@ -142,7 +142,7 @@ export function ProductMax(props) {
                         alignSelf: "center",
                     }}
                     resizeMode="contain"
-                    source={props.image} />
+                    source={props.image}/>
             </View>
             <View style={{
                 justifyContent: "flex-end",
@@ -176,7 +176,7 @@ export const ProductMin = (props) => {
                         flex: 1,
                     }}
                     resizeMode="contain"
-                    source={props.image} />
+                    source={props.image}/>
             </View>
             <View style={{
                 alignItems: "flex-start",
@@ -242,7 +242,7 @@ export function CartItem(props) {
                             alignSelf: "center",
                         }}
                         resizeMode="contain"
-                        source={props.image} />
+                        source={props.image}/>
                 </View>
                 <View>
                     <Text>{props.title}</Text>
@@ -274,46 +274,6 @@ export function CartItem(props) {
             </TouchableOpacity>
         </View>
     )
-};
-
-
-export function UserProfile(props) {
-    return (
-        <View style={styles.userProfile}>
-            <ProfilePicture color={colors.defaultBG2} image={props.image} />
-            <View style={{
-                flexDirection: 'column',
-            }}>
-                <Text style={{
-                    paddingHorizontal: 10,
-                    fontSize: sizes.Medium,
-                }}>{props.name}</Text>
-                <Text style={{
-                    paddingHorizontal: 10,
-                    fontSize: sizes.Small,
-                }}>{props.description}</Text>
-                <Text style={{
-                    paddingHorizontal: 10,
-                    fontSize: sizes.Small,
-                }}>{props.followers + " followers"}</Text>
-            </View>
-            <TouchableOpacity style={{
-                backgroundColor: colors.black,
-                alignItems: "center",
-                justifyContent: "center",
-                height: sizes.Medium + 10,
-                padding: 5,
-                borderRadius: sizes.ExtraSmall,
-            }}>
-                <Text style={{
-                    fontSize: sizes.Small + 2.5,
-                    color: colors.white,
-                }}>
-                    Follow
-                </Text>
-            </TouchableOpacity>
-        </View>
-    );
 }
 
 
@@ -324,7 +284,7 @@ export const UserProfileMin = (props) => {
             <TouchableOpacity
                 onPress={props.method}
             >
-                <ProfilePicture color={colors.white} image={props.image} />
+                <ProfilePicture color={colors.white} image={props.image}/>
             </TouchableOpacity>
             <View style={{
                 alignItems: "center",
@@ -354,7 +314,7 @@ export const SearchResult = (props) => {
                 showsHorizontalScrollIndicator={false}
                 keyExtractor={(item) => item.id}
                 data={props.data}
-                renderItem={({ item }) => {
+                renderItem={({item}) => {
                     return (
                         <TouchableOpacity
                             style={{
@@ -370,7 +330,7 @@ export const SearchResult = (props) => {
                                         flex: 1,
                                     }}
                                     resizeMode="contain"
-                                    source={item.image} />
+                                    source={item.image}/>
                             </View>
                             <View>
                                 <Text>{item.title}</Text>
@@ -447,15 +407,6 @@ const styles = StyleSheet.create({
     productCategory: {
         backgroundColor: colors.defaultBG4,
         borderRadius: sizes.Medium,
-        margin: sizes.ExtraSmall,
-    },
-
-    userProfile: {
-        backgroundColor: colors.white,
-        flexDirection: 'row',
-        alignContent: 'center',
-        padding: sizes.Medium,
-        //elevation: sizes.Medium,
         margin: sizes.ExtraSmall,
     },
 

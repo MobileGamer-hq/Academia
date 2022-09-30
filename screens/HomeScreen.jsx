@@ -1,9 +1,9 @@
 import React from 'react';
-import { FlatList, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
-import { categories, colors, sizes, suggestedProducts, users, dataObject, products, topSellers } from '../constants/Data';
-import { RoundButton, SearchBar, ProductCategory, ProductMax, UserProfileMin  } from '../constants/Components';
+import {FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {categories, colors, sizes, suggestedProducts, topSellers, users} from '../constants/Data';
+import {ProductCategory, ProductMax, RoundButton, SearchBar, UserProfileMin} from '../constants/Components';
 
-function HomeScreen({ route, navigation }) {
+function HomeScreen({route, navigation}) {
     const currentUser = route.params.user;
     console.log(currentUser);
 
@@ -15,7 +15,7 @@ function HomeScreen({ route, navigation }) {
                 alignItems: "center",
                 backgroundColor: colors.defaultBG2,
             }}>
-                <SearchBar />
+                <SearchBar/>
                 <RoundButton
                     image={currentUser.profilePicture}
                     height={45}
@@ -23,7 +23,7 @@ function HomeScreen({ route, navigation }) {
                     color={colors.white}
                     method={() => {
                         let item = currentUser;
-                        navigation.navigate("UserAccount", { item });
+                        navigation.navigate("UserAccount", {item});
                     }}
                 />
             </View>
@@ -36,11 +36,11 @@ function HomeScreen({ route, navigation }) {
                         showsHorizontalScrollIndicator={false}
                         keyExtractor={(item) => item.id}
                         data={categories}
-                        renderItem={({ item }) => {
+                        renderItem={({item}) => {
                             return (
                                 <ProductCategory
                                     text={item.name}
-                                    method={() => navigation.navigate("Search", { item })}
+                                    method={() => navigation.navigate("Search", {item})}
                                 />
                             )
                         }}
@@ -65,7 +65,7 @@ function HomeScreen({ route, navigation }) {
                         showsHorizontalScrollIndicator={false}
                         keyExtractor={(item) => item.id}
                         data={suggestedProducts}
-                        renderItem={({ item }) => {
+                        renderItem={({item}) => {
                             return (
                                 <ProductMax
                                     product={item}
@@ -73,7 +73,7 @@ function HomeScreen({ route, navigation }) {
                                     price={item.price}
                                     image={item.image}
                                     seller={item.seller}
-                                    method={() => navigation.navigate("Product", { item })}
+                                    method={() => navigation.navigate("Product", {item})}
                                 />
                             )
                         }}
@@ -87,13 +87,13 @@ function HomeScreen({ route, navigation }) {
                         showsHorizontalScrollIndicator={false}
                         keyExtractor={(item) => item.id}
                         data={users}
-                        renderItem={({ item }) => {
+                        renderItem={({item}) => {
                             return (
                                 <UserProfileMin
                                     user={item}
                                     color={item.colors}
                                     image={item.profilePicture}
-                                    method={() => navigation.navigate("Account", { item })}
+                                    method={() => navigation.navigate("Account", {item})}
                                 />
                             )
                         }}
@@ -107,7 +107,7 @@ function HomeScreen({ route, navigation }) {
                         showsHorizontalScrollIndicator={false}
                         keyExtractor={(item) => item.id}
                         data={topSellers}
-                        renderItem={({ item }) => {
+                        renderItem={({item}) => {
                             return (
                                 <View style={{
                                     backgroundColor: item.color,
@@ -133,7 +133,7 @@ function HomeScreen({ route, navigation }) {
                                         borderRadius: sizes.ExtraSmall,
                                     }}
 
-                                        onPress={() => navigation.navigate("Product", { item })}>
+                                                      onPress={() => navigation.navigate("Product", {item})}>
                                         <Text style={{
                                             fontSize: sizes.Medium,
                                         }}>

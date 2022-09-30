@@ -1,8 +1,8 @@
 import React from 'react';
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
-import { colors, images, sizes } from '../constants/Data';
+import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {colors, images, sizes} from '../constants/Data';
 
-function ProductScreen({ route, navigation }) {
+function ProductScreen({route, navigation}) {
     const product = route.params.item;
 
     return (
@@ -18,7 +18,7 @@ function ProductScreen({ route, navigation }) {
                         flex: 1,
                     }}
                     resizeMode="contain"
-                    source={product.image} />
+                    source={product.image}/>
             </View>
             <View style={{
                 backgroundColor: colors.defaultBG4,
@@ -42,7 +42,7 @@ function ProductScreen({ route, navigation }) {
                         horizontal
                         showsHorizontalScrollIndicator={false}
                         data={product.tags}
-                        renderItem={({ item }) => {
+                        renderItem={({item}) => {
                             return (
                                 <TouchableOpacity>
                                     <View style={{
@@ -91,7 +91,7 @@ function ProductScreen({ route, navigation }) {
                             // elevation: sizes.Small,
                         }}
 
-                    //onPress={navigation.navigate("Cart", {product})}
+                        //onPress={navigation.navigate("Cart", {product})}
                     >
                         <Text style={{
                             color: colors.white,

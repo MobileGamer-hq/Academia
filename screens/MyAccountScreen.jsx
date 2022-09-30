@@ -53,6 +53,7 @@ const MyAccountScreen = ({route, navigation}) => {
                     </View>
                     <View>
                         <Clickable value={user.productList.length} title={"Products"} methods={() => {
+
                         }}/>
                     </View>
                 </View>
