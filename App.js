@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-
 //Screens
 import LoadingScreen from './screens/LoadingScreen';
 import HomeScreen from './screens/HomeScreen';
@@ -27,7 +26,7 @@ export default function App() {
     saveData(element, "Users", element.name);
   });
   users.push.apply(users, getData("Users"));
-  console.log("Users: ",users);
+  console.log("Users: ", users);
 
   return (
     <NavigationContainer>

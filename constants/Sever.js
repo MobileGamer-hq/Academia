@@ -1,11 +1,14 @@
 // Import the functions you need from the SDKs you need
 //import {firebase} from "@react-native-firebase/firestore";
-import { initializeApp } from "firebase/app";
+import firebase from "firebase/app";
+import "firebase/auth"
+import "firebase/database"
+import "firebase/firestore"
+import "firebase/analytics"
+import "firebase/storage"
 
-import { signOut, createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
-import { getFirestore, setDoc, collection, addDoc, getDocs, doc } from 'firebase/firestore';
-import { getStorage, ref, uploadBytes } from "firebase/storage";
-import { dataObject, users, User, images } from "./Data"
+import {users, images} from "./Data"
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -25,57 +28,36 @@ export const firebaseConfig = {
 
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-const firestore = getFirestore(app);
-const storage = getStorage(app, "gs://academia-c3d0e.appspot.com/");
+firebase.initializeApp(firebaseConfig);
+export const auth = firebase.auth()
+export const firestore = firebase.firestore()
+const storage = firebase.storage()
+// const storage =  app.storage("gs://academia-c3d0e.appspot.com/")//firebase.storage(app, "gs://academia-c3d0e.appspot.com/");
 let data;
 
 // const providerGoogle = new GoogleAuthProvider();
 // providerGoogle.addScope('https://www.googleapis.com/auth/contacts.readonly');
 // auth.languageCode = 'it';
 
-
-//Cloud Storage
-export function saveFiles(ref, file) {
-    const storageRef = ref(storage, ref);
-    uploadBytes(storageRef, file).then((snapshot) => {
-        console.log('Uploaded a blob or file!');
-    });
-}
-
-
-
 //Firestore Database
 export async function saveData(data, path, id) {
-    try {
-        const docRef = await setDoc(doc(firestore, path, id), data);
-        console.log("Document written with ID: ", docRef, "\n", id);
-    } catch (e) {
-        console.error("Error adding document: ", e);
-    }
+    firestore.collection(path, id).add(data)
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
 }
 
 export async function getData(path) {
     data = [];
-    const querySnapshot = await getDocs(collection(firestore, path));
-    querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-        data.push(doc.data());
-    });
-    return doc.data();
-}
-
-export function readData(ref, callback) {
-    const docRef = ref(firestore, ref);
-    docRef.get().then((doc) => {
-        if (doc.exists) {
-            callback(doc.data());
-        } else {
-            console.log("No such document!");
-        }
-    }).catch((error) => {
-        console.log("Error getting document:", error);
+    firestore.collection(path).get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} => ${doc.data()}`);
+            data.push(doc.data())
+            return doc.data();
+        });
     });
 }
 
@@ -83,7 +65,7 @@ export function readData(ref, callback) {
 
 //Authentication
 export const SignIn = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password)
+    auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             // Signed in
             const userCred = userCredential.user;
@@ -95,8 +77,10 @@ export const SignIn = (email, password) => {
         });
 }
 
+
+
 export const SignUp = (email, password, username) => {
-    createUserWithEmailAndPassword(auth, email, password)
+    firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
             // Signed up
             const user = userCredential.user;
@@ -119,8 +103,8 @@ export const SignUp = (email, password, username) => {
                 },
                 id: userId,
             },);
-            users.forEach(element => {
-                saveData(element, "Users", element.name);
+            users.forEach(user => {
+                saveData(user, "Users", user.name);
             });
             // ...
 
@@ -132,9 +116,11 @@ export const SignUp = (email, password, username) => {
 }
 
 export const logOut = () => {
-    signOut(auth).then(() => {
+    auth.signOut().then(() => {
         // Sign-out successful.
+        console.log("Sign-out successful.")
     }).catch((error) => {
         // An error happened.
+        console.log(error)
     });
 }

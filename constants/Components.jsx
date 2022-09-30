@@ -2,7 +2,6 @@ import React from 'react';
 import {Image, StyleSheet, Text, TextInput, TouchableOpacity, View, FlatList} from 'react-native';
 import {colors, sizes} from "./Data"
 
-
 export function RoundButton(props) {
     return (
         <TouchableOpacity
@@ -384,6 +383,27 @@ export const SearchResult = (props) => {
     );
 }
 
+
+export const NavItems = (props) => {
+    return(
+        <View style={styles.navItem}>
+            <TouchableOpacity>
+                <Image source = {props.image}/>
+            </TouchableOpacity>
+        </View>
+    );
+}
+
+export const NavBar = (props) => {
+  return(
+      <View style={styles.navBar} >
+          <NavItems/>
+          <NavItems/>
+          <NavItems/>
+      </View>
+  );
+}
+
 const styles = StyleSheet.create({
     header: {
         width: "100%",
@@ -442,6 +462,18 @@ const styles = StyleSheet.create({
     userProfileMin: {
         alignItems: "center",
         margin: sizes.Small,
+    },
+
+    navBar: {
+        backgroundColor: colors.white,
+        borderRadius: sizes.ExtraLarge,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
+    navItem: {
+        
     },
 
 })
